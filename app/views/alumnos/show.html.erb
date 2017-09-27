@@ -1,0 +1,54 @@
+<% content_for :content_header  do %>
+  <section class="content-header">
+    <h1>Show <small>alumno</small></h1>
+
+    <ol class="breadcrumb">
+      <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li><%= link_to "Alumnos", alumnos_path %></li>
+      <li class="active">Show</li>
+    </ol>
+  </section>
+<% end %>
+
+<section class="content">
+  <div class="row">
+    <div class="col-md-12">
+    
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <div class="pull-right">
+            <%= link_to edit_alumno_path(@alumno), :class => 'btn btn-primary' do %>
+              <span class="glyphicon glyphicon-pencil"></span>
+              Edit
+            <% end %>          
+          </div>
+          </div>
+          <div class="panel-body">Panel Content</div>
+        </div>
+         
+            <dt>Nombre:</dt>
+            <dd><%= @alumno.nombre %></dd>
+
+            <dt>Apellido:</dt>
+            <dd><%= @alumno.apellido %></dd>
+
+            <dt>Rut:</dt>
+            <dd><%= @alumno.rut %></dd>
+
+            <dt>Codigo carrera:</dt>
+            <dd><%= @alumno.codigo_carrera %></dd>
+
+            <dt>Semestre:</dt>
+            <dd><%= @alumno.semestre %></dd>
+
+            <dt>Ano:</dt>
+            <dd><%= @alumno.ano %></dd>
+
+  
+        
+      </div>
+    </div>
+  </div>
+</section>
+

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  apellido: MyString
+  rut: MyString
+  codigo_carrera: 1
+  semestre: 1
+  ano: 2017-09-14
+
+two:
+  nombre: MyString
+  apellido: MyString
+  rut: MyString
+  codigo_carrera: 1
+  semestre: 1
+  ano: 2017-09-14

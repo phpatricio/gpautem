@@ -1,0 +1,58 @@
+<% content_for :content_header  do %>
+  <section class="content-header">
+    <h1>Mostrando <small>alumnos</small></h1>
+
+    <ol class="breadcrumb">
+      <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li class="active">Alumnos</li>
+    </ol>    
+  </section>
+<% end %>
+
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box box-primary">
+        <div class="box-header">
+          <div class="box-tools pull-right">
+            <%= link_to new_alumno_path(@alumno), :class => 'btn btn-success' do %>
+              <span class="glyphicon glyphicon-plus"></span>
+              Nuevo Alumno
+            <% end %>          
+          </div>
+        </div>
+        <div class="box-body table-responsive">
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Rut</th>
+              <th>Codigo carrera</th>
+              <th>Semestre</th>
+              <th>Ano</th>
+              <th class="text-center">Acción</th>
+               
+              </tr>
+            </thead>
+            <tbody>
+              <% @alumnos.each do |alumno| %>
+              <td><%= alumno.nombre %></td>
+              <td><%= alumno.apellido %></td>
+              <td><%= alumno.rut %></td>
+              <td><%= alumno.codigo_carrera %></td>
+              <td><%= alumno.semestre %></td>
+              <td><%= alumno.ano %></td>
+              <td><%= link_to 'Mostrar', alumno, :class => "btn btn-info" %>
+              <%= link_to 'Editar', edit_alumno_path(alumno), :class => "btn btn-warning" %>
+              <%= link_to 'Eliminar', alumno, method: :delete, :class => "btn btn-danger", data: { confirm: 'Esta seguro de eliminar al alumno?' } %></td>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
