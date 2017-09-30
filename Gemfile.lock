@@ -41,7 +41,7 @@ GEM
     adminlte-generators (0.2.4)
       railties (>= 3.1.0)
     arel (7.1.4)
-    bcrypt (3.1.11)
+    bcrypt (3.1.11-x86-mingw32)
     bindex (0.5.0)
     builder (3.2.3)
     coffee-rails (4.2.2)
@@ -167,6 +167,7 @@ PLATFORMS
 
 DEPENDENCIES
   adminlte-generators
+  bcrypt (~> 3.1.11)
   byebug
   coffee-rails (~> 4.2)
   coffee-script-source (= 1.8.0)
@@ -183,4 +184,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.13.7
+   1.16.0.pre.2
