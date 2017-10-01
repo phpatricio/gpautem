@@ -16,17 +16,15 @@
     
 
         <div class="panel panel-default">
-          <div class="panel-heading">
+      
             <div class="pull-right">
             <%= link_to edit_alumno_path(@alumno), :class => 'btn btn-primary' do %>
               <span class="glyphicon glyphicon-pencil"></span>
               Editar
             <% end %>          
+   
           </div>
-          </div>
-          <div class="panel-body">Panel Content</div>
-        </div>
-         
+          <div class="panel-body">
             <dt>Nombre:</dt>
             <dd><%= @alumno.nombre %></dd>
 
@@ -44,6 +42,10 @@
 
             <dt>Ano:</dt>
             <dd><%= @alumno.ano %></dd>
+          </div>
+        </div>
+         
+
 
   
         
