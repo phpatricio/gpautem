@@ -1,0 +1,2 @@
+class Herramientas < ApplicationRecord
+end

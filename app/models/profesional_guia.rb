@@ -1,0 +1,2 @@
+class ProfesionalGuia < ApplicationRecord
+end
