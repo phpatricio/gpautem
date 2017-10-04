@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha_visita_1: 2017-10-04
+  comentario_visita_1: MyText
+  fecha_visita_2: 2017-10-04
+  comentario_visita_2: MyText
+  fecha_visita_3: 2017-10-04
+  comentario_visita_3: MyText
+
+two:
+  fecha_visita_1: 2017-10-04
+  comentario_visita_1: MyText
+  fecha_visita_2: 2017-10-04
+  comentario_visita_2: MyText
+  fecha_visita_3: 2017-10-04
+  comentario_visita_3: MyText
