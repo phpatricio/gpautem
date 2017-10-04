@@ -32,7 +32,7 @@
               <th>Codigo carrera</th>
               <th>Semestre</th>
               <th>Ano</th>
-              <th class="text-center">Acción</th>
+              <th>Acción</th>
                
               </tr>
             </thead>
@@ -44,9 +44,10 @@
               <td><%= alumno.codigo_carrera %></td>
               <td><%= alumno.semestre %></td>
               <td><%= alumno.ano %></td>
-              <td><%= link_to 'Mostrar', alumno, :class => "btn btn-info" %>
-              <%= link_to 'Editar', edit_alumno_path(alumno), :class => "btn btn-warning" %>
-              <%= link_to 'Eliminar', alumno, method: :delete, :class => "btn btn-danger", data: { confirm: 'Esta seguro de eliminar al alumno?' } %></td>
+              <td class="text-center"><%= link_to '', alumno, :class => "btn btn-info fa fa-search", :title =>"Mostrar" %>
+
+              <%= link_to '', edit_alumno_path(alumno), :class => "btn btn-warning fa fa-pencil", :title =>"Editar" %>
+              <%= link_to '', alumno, method: :delete, :class => "btn btn-danger fa fa-trash-o", :title =>"Eliminar", data: { confirm: 'Esta seguro de eliminar al alumno?' } %></td>
               <% end %>
             </tbody>
           </table>
