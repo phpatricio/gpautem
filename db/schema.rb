@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171003190617) do
+ActiveRecord::Schema.define(version: 20171004234250) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,6 +101,17 @@ ActiveRecord::Schema.define(version: 20171003190617) do
     t.string   "Nombre_Rol"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "seguimientos", force: :cascade do |t|
+    t.date     "fecha_visita_1"
+    t.text     "comentario_visita_1"
+    t.date     "fecha_visita_2"
+    t.text     "comentario_visita_2"
+    t.date     "fecha_visita_3"
+    t.text     "comentario_visita_3"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   create_table "users", force: :cascade do |t|

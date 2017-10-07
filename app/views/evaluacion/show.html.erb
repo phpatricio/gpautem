@@ -1,0 +1,52 @@
+<% content_for :content_header  do %>
+  <section class="content-header">
+    <h1>Show <small>evaluacion</small></h1>
+
+
+  </section>
+<% end %>
+
+<section class="content">
+  <div class="row">
+    <div class="col-md-12">
+    
+
+        <div class="panel panel-default">
+      
+            <div class="pull-right">
+            <%= link_to edit_evaluacion_path(@evaluacion), :class => 'btn btn-primary' do %>
+              <span class="glyphicon glyphicon-pencil"></span>
+              Editar
+            <% end %>          
+   
+          </div>
+          <div class="panel-body">
+            <dt>Nombre:</dt>
+            <dd><%= @evaluacion.pregunta_1 %></dd>
+
+            <dt>Apellido:</dt>
+            <dd><%= @evaluacion.pregunta_2 %></dd>
+
+            <dt>Rut:</dt>
+            <dd><%= @evaluacion.pregunta_3 %></dd>
+
+            <dt>Codigo carrera:</dt>
+            <dd><%= @evaluacion.pregunta_4 %></dd>
+
+            <dt>Semestre:</dt>
+            <dd><%= @evaluacion.pregunta_4 %></dd>
+
+            <dt>Ano:</dt>
+            <dd><%= @evaluacion.pregunta_15 %></dd>
+          </div>
+        </div>
+         
+
+
+  
+        
+      </div>
+    </div>
+  </div>
+</section>
+

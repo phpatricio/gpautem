@@ -1,0 +1,59 @@
+<% content_for :content_header  do %>
+  <section class="content-header">
+    <h1>Mostrando <small>evaluacions</small></h1>
+
+    <ol class="breadcrumb">
+      <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li class="active">evaluacions</li>
+    </ol>    
+  </section>
+<% end %>
+
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box box-primary">
+        <div class="box-header">
+          <div class="box-tools pull-right">
+            <%= link_to new_evaluacion_path(@evaluacion), :class => 'btn btn-success' do %>
+              <span class="glyphicon glyphicon-plus"></span>
+              Nuevo evaluacion
+            <% end %>          
+          </div>
+        </div>
+        <div class="box-body table-responsive">
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+
+              <th>Evaluacion</th>
+              <th>Apellido</th>
+              <th>Rut</th>
+              <th>Codigo carrera</th>
+              <th>Semestre</th>
+              <th>Ano</th>
+              <th>Acción</th>
+               
+              </tr>
+            </thead>
+            <tbody>
+              <% @evaluacions.each do |evaluacion| %>
+              <td><%= evaluacion.pregunta_1 %></td>
+              <td><%= evaluacion.pregunta_2 %></td>
+              <td><%= evaluacion.pregunta_3 %></td>
+              <td><%= evaluacion.pregunta_4 %></td>
+              <td><%= evaluacion.pregunta_1 %></td>
+              <td><%= evaluacion.pregunta_1 %></td>
+              <td class="text-center"><%= link_to '', evaluacion, :class => "btn btn-info fa fa-search", :title =>"Mostrar" %>
+
+              <%= link_to '', edit_evaluacion_path(evaluacion), :class => "btn btn-warning fa fa-pencil", :title =>"Editar" %>
+              <%= link_to '', evaluacion, method: :delete, :class => "btn btn-danger fa fa-trash-o", :title =>"Eliminar", data: { confirm: 'Esta seguro de eliminar al evaluacion?' } %></td>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
