@@ -21,37 +21,48 @@
             <% end %>          
           </div>
         </div>
-        <div class="box-body table-responsive">
-          <table class="table table-bordered table-hover">
+        <div class="box-body table-responsive" id="ocultar-tabla">
+          <table class="table table-bordered">
             <thead>
               <tr>
-
               <th>Nombre</th>
-              <th>Apellido</th>
               <th>Rut</th>
-              <th>Codigo carrera</th>
-              <th>Semestre</th>
-              <th>Ano</th>
-              <th>Acción</th>
+              <th>Codigo Carrera</th>
+              <th>Direccion</th>
+              <th>Telefono</th>
+              <th class="text-center">Acción</th>
                
               </tr>
             </thead>
-            <tbody>
-              <% @alumnos.each do |alumno| %>
-              <td><%= alumno.nombre %></td>
-              <td><%= alumno.apellido %></td>
-              <td><%= alumno.rut %></td>
-              <td><%= alumno.codigo_carrera %></td>
-              <td><%= alumno.semestre %></td>
-              <td><%= alumno.ano %></td>
-              <td class="text-center"><%= link_to '', alumno, :class => "btn btn-info fa fa-search", :title =>"Mostrar" %>
-
-              <%= link_to '', edit_alumno_path(alumno), :class => "btn btn-warning fa fa-pencil", :title =>"Editar" %>
-              <%= link_to '', alumno, method: :delete, :class => "btn btn-danger fa fa-trash-o", :title =>"Eliminar", data: { confirm: 'Esta seguro de eliminar al alumno?' } %></td>
-              <% end %>
-            </tbody>
+              <tbody>
+                <% @alumnos.each do |alumno| %>
+                  <tr>
+                    <td><%= alumno.nombre %></td>
+                    <td><%= alumno.rut %></td>
+                    <td><%= alumno.codigo_carrera %></td>
+                    <td><%= alumno.codigo_carrera %></td>
+                    <td><%= alumno.codigo_carrera %></td>
+                    
+                    
+                    <td>
+                      <div class="text-center">
+                    <%= link_to  'Mostrar', alumno , :class => "btn btn-info"%>
+                    <%= link_to 'Editar', edit_alumno_path(alumno), :class => "btn btn-warning" %>
+                    <%= link_to 'Eliminar' , alumno,:class => "btn btn-danger", method: :delete, data: { confirm: '¿Esta seguro de eliminar al alumno?' } %>
+                     </div> 
+                    </td>
+                   
+                  </tr>
+                <% end %> 
+              </tbody>
           </table>
-        </div>
+          <div class="apple_pagination">
+            <div class="page_info">
+              <%= page_entries_info @alumnos %>
+            </div>
+            <%= will_paginate @alumnos, :container => false, :value => "hola" %>
+          </div>
+        </div>   
       </div>
     </div>
   </div>

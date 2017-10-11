@@ -4,7 +4,7 @@ class AlumnosController < ApplicationController
   # GET /alumnos
   # GET /alumnos.json
   def index
-    @alumnos = Alumno.all
+    @alumnos = Alumno.all.paginate(page: params[:page], per_page: 5)
   end
 
   # GET /alumnos/1
