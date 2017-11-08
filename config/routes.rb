@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :areas
   resources :seguimientos
 
   resources :herramienta
