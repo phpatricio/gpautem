@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171004234250) do
+ActiveRecord::Schema.define(version: 20171106172952) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,11 +104,11 @@ ActiveRecord::Schema.define(version: 20171004234250) do
   end
 
   create_table "seguimientos", force: :cascade do |t|
-    t.date     "fecha_visita_1"
+    t.date     "fecha_1"
     t.text     "comentario_visita_1"
-    t.date     "fecha_visita_2"
+    t.date     "fecha_2"
     t.text     "comentario_visita_2"
-    t.date     "fecha_visita_3"
+    t.date     "fecha_3"
     t.text     "comentario_visita_3"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false

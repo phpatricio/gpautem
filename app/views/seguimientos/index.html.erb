@@ -1,0 +1,72 @@
+<% content_for :content_header  do %>
+  <section class="content-header">
+    <h1>Listing <small>seguimientos</small></h1>
+
+    <ol class="breadcrumb">
+      <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li class="active">seguimientos</li>
+    </ol>    
+  </section>
+<% end %>
+
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box box-primary">
+        <div class="box-header">
+          <div class="box-tools pull-right">
+            <%= link_to new_seguimiento_path(@seguimiento), :class => 'btn btn-success' do %>
+              <span class="glyphicon glyphicon-plus"></span>
+              New Seguimiento
+            <% end %>          
+          </div>
+        </div>
+        <div class="box-body table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+            
+  <th>Fecha 1</th>
+            
+  <th>Comentario visita 1</th>
+            
+  <th>Fecha 2</th>
+            
+  <th>Comentario visita 2</th>
+            
+  <th>Fecha 3</th>
+            
+  <th>Comentario visita 3</th>
+            
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @seguimientos.each do |seguimiento| %>
+            
+  <td><%= seguimiento.fecha_1 %></td>
+            
+  <td><%= seguimiento.comentario_visita_1 %></td>
+            
+  <td><%= seguimiento.fecha_2 %></td>
+            
+  <td><%= seguimiento.comentario_visita_2 %></td>
+            
+  <td><%= seguimiento.fecha_3 %></td>
+            
+  <td><%= seguimiento.comentario_visita_3 %></td>
+            
+                <td><%= link_to 'Show', seguimiento %></td>
+                <td><%= link_to 'Edit', edit_seguimiento_path(seguimiento) %></td>
+                <td><%= link_to 'Destroy', seguimiento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
