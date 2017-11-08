@@ -1,7 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  Descripcion: MyString
+  nombre: MyString
+  fecha_inicio: 2017-11-08
+  fecha_termino: 2017-11-08
+  descripcion: MyText
 
 two:
-  Descripcion: MyString
+  nombre: MyString
+  fecha_inicio: 2017-11-08
+  fecha_termino: 2017-11-08
+  descripcion: MyText
