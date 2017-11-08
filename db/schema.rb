@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171106172952) do
+
+ActiveRecord::Schema.define(version: 20171105235144) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,26 +50,21 @@ ActiveRecord::Schema.define(version: 20171106172952) do
   end
 
   create_table "empresas", force: :cascade do |t|
-    t.string   "Nombre"
-    t.string   "Rut"
+    t.string   "rut_empresa"
+    t.string   "nombre_empresa"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "evaluacions", force: :cascade do |t|
+    t.string   "pregunta_1"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "evaluacions", force: :cascade do |t|
-    t.integer  "pregunta_1"
-    t.integer  "pregunta_2"
-    t.integer  "pregunta_3"
-    t.integer  "pregunta_4"
-    t.integer  "pregunta_5"
-    t.integer  "pregunta_6"
-    t.integer  "pregunta_7"
-    t.integer  "pregunta_8"
-    t.text     "observacion"
-    t.date     "fecha_e"
-    t.float    "nota"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+  create_table "herramienta", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "herramientas", force: :cascade do |t|

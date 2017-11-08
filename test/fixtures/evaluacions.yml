@@ -1,27 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  pregunta_1: 1
-  pregunta_2: 1
-  pregunta_3: 1
-  pregunta_4: 1
-  pregunta_5: 1
-  pregunta_6: 1
-  pregunta_7: 1
-  pregunta_8: 1
-  observacion: MyText
-  fecha_e: 2017-10-03
-  nota: 1.5
+  pregunta_1: MyString
 
 two:
-  pregunta_1: 1
-  pregunta_2: 1
-  pregunta_3: 1
-  pregunta_4: 1
-  pregunta_5: 1
-  pregunta_6: 1
-  pregunta_7: 1
-  pregunta_8: 1
-  observacion: MyText
-  fecha_e: 2017-10-03
-  nota: 1.5
+  pregunta_1: MyString
