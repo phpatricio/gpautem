@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
+
   resources :convenios
+
+  resources :areas
+
   resources :seguimientos
 
   resources :herramienta
