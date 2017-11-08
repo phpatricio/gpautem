@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  Nombre: MyString
-  Rut: MyString
+  rut_empresa: MyString
+  nombre_empresa: MyString
 
 two:
-  Nombre: MyString
-  Rut: MyString
+  rut_empresa: MyString
+  nombre_empresa: MyString
