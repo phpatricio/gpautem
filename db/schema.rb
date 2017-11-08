@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20171013015738) do
+=======
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20171108200738) do
+=======
+ActiveRecord::Schema.define(version: 20171105235144) do
+>>>>>>> b6b703eafb54dc96120c109fc5d516666a72e469
+>>>>>>> 3de8a3be8d412598d545343a6902ccc263fc76c4
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,26 +56,16 @@ ActiveRecord::Schema.define(version: 20171013015738) do
   end
 
   create_table "empresas", force: :cascade do |t|
-    t.string   "Nombre"
-    t.string   "Rut"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "rut_empresa"
+    t.string   "nombre_empresa"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "evaluacions", force: :cascade do |t|
-    t.integer  "pregunta_1"
-    t.integer  "pregunta_2"
-    t.integer  "pregunta_3"
-    t.integer  "pregunta_4"
-    t.integer  "pregunta_5"
-    t.integer  "pregunta_6"
-    t.integer  "pregunta_7"
-    t.integer  "pregunta_8"
-    t.text     "observacion"
-    t.date     "fecha_e"
-    t.float    "nota"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "pregunta_1"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "herramienta", force: :cascade do |t|
