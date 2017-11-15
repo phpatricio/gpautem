@@ -1,0 +1,29 @@
+<% content_for :content_header  do %>
+  <section class="content-header">
+    <h1>Mostrando <small>alumnos</small></h1>
+
+    <ol class="breadcrumb">
+      <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li class="active">Alumnos</li>
+    </ol>    
+  </section>
+<% end %>
+<h1>index</h1>
+<table border="1">
+<tr>
+	<th>FECHA DE INICIO</th>
+	<th>FECHA DE TERMINO</th>
+	<th>DESCRIPCION</th>
+</tr>
+<% @practica.each do |f| %>
+<tr>
+	<td><%= f.fecha_inicio %></td>
+	<td><%= f.fecha_termino %></td>
+	<td><%= f.descripcion_p %></td>
+  <td><%= link_to 'MOSTRAR', practica_url(f) %></td>
+  <td><%= link_to 'EDITAR', editar_practica_url(f) %></td>
+  <td><%= link_to 'ELIMINAR', eliminar_practica_path(f),
+                method: :delete,
+                data: {confirm: '¿Estas seguro?'} %></td>
+</tr>
+<% end %>

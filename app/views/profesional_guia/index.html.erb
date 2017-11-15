@@ -1,0 +1,35 @@
+<% content_for :content_header  do %>
+  <section class="content-header">
+    <h1>Mostrando <small>alumnos</small></h1>
+
+    <ol class="breadcrumb">
+      <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li class="active">Alumnos</li>
+    </ol>    
+  </section>
+<% end %>
+<h1>index</h1>
+<table border="1">
+<tr>
+	<th>RUT</th>
+	<th>NOMBRE</th>
+	<th>CARGO</th>
+	<th>EMAIL</th>
+	<th>DIRECCION</th>
+	<th>TELEFONO</th>
+</tr>
+<% @profesionalGuia.each do |f| %>
+<tr>
+	<td><%= f.rut %></td>
+	<td><%= f.Nombre %></td>
+	<td><%= f.Cargo %></td>
+	<td><%= f.Email %></td>
+	<td><%= f.Direccion %></td>
+	<td><%= f.Telefono %></td>
+	<td><%= link_to 'MOSTRAR', profesional_guia_url(f) %></td>
+    <td><%= link_to 'EDITAR', profesional_guium_url(f) %></td>
+    <td><%= link_to 'ELIMINAR', profesional_guia_path(f),
+                method: :delete,
+                data: {confirm: '¿Estas seguro?'} %></td>
+</tr>
+<% end %>

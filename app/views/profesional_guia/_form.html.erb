@@ -1,0 +1,27 @@
+<%= form_for(@profesionalGuia, :html => {:role => 'form'}) do |f| %>
+    <% if @profesionalGuia.errors.any? %>
+        <%= pluralize(@profesionalGuia.errors.count, "Errores") %>
+        <% @profesionalGuia.errors.full_messages.each do |error| %>
+            <%= error %>
+        <% end %>
+    <% end %>
+    <%= f.label :rut %>
+    <%= f.text_field :rut %>
+
+    <%= f.label :Nombre %>
+    <%= f.text_field :Nombre %>
+
+    <%= f.label :Cargo %>
+    <%= f.text_field :Cargo %>
+
+    <%= f.label :Email %>
+    <%= f.text_field :Email %>
+
+    <%= f.label :Direccion %>
+    <%= f.text_field :Direccion %>
+
+    <%= f.label :Telefono %>
+    <%= f.text_field :Telefono %>
+
+    <%= f.submit %>
+<% end %>

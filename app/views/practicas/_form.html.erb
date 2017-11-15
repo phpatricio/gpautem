@@ -1,0 +1,17 @@
+<%= form_for(@practica, :html => {:role => 'form'}) do |f| %>
+    <% if @practica.errors.any? %>
+        <%= pluralize(@practica.errors.count, "Errores") %>
+        <% @practica.errors.full_messages.each do |error| %>
+            <%= error %>
+        <% end %>
+    <% end %>
+    <%= f.label :fecha_inicio %>
+    <%= f.date_select :fecha_inicio %>
+
+    <%= f.label :fecha_termino %>
+    <%= f.date_select :fecha_termino %>
+
+    <%= f.label :descripcion_p %>
+    <%= f.text_field :descripcion_p %>
+    <%= f.submit %>
+<% end %>

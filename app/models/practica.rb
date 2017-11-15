@@ -1,3 +1,3 @@
 class Practica < ApplicationRecord
-  belongs_to :alumno
+  has_one :profesional_guia
 end
