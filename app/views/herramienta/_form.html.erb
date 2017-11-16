@@ -1,24 +1,12 @@
-<section class="content invoice">
-  <div class="row">
-    <div class="col-md-10">
-      <%= form_for(@herramientum, :html => { :role => "form" }) do |f| %>
-        <% if @herramientum.errors.any? %>
-          <div class="alert alert-danger alert-dismissable" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-            <h4><%= pluralize(@herramientum.errors.count, "error") %> prohibited this herramientum from being saved:</h4>
-
-            <ul>
-            <% @herramientum.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-            <% end %>
-            </ul>
-          </div>
+<%= form_for(@herramienta, :html => {:role => 'form'}) do |f| %>
+    <% if @herramientas.errors.any? %>
+        <%= pluralize(@herramientas.errors.count, "Errores") %>
+        <% @herramientas.errors.full_messages.each do |error| %>
+            <%= error %>
         <% end %>
-
-      <div class="form-group">
-        <%= f.submit :class => "btn btn-primary" %>
-      </div>
     <% end %>
-    </div>
-  </div>
-</section> 
+    <%= f.label :nombre %>
+    <%= f.text_field :nombre %>
+
+    <%= f.submit %>
+<% end %>

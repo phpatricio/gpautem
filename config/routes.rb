@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
 
 
-  resources :convenios
-
-
   #**********************************RUTAS AREA***********************************************
   get 'areas/', to: 'areas#index'
   get 'areas/nuevo', to: 'areas#nuevo'
@@ -41,7 +38,6 @@ Rails.application.routes.draw do
   delete 'seguimientos/:id', to: 'seguimientos#eliminar', as: 'eliminar_seguimiento'
   #*******************************************************************************************
 
-  resources :herramienta
 
   #*****************************RUTAS PROFESIONAL GUIA****************************************
   get 'profesional_guia/', to: 'profesional_guia#index', as: 'profesional_guia_index'
@@ -57,12 +53,49 @@ Rails.application.routes.draw do
   delete 'profesional_guia/:id', to: 'profesional_guia#eliminar'
 #***********************************************************************************************
 
+  # resources :convenios
+get 'convenios/', to: 'convenios#index'
+get 'convenios/nuevo', to: 'convenios#nuevo'
+get 'convenios/crear'
+post '/convenios', to: 'convenios#crear'
+get 'convenios/:id', to: 'convenios#mostrar', as: 'convenio'
+put 'convenios/:id', to: 'convenios#update'
+patch '/convenios/:id', to: 'convenios#update'
+get 'convenios/:id/editar', to: 'convenios#editar', as:'editar_convenio'
+delete 'convenios/:id', to: 'convenios#eliminar', as: 'eliminar_convenio'
 
+  #resources :herramienta
+get 'herramientas/', to: 'herramienta#index'
+get 'herramientas/nuevo', to: 'herramienta#nuevo'
+get 'herramientas/crear'
+post '/herramientas', to: 'herramienta#crear'
+get 'herramientas/:id', to: 'herramienta#mostrar', as: 'herramienta'
+put 'herramientas/:id', to: 'herramienta#update'
+patch '/herramientas/:id', to: 'herramienta#update'
+get 'herramientas/:id/editar', to: 'herramienta#editar', as:'editar_herramienta'
+delete 'herramientas/:id', to: 'herramienta#eliminar', as: 'eliminar_herramienta'
 
+  #resources :empresas
+get 'empresas/', to: 'empresas#index'
+get 'empresas/nuevo', to: 'empresas#nuevo'
+get 'empresas/crear'
+post '/empresas', to: 'empresas#crear'
+get 'empresas/:id', to: 'empresas#mostrar', as: 'empresa'
+put 'empresas/:id', to: 'empresas#update'
+patch '/empresas/:id', to: 'empresas#update'
+get 'empresas/:id/editar', to: 'empresas#editar', as:'editar_empresa'
+delete 'empresas/:id', to: 'empresas#eliminar', as: 'eliminar_empresa'
 
-  resources :empresas
-
-  resources :evaluacions
+  #resources :evaluacions
+get 'evaluacions/', to: 'evaluacions#index'
+get 'evaluacions/nuevo', to: 'evaluacions#nuevo'
+get 'evaluacions/crear'
+post '/evaluacions', to: 'evaluacions#crear'
+get 'evaluacions/:id', to: 'evaluacions#mostrar', as: 'evaluacion'
+put 'evaluacions/:id', to: 'evaluacions#update'
+patch '/evaluacions/:id', to: 'evaluacions#update'
+get 'evaluacions/:id/editar', to: 'evaluacions#editar', as:'editar_evaluacion'
+delete 'evaluacions/:id', to: 'evaluacions#eliminar', as: 'eliminar_evaluacion'
 
   devise_for :users
   resources :alumnos

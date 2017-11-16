@@ -1,32 +1,49 @@
-<h1>evaluaciones</h1>
+<% content_for :content_header  do %>
+  <section class="content-header">
+    <h1>Listing <small>evaluacion</small></h1>
+
+    <ol class="breadcrumb">
+      <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li class="active">evaluacion</li>
+    </ol>    
+  </section>
+<% end %>
+<h1> EVALUACION </h1>
 <table border="1">
 <tr>
-	<th>pregunta 1</th>
-	<th>pregunta 2</th>
-	<th>pregunta 3</th>
-	<th>pregunta 4</th>
-	<th>pregunta 5</th>
-	<th>pregunta 6</th>
-	<th>pregunta 7</th>
-	<th>pregunta 8</th>
-	<th>observacion</th>
-	<th>fecha evaluacion</th>
-	<th>nota</th>
-	<th>nota informe</th>
+	<th> pregunta_1 </th>
+	<th> pregunta_2 </th>
+	<th> pregunta_3 </th>
+	<th> pregunta_4 </th>
+	<th> pregunta_5 </th>
+	<th> pregunta_6 </th>
+	<th> pregunta_7 </th>
+	<th> pregunta_8 </th>
+	<th> observacion </th>
+	<th> fecha_evaluacion </th>
+	<th> nota </th>
+	<th> nota_informe_practica </th>
+
 </tr>
-<% @evaluacion.each do |f| %>
+<% @evaluacions.each do |f| %>
 <tr>
-	<td><%= f.pregunta_1 %></td>
-	<td><%= f.pregunta_2 %></td>
-	<td><%= f.pregunta_3 %></td>
-	<td><%= f.pregunta_4%></td>
-	<td><%= f.pregunta_5%></td>
-	<td><%= f.pregunta_6 %></td>
-	<td><%= f.pregunta_7 %></td>
-	<td><%= f.pregunta_8 %></td>
-	<td><%= f.observacion %></td>
-	<td><%= f.fecha_evaluacion %></td>
-	<td><%= f.nota %></td>
-	<td><%= f.nota_informe %></td>
+	<th> <%= f.pregunta_1 %> </th>
+	<th> <%= f.pregunta_2 %> </th>
+	<th> <%= f.pregunta_3 %> </th>
+	<th> <%= f.pregunta_4 %> </th>
+	<th> <%= f.pregunta_5 %> </th>
+	<th> <%= f.pregunta_6 %> </th>
+	<th> <%= f.pregunta_7 %> </th>
+	<th> <%= f.pregunta_8 %> </th>
+	<th> <%= f.observacion %> </th>
+	<th> <%= f.fecha_evaluacion %> </th>
+	<th> <%= f.nota %> </th>
+	<th> <%= f.nota_informe_practica %> </th>
+	<td> <%= link_to 'MOSTRAR', evaluacion_url(f) %> </td>
+	<td> <%= link_to 'EDITAR', editar_evaluacion_url(f) %> </td>
+	<td> <%= link_to 'ELIMINAR', eliminar_evaluacion_url(f), 
+			method: :delete,
+			data: {confirm: '¿ESTAS SEGURO?'} %> </td>
+	
 </tr>
 <% end %>

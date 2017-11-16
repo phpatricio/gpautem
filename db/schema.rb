@@ -58,17 +58,23 @@ ActiveRecord::Schema.define(version: 20171108224648) do
   end
 
   create_table "evaluacions", force: :cascade do |t|
-    t.string   "pregunta_1"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "pregunta_1"
+    t.integer  "pregunta_2"
+    t.integer  "pregunta_3"
+    t.integer  "pregunta_4"
+    t.integer  "pregunta_5"
+    t.integer  "pregunta_6"
+    t.integer  "pregunta_7"
+    t.integer  "pregunta_8"
+    t.text     "observacion"
+    t.date     "fecha_evaluacion"
+    t.float    "nota"
+    t.float    "nota_informe_practica"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "herramienta", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "herramientas", force: :cascade do |t|
     t.string   "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

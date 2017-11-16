@@ -8,43 +8,22 @@
     </ol>    
   </section>
 <% end %>
+<h1> EMPRESAS </h1>
+<table border="1">
+<tr>
+	<th> rut_empresa </th>
+	<th> nombre_empresa </th>
 
-<section class="content">
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="box box-primary">
-        <div class="box-header">
-          <div class="box-tools pull-right">
-            <%= link_to new_empresa_path(@empresa), :class => 'btn btn-success' do %>
-              <span class="glyphicon glyphicon-plus"></span>
-              New Empresa
-            <% end %>          
-          </div>
-        </div>
-        <div class="box-body table-responsive">
-          <table class="table table-hover">
-            <thead>
-              <tr>
-              <th>Rut empresa</th>
-              <th>Nombre empresa</th>
-                            <th></th>
-                <th></th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @empresas.each do |empresa| %>
-              <td><%= empresa.rut_empresa %></td>
-              <td><%= empresa.nombre_empresa %></td>
-                            <td><%= link_to 'Show', empresa %></td>
-                <td><%= link_to 'Edit', edit_empresa_path(empresa) %></td>
-                <td><%= link_to 'Destroy', empresa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
+</tr>
+<% @empresas.each do |f| %>
+<tr>
+	<td> <%= f.rut_empresa %> </td>
+	<td> <%= f.nombre_empresa %> </td>
+	<td> <%= link_to 'MOSTRAR', empresa_url(f) %> </td>
+	<td> <%= link_to 'EDITAR', editar_empresa_url(f) %> </td>
+	<td> <%= link_to 'ELIMINAR', eliminar_empresa_url(f), 
+			method: :delete,
+			data: {confirm: '¿ESTAS SEGURO?'} %> </td>
+	
+</tr>
+<% end %>

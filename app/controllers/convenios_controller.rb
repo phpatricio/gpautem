@@ -1,70 +1,52 @@
 class ConveniosController < ApplicationController
-  before_action :set_convenio, only: [:show, :edit, :update, :destroy]
+  before_action :set_convenio, only: [:mostrar, :editar, :update, :eliminar]
 
-  # GET /convenios
-  # GET /convenios.json
-  def index
+  def index 
     @convenios = Convenio.all
   end
 
-  # GET /convenios/1
-  # GET /convenios/1.json
-  def show
+  def nuevo
+    @convenios = Convenio.new
   end
 
-  # GET /convenios/new
-  def new
-    @convenio = Convenio.new
+  def crear
+    @convenios = Convenio.new(convenio_params)
+        respond_to do |format|
+          if @convenios.save
+            format.html {redirect_to convenios_path, notice: 'Se persistio el convenio'}
+          else
+            format.html {render :nuevo}
+          end
+        end
   end
 
-  # GET /convenios/1/edit
-  def edit
+  def mostrar
   end
 
-  # POST /convenios
-  # POST /convenios.json
-  def create
-    @convenio = Convenio.new(convenio_params)
-
-    respond_to do |format|
-      if @convenio.save
-        format.html { redirect_to @convenio, notice: 'Convenio was successfully created.' }
-        format.json { render :show, status: :created, location: @convenio }
-      else
-        format.html { render :new }
-        format.json { render json: @convenio.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /convenios/1
-  # PATCH/PUT /convenios/1.json
   def update
     respond_to do |format|
-      if @convenio.update(convenio_params)
-        format.html { redirect_to @convenio, notice: 'Convenio was successfully updated.' }
-        format.json { render :show, status: :ok, location: @convenio }
+      if @convenios.update(convenio_params)
+        format.html {redirect_to convenios_path, notice: 'Se actualizaron los datos'}
       else
-        format.html { render :edit }
-        format.json { render json: @convenio.errors, status: :unprocessable_entity }
+        render :editar
       end
     end
   end
 
-  # DELETE /convenios/1
-  # DELETE /convenios/1.json
-  def destroy
-    @convenio.destroy
+  def editar
+  end
+
+  def eliminar
+    @convenios.destroy
     respond_to do |format|
-      format.html { redirect_to convenios_url, notice: 'Convenio was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html {redirect_to convenios_path, notice: 'Se elimino el convenio'}
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_convenio
-      @convenio = Convenio.find(params[:id])
+      @convenios = Convenio.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
