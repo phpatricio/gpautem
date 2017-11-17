@@ -1,5 +1,5 @@
 class EvaluacionsController < ApplicationController
-  before_action :set_empresa, only: [:mostrar, :editar, :update, :eliminar]
+  before_action :set_evaluacion, only: [:mostrar, :editar, :update, :eliminar]
 
   def index 
     @evaluacions = Evaluacion.all
