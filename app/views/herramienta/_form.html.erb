@@ -1,7 +1,7 @@
 <%= form_for(@herramienta, :html => {:role => 'form'}) do |f| %>
-    <% if @herramientas.errors.any? %>
-        <%= pluralize(@herramientas.errors.count, "Errores") %>
-        <% @herramientas.errors.full_messages.each do |error| %>
+    <% if @herramienta.errors.any? %>
+        <%= pluralize(@herramienta.errors.count, "Errores") %>
+        <% @herramienta.errors.full_messages.each do |error| %>
             <%= error %>
         <% end %>
     <% end %>
