@@ -80,6 +80,12 @@ ActiveRecord::Schema.define(version: 20171108224648) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "herramientas", force: :cascade do |t|
+    t.string   "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "practicas", force: :cascade do |t|
     t.date     "fecha_inicio"
     t.date     "fecha_termino"

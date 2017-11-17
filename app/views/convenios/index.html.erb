@@ -1,6 +1,6 @@
 <% content_for :content_header  do %>
   <section class="content-header">
-    <h1>Listing <small>convenios</small></h1>
+    <h1>Mostrando <small>convenios</small></h1>
 
     <ol class="breadcrumb">
       <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -8,24 +8,64 @@
     </ol>    
   </section>
 <% end %>
-<h1> CONVENIOS </h1>
-<table border="1">
-<tr>
-	<th> nombre </th>
-	<th> fecha_inicio </th>
-	<th> fecha_termino </th>
-	<th> descripcion </th>
-</tr>
-<% @convenios.each do |f| %>
-<tr>
-	<td> <%= f.nombre %> </td>
-	<td> <%= f.fecha_inicio %> </td>
-	<td> <%= f.fecha_termino %> </td>
-	<td> <%= f.descripcion %> </td>
-	<td> <%= link_to 'MOSTRAR', convenio_url(f) %> </td>
-	<td> <%= link_to 'EDITAR', editar_convenio_url(f) %> </td>
-	<td> <%= link_to 'ELIMINAR', eliminar_convenio_url(f), 
-			method: :delete,
-			data: {confirm: '¿ESTAS SEGURO?'} %> </td>
-</tr>
-<% end %>
+
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box box-primary">
+        <div class="box-header">
+          <div class="box-tools pull-right">
+            <%= link_to convenios_nuevo_path(@convenio), :class => 'btn btn-success' do %>
+              <span class="glyphicon glyphicon-plus"></span>
+              Nuevo Alumno
+            <% end %>          
+          </div>
+        </div>
+        <div class="box-body table-responsive" id="ocultar-tabla">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+              <th>Nombre</th>
+              <th>Fecha Inicio</th>
+              <th>Fecha Termino</th>
+              <th>Descripcion</th>
+              <th class="text-center">Acción</th>
+               
+              </tr>
+            </thead>
+              <tbody>
+                <% @convenios.each do |convenio| %>
+                  <tr>
+									<td> <%= convenio.nombre %> </td>
+									<td> <%= convenio.fecha_inicio %> </td>
+									<td> <%= convenio.fecha_termino %> </td>
+									<td> <%= convenio.descripcion %> </td>
+                    
+                    
+										<td>
+
+                      <div class="text-center">
+											<%= link_to 'MOSTRAR', convenio_url(convenio),:class => "btn btn-info"%>
+											<%= link_to 'EDITAR', editar_convenio_url(convenio) , :class => "btn btn-warning"%> 
+											<%= link_to 'ELIMINAR', eliminar_convenio_url(convenio),:class => "btn btn-danger", 
+													method: :delete,
+													data: {confirm: '¿ESTAS SEGURO?'} %> </td>
+                     </div> 
+                    </td>
+                   
+                  </tr>
+                <% end %> 
+              </tbody>
+          </table>
+          <div class="apple_pagination">
+            <div class="page_info">
+              <%= page_entries_info @convenios %>
+            </div>
+            <%= will_paginate @convenios, :container => false, :value => "hola" %>
+          </div>
+        </div>   
+      </div>
+    </div>
+  </div>
+</section>
+
