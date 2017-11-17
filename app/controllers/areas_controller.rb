@@ -1,55 +1,55 @@
 class AreasController < ApplicationController
-  before_action :set_area, only: [:mostrar, :editar, :update, :eliminar]
+	before_action :set_area, only: [:mostrar, :editar, :update, :eliminar]
 
-  def index
-    @areas = Area.all
+  def index 
+    @areas = Area.all.paginate(page: params[:page], per_page: 5)
+  end
+
+  def nuevo
+    @areas = Area.new
+  end
+
+  def crear
+    @areas = Area.new(area_params)
+        respond_to do |format|
+          if @areas.save
+            format.html {redirect_to areas_path, notice: 'Se persistio el area'}
+          else
+            format.html {render :nuevo}
+          end
+        end
   end
 
   def mostrar
   end
 
-  def nuevo
-    @area = Area.new
-  end
-
-  def editar
-  end
-
-  def crear
-    @area = Area.new(area_params)
-
-    respond_to do |format|
-      if @area.save
-        format.html {redirect_to areas_path, notice: 'Se Persistio la persona'}
-      else
-        format.html {render :nuevo}
-      end
-    end
-  end
-
   def update
     respond_to do |format|
-      if @area.update(area_params)
-        format.html {redirect_to areas_path, notice: 'Se Actualizaron los datos'}
+      if @areas.update(area_params)
+        format.html {redirect_to areas_path, notice: 'Se actualizaron los datos'}
       else
         render :editar
       end
     end
   end
 
+  def editar
+  end
+
   def eliminar
-    @area.destroy
+    @areas.destroy
     respond_to do |format|
-      format.html {redirect_to areas_path, notice: 'eliminado'}
+      format.html {redirect_to areas_path, notice: 'Se elimino el area'}
     end
   end
 
   private
-
+    # Use callbacks to share common setup or constraints between actions.
     def set_area
-      @area = Area.find(params[:id])
+      @areas = Area.find(params[:id])
     end
 
+    # Never trust parameters from the scary internet, only allow the white list through.
     def area_params
       params.require(:area).permit(:nombre)
     end
