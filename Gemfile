@@ -32,6 +32,7 @@ gem 'adminlte-generators'
 gem 'devise'
 gem 'will_paginate', '>= 3.1'
 gem 'rut_validation'
+gem 'date_validator'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
