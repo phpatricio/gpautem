@@ -1,3 +1,3 @@
 class Herramienta < ApplicationRecord
-	validates :name, presence: true
-	end
+	self.table_name = "herramientas"
+end

@@ -1,5 +1,5 @@
-class HerramientaController < ApplicationController
-  before_action :set_herramienta, only: [:mostrar, :editar, :update, :eliminar]
+class HerramientasController < ApplicationController
+	before_action :set_herramienta, only: [:mostrar, :editar, :update, :eliminar]
 
   def index 
     @herramientas = Herramienta.all
