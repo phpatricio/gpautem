@@ -2,12 +2,12 @@
 
 one:
   nombre: MyString
-  fecha_inicio: 2017-11-08
-  fecha_termino: 2017-11-08
+  fecha_inicio: 2017-11-17
+  fecha_termino: 2017-11-17
   descripcion: MyText
 
 two:
   nombre: MyString
-  fecha_inicio: 2017-11-08
-  fecha_termino: 2017-11-08
+  fecha_inicio: 2017-11-17
+  fecha_termino: 2017-11-17
   descripcion: MyText
