@@ -65,14 +65,14 @@ get 'convenios/:id/editar', to: 'convenios#editar', as:'editar_convenio'
 delete 'convenios/:id', to: 'convenios#eliminar', as: 'eliminar_convenio'
 
   #resources :herramienta
-get 'herramientas/', to: 'herramienta#index'
+get 'herramientas/', to: 'herramienta#index', as: 'herramienta_index'
 get 'herramientas/nuevo', to: 'herramienta#nuevo'
 get 'herramientas/crear'
 post '/herramientas', to: 'herramienta#crear'
 get 'herramientas/:id', to: 'herramienta#mostrar', as: 'herramienta'
 put 'herramientas/:id', to: 'herramienta#update'
-patch '/herramientas/:id', to: 'herramienta#update'
-get 'herramientas/:id/editar', to: 'herramienta#editar', as:'editar_herramienta'
+patch '/herramientas/:id/editar', to: 'herramienta#update'
+get 'herramientas/:id/editar', to: 'herramienta#editar', as:'herramientum'
 delete 'herramientas/:id', to: 'herramienta#eliminar', as: 'eliminar_herramienta'
 
   #resources :empresas

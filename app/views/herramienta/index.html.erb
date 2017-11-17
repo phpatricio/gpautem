@@ -1,26 +1,15 @@
-<% content_for :content_header  do %>
-  <section class="content-header">
-    <h1>Listing <small>herramientas</small></h1>
-
-    <ol class="breadcrumb">
-      <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active">herramientas</li>
-    </ol>    
-  </section>
-<% end %>
-<h1> HERRAMIENTAS </h1>
+<h1>AREAS DE PRACTICA</h1>
 <table border="1">
 <tr>
-	<th> nombre </th>
+	<th>NOMBRE</th>
 </tr>
 <% @herramientas.each do |f| %>
 <tr>
-	<td> <%= f.nombre %> </td>
-	<td> <%= link_to 'MOSTRAR', herramienta_url(f) %> </td>
-	<td> <%= link_to 'EDITAR', editar_herramienta_url(f) %> </td>
-	<td> <%= link_to 'ELIMINAR', eliminar_herramienta_url(f), 
-			method: :delete,
-			data: {confirm: '¿ESTAS SEGURO?'} %> </td>
-	
+	<td><%= f.nombre %></td>
+	<td><%= link_to 'MOSTRAR', herramienta_url(f) %></td>
+	<td><%= link_to 'EDITAR', herramientum_url(f) %></td>
+	<td><%= link_to 'ELIMINAR', eliminar_herramienta_path(f),
+                method: :delete,
+                data: {confirm: '¿Estas seguro?'} %></td>
 </tr>
 <% end %>
