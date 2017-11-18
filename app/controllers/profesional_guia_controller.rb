@@ -1,6 +1,6 @@
 class ProfesionalGuiaController < ApplicationController
 	before_action :set_profesional_guia, only: [:mostrar, :editar, :update, :eliminar]
-
+	before_action :authenticate_user!
 	def index
 		@profesionalGuia = ProfesionalGuia.all 
 	end

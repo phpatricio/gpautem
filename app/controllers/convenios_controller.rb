@@ -1,6 +1,6 @@
 class ConveniosController < ApplicationController
   before_action :set_convenio, only: [:mostrar, :editar, :update, :eliminar]
-
+  before_action :authenticate_user!
   def index 
     @convenios = Convenio.all.paginate(page: params[:page], per_page: 5)
   end

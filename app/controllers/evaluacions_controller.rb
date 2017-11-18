@@ -1,6 +1,6 @@
 class EvaluacionsController < ApplicationController
   before_action :set_evaluacion, only: [:mostrar, :editar, :update, :eliminar]
-
+  before_action :authenticate_user!
   def index 
     @evaluacions = Evaluacion.all
   end

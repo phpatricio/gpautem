@@ -1,5 +1,6 @@
 class PracticasController < ApplicationController
 	before_action :set_practica, only: [:mostrar,:editar, :update, :eliminar]
+	before_action :authenticate_user!
 	def index
 		@practica = Practica.all
 	end
