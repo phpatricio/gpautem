@@ -1,27 +1,41 @@
-<%= form_for(@seguimiento, :html => {:role => 'form'}) do |f| %>
-    <% if @seguimiento.errors.any? %>
-        <%= pluralize(@seguimiento.errors.count, "Errores") %>
-        <% @seguimiento.errors.full_messages.each do |error| %>
-            <%= error %>
-        <% end %>
-    <% end %>
-    <%= f.label :fecha_1 %>
-    <%= f.date_select :fecha_1 %>
-    </br>
-    <%= f.label :comentario_visita_1 %>
-    <%= f.text_field :comentario_visita_1 %>
-    </br>
-    <%= f.label :fecha_2 %>
-    <%= f.date_select :fecha_2 %>
-    </br>
-    <%= f.label :comentario_visita_2 %>
-    <%= f.text_field :comentario_visita_2 %>
-    </br>
-    <%= f.label :fecha_3 %>
-    <%= f.date_select :fecha_3 %>
-    </br>
-    <%= f.label :comentario_visita_3 %>
-    <%= f.text_field :comentario_visita_3 %>
-    </br>
-    <%= f.submit %>
-<% end %>
+<section class="content invoice">
+    <div class="row">
+        <div class="col-md-10">
+            <%= form_for(@seguimiento, :html => {:role => 'form'}) do |f| %>
+                <div class="form-group">
+                    <%= f.label :fecha_1 %>
+                    <%= f.date_select :fecha_1 ,:class => "form-control" %>
+                    </br>
+                </div>
+                <div class="form-group">
+                    <%= f.label :comentario_visita_1 %>
+                    <%= f.text_area :comentario_visita_1,:class => "form-control" %>
+                    </br>
+                </div>
+                <div class="form-group">
+                    <%= f.label :fecha_2 %>
+                    <%= f.date_select :fecha_2 ,:class => "form-control" %>
+                    </br>
+                </div>
+                <div class="form-group">
+                    <%= f.label :comentario_visita_2 %>
+                    <%= f.text_area :comentario_visita_2,:class => "form-control" %>
+                    </br>
+                </div>
+                <div class="form-group">
+                    <%= f.label :fecha_3 %>
+                    <%= f.date_select :fecha_3 ,:class => "form-control" %>
+                    </br>
+                </div>
+                <div class="form-group">
+                    <%= f.label :comentario_visita_3 %>
+                    <%= f.text_area :comentario_visita_3,:class => "form-control" %>
+                    </br>
+                </div>
+                <div class="form-group">
+                    <%= f.submit %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</section>

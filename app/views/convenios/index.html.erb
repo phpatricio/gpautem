@@ -17,7 +17,7 @@
           <div class="box-tools pull-right">
             <%= link_to convenios_nuevo_path(@convenio), :class => 'btn btn-success' do %>
               <span class="glyphicon glyphicon-plus"></span>
-              Nuevo Alumno
+              Nuevo Convenio
             <% end %>          
           </div>
         </div>
@@ -26,9 +26,6 @@
             <thead>
               <tr>
               <th>Nombre</th>
-              <th>Fecha Inicio</th>
-              <th>Fecha Termino</th>
-              <th>Descripcion</th>
               <th class="text-center">Acción</th>
                
               </tr>
@@ -37,11 +34,6 @@
                 <% @convenios.each do |convenio| %>
                   <tr>
 									<td> <%= convenio.nombre %> </td>
-									<td> <%= convenio.fecha_inicio %> </td>
-									<td> <%= convenio.fecha_termino %> </td>
-									<td> <%= convenio.descripcion %> </td>
-                    
-                    
 										<td>
 
                       <div class="text-center">

@@ -1,7 +1,7 @@
 class PracticasController < ApplicationController
 	before_action :set_practica, only: [:mostrar,:editar, :update, :eliminar]
 	def index
-		@practica = Practica.all
+		@practica = Practica.all.paginate(page: params[:page], per_page: 5)
 	end
 
 	def nuevo

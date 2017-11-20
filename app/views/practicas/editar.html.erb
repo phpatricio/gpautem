@@ -1,2 +1,14 @@
-<h1>EDITAR UNA PRACTICA</h1>
+<% content_for :content_header  do %>
+  <section class="content-header">
+    <h1>
+      Editar <small><%= link_to 'Practica',  @practica %></small>
+
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><%= link_to "Practicas", practica_path %></li>
+        <li class="active">Editar</li>
+      </ol>
+    </h1>
+  </section>
+<% end %>
 <%= render 'form' %>

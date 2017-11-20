@@ -1,18 +1,27 @@
-<%= form_for(@practica, :html => {:role => 'form'}) do |f| %>
-    <% if @practica.errors.any? %>
-        <%= pluralize(@practica.errors.count, "Errores") %>
-        <% @practica.errors.full_messages.each do |error| %>
-            <%= error %>
-        <% end %>
-    <% end %>
-    <%= f.label :fecha_inicio %>
-    <%= f.date_select :fecha_inicio %>
-    </br>
-    <%= f.label :fecha_termino %>
-    <%= f.date_select :fecha_termino %>
-    </br>
-    <%= f.label :descripcion_p %>
-    <%= f.text_field :descripcion_p %>
-    </br>
-    <%= f.submit %>
-<% end %>
+
+<section class="content invoice">
+    <div class="row">
+        <div class="col-md-10">
+            <%= form_for(@practica, :html => {:role => 'form'}) do |f| %>
+            <div class="form-group">
+                <%= f.label :fecha_inicio %>
+                <%= f.date_select :fecha_inicio ,:class => "form-control" %>
+                </br>
+            </div>
+            <div class="form-group">
+                <%= f.label :fecha_termino %>
+                <%= f.date_select :fecha_termino,:class => "form-control"  %>
+                </br>
+            </div>
+            <div class="form-group">
+                <%= f.label :descripcion_p %>
+                <%= f.text_area :descripcion_p,:class => "form-control"  %>
+                </br>
+            </div>
+            <div class="form-group">
+                <%= f.submit %>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</section> 

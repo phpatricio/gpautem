@@ -1,15 +1,21 @@
-<%= form_for(@empresas, :html => {:role => 'form'}) do |f| %>
-    <% if @empresas.errors.any? %>
-        <%= pluralize(@empresas.errors.count, "Errores") %>
-        <% @empresas.errors.full_messages.each do |error| %>
-            <%= error %>
-        <% end %>
-    <% end %>
-    <%= f.label :rut_empresa %>
-    <%= f.text_field :rut_empresa %>
-    </br>
-    <%= f.label :nombre_empresa %>
-    <%= f.text_field :nombre_empresa %>
-    </br>
-    <%= f.submit %>
-<% end %>
+<section class="content invoice">
+    <div class="row">
+        <div class="col-md-10">
+            <%= form_for(@empresas, :html => {:role => 'form'}) do |f| %>
+            <div class="form-group">
+                <%= f.label :rut_empresa %>
+                <%= f.text_field :rut_empresa,:class => "form-control" %>
+                </br>
+            </div>
+            <div class="form-group">
+                <%= f.label :nombre_empresa %>
+                <%= f.text_field :nombre_empresa,:class => "form-control" %>
+                </br>
+            </div>
+            <div class="form-group">
+                <%= f.submit %>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</section>

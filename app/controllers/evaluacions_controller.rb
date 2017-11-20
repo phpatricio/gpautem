@@ -2,7 +2,7 @@ class EvaluacionsController < ApplicationController
   before_action :set_evaluacion, only: [:mostrar, :editar, :update, :eliminar]
 
   def index 
-    @evaluacions = Evaluacion.all
+    @evaluacions = Evaluacion.all.paginate(page: params[:page], per_page: 5)
   end
 
   def nuevo

@@ -2,7 +2,7 @@ class ProfesionalGuiaController < ApplicationController
 	before_action :set_profesional_guia, only: [:mostrar, :editar, :update, :eliminar]
 
 	def index
-		@profesionalGuia = ProfesionalGuia.all 
+		@profesionalGuia = ProfesionalGuia.all.paginate(page: params[:page], per_page: 5)
 	end
 
 	def mostrar

@@ -1,57 +1,72 @@
-<%= form_for(@evaluacions, :html => {:role => 'form'}) do |f| %>
-    <% if @evaluacions.errors.any? %>
-        <%= pluralize(@evaluacions.errors.count, "Errores") %>
-        <% @evaluacions.errors.full_messages.each do |error| %>
-            <%= error %>
-        <% end %>
-    <% end %>
-    <%= f.label :pregunta_1 %>
-    <%= f.text_field :pregunta_1 %>
-    </br>
 
-    <%= f.label :pregunta_2 %>
-    <%= f.text_field :pregunta_2 %>
-    </br>
-
-    <%= f.label :pregunta_3 %>
-    <%= f.text_field :pregunta_3 %>
-    </br>
-
-    <%= f.label :pregunta_4 %>
-    <%= f.text_field :pregunta_4 %>
-    </br>
-
-    <%= f.label :pregunta_5 %>
-    <%= f.text_field :pregunta_5 %>
-    </br>
-
-    <%= f.label :pregunta_6 %>
-    <%= f.text_field :pregunta_6 %>
-    </br>
-
-    <%= f.label :pregunta_7 %>
-    <%= f.text_field :pregunta_7 %>
-    </br>
-
-    <%= f.label :pregunta_8 %>
-    <%= f.text_field :pregunta_8 %>
-    </br>
-
-    <%= f.label :observacion %>
-    <%= f.text_area :observacion, size: "60x6" %>
-    </br>
-
-    <%= f.label :fecha_evaluacion %>
-    <%= f.date_select :fecha_evaluacion %>
-    </br>
-
-    <%= f.label :nota %>
-    <%= f.text_field :nota %>
-    </br>
-
-    <%= f.label :nota_informe_practica %>
-    <%= f.text_field :nota_informe_practica %>
-    </br>
-
-    <%= f.submit %>
-<% end %>
+<section class="content invoice">
+    <div class="row">
+        <div class="col-md-10">
+            <%= form_for(@evaluacions, :html => {:role => 'form'}) do |f| %>
+            <div class="form-group">
+                <%= f.label :pregunta_1 %>
+                <%= f.text_field :pregunta_1,:class => "form-control" %>
+                </br>
+            </div>
+            <div class="form-group">
+                <%= f.label :pregunta_2 %>
+                <%= f.text_field :pregunta_2,:class => "form-control" %>
+                </br>
+            </div>
+            <div class="form-group">
+                <%= f.label :pregunta_3 %>
+                <%= f.text_field :pregunta_3,:class => "form-control" %>
+                </br>
+            </div>
+            <div class="form-group">
+                <%= f.label :pregunta_4 %>
+                <%= f.text_field :pregunta_4,:class => "form-control" %>
+                </br>
+            </div>
+            <div class="form-group">
+                <%= f.label :pregunta_5 %>
+                <%= f.text_field :pregunta_5,:class => "form-control" %>
+                </br>
+            </div>
+            <div class="form-group">
+                <%= f.label :pregunta_6 %>
+                <%= f.text_field :pregunta_6,:class => "form-control" %>
+                </br>
+            </div>
+            <div class="form-group">
+                <%= f.label :pregunta_7 %>
+                <%= f.text_field :pregunta_7,:class => "form-control" %>
+                </br>
+            </div>
+            <div class="form-group">
+                <%= f.label :pregunta_8 %>
+                <%= f.text_field :pregunta_8,:class => "form-control" %>
+                </br>
+            </div>
+            <div class="form-group">
+                <%= f.label :observacion %>
+                <%= f.text_area :observacion,:class => "form-control"  %>
+                </br>
+            </div>
+            <div class="form-group">
+                <%= f.label :fecha_evaluacion %>
+                <%= f.date_select :fecha_evaluacion,:class => "form-control"  %>
+                </br>
+            </div>
+            <div class="form-group">
+                <%= f.label :nota %>
+                <%= f.text_field :nota,:class => "form-control"  %>
+                </br>
+            </div>
+            <div class="form-group">
+                <%= f.label :nota_informe_practica %>
+                <%= f.text_field :nota_informe_practica,:class => "form-control"  %>
+                </br>
+            </div>
+            <div class="form-group">
+                <%= f.submit %>
+            </div>
+            <% end %> 
+        </div>
+    </div>
+</section>

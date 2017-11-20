@@ -25,11 +25,8 @@
           <table class="table table-bordered">
             <thead>
               <tr>
-              <th>Nombre</th>
               <th>Rut</th>
               <th>Codigo Carrera</th>
-              <th>Direccion</th>
-              <th>Telefono</th>
               <th class="text-center">Acción</th>
                
               </tr>
@@ -37,13 +34,9 @@
               <tbody>
                 <% @alumnos.each do |alumno| %>
                   <tr>
-                    <td><%= alumno.nombre %></td>
+
                     <td><%= alumno.rut %></td>
                     <td><%= alumno.codigo_carrera %></td>
-                    <td><%= alumno.codigo_carrera %></td>
-                    <td><%= alumno.codigo_carrera %></td>
-                    
-                    
                     <td>
                       <div class="text-center">
                     <%= link_to  'Mostrar', alumno , :class => "btn btn-info"%>

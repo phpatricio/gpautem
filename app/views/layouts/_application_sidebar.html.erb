@@ -49,9 +49,45 @@
             </span>
           </a>
           <li class="sub-menu active" style="display: none;" id="x">
-            <%= nav_link alumnos_path do %>
+            <%= nav_link practicas_path do %>
               <i class="fa fa-user"></i>
-               Listar Alumnos
+               Listar Practicas
+           <% end %>
+           <%= nav_link "#" do %>
+              <i class="fa fa-angle-double-right"></i>
+               Another
+           <% end %>
+          </li>
+    </li>
+    <li class="treeview" id="p">
+          <a >
+            <i class="fa fa-users"></i> <span>Convenio</span>
+            <span class="pull-right-container" >
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <li class="sub-menu active" style="display: none;" id="x">
+            <%= nav_link convenios_path do %>
+              <i class="fa fa-user"></i>
+               Listar Convenios
+           <% end %>
+           <%= nav_link "#" do %>
+              <i class="fa fa-angle-double-right"></i>
+               Another
+           <% end %>
+          </li>
+    </li>
+    <li class="treeview" id="p">
+          <a >
+            <i class="fa fa-users"></i> <span>Empresa</span>
+            <span class="pull-right-container" >
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <li class="sub-menu active" style="display: none;" id="x">
+            <%= nav_link empresas_path do %>
+              <i class="fa fa-user"></i>
+               Listar Empresas
            <% end %>
            <%= nav_link "#" do %>
               <i class="fa fa-angle-double-right"></i>
