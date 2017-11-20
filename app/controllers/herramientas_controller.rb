@@ -1,6 +1,6 @@
 class HerramientasController < ApplicationController
 	before_action :set_herramienta, only: [:mostrar, :editar, :update, :eliminar]
-
+  before_action :authenticate_user!
   def index 
     @herramientas = Herramienta.all.paginate(page: params[:page], per_page: 5)
   end

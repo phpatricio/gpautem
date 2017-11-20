@@ -1,6 +1,6 @@
 class EmpresasController < ApplicationController
   before_action :set_empresa, only: [:mostrar, :editar, :update, :eliminar]
-
+  before_action :authenticate_user!
   def index 
     @empresas = Empresa.all.paginate(page: params[:page], per_page: 5)
   end
@@ -28,7 +28,7 @@ class EmpresasController < ApplicationController
       if @empresas.update(empresa_params)
         format.html {redirect_to empresas_path, notice: 'Se actualizaron los datos'}
       else
-        render :editar
+        format.html {render :editar}
       end
     end
   end
