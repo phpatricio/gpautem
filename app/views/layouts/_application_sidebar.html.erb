@@ -30,79 +30,276 @@
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
+
           <ul class="sub-menu active" style="display: none;" id="x">
             <%= nav_link alumnos_path do %>
-              <i class="fa fa-user"></i>
+              <i class="fa fa-list"></i>
                Listar Alumnos
            <% end %>
-           <%= nav_link "#" do %>
-              <i class="fa fa-angle-double-right"></i>
-               Another
+           <%= nav_link new_alumno_path do %>
+              <i class="fa fa-plus"></i>
+               Agregar Alumno
            <% end %>
           </ul>
     </li>
-    <li class="treeview" id="p">
+    <li class="treeview" id="j">
           <a >
-            <i class="fa fa-users"></i> <span>Practica</span>
+            <i class="fa fa-suitcase"></i> <span>Practicas</span>
             <span class="pull-right-container" >
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
-          <li class="sub-menu active" style="display: none;" id="x">
+
+          <ul class="sub-menu active" style="display: none;" id="k">
             <%= nav_link practicas_path do %>
-              <i class="fa fa-user"></i>
+              <i class="fa fa-list"></i>
                Listar Practicas
            <% end %>
-           <%= nav_link "#" do %>
-              <i class="fa fa-angle-double-right"></i>
-               Another
+           <%= nav_link practicas_nuevo_path do %>
+              <i class="fa fa-plus"></i>
+               Agregar Practica
            <% end %>
-          </li>
+          </ul>
     </li>
-    <li class="treeview" id="p">
+    <li class="treeview" id="l">
           <a >
-            <i class="fa fa-users"></i> <span>Convenio</span>
+            <i class="fa fa-file-text"></i> <span>Evaluaciones</span>
             <span class="pull-right-container" >
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
-          <li class="sub-menu active" style="display: none;" id="x">
+
+          <ul class="sub-menu active" style="display: none;" id="m">
+            <%= nav_link evaluacions_path do %>
+              <i class="fa fa-list"></i>
+               Listar Evaluaciones
+           <% end %>
+           <%= nav_link practicas_nuevo_path do %>
+              <i class="fa fa-plus"></i>
+               Agregar Evaluacion
+           <% end %>
+          </ul>
+    </li>
+    <li class="treeview" id="n">
+          <a >
+            <i class="fa fa-tasks"></i> <span>Segumientos</span>
+            <span class="pull-right-container" >
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="sub-menu active" style="display: none;" id="o">
+            <%= nav_link seguimientos_path do %>
+              <i class="fa fa-list"></i>
+               Listar Evaluaciones
+           <% end %>
+           <%= nav_link seguimientos_nuevo_path do %>
+              <i class="fa fa-plus"></i>
+               Agregar Evaluacion
+           <% end %>
+          </ul>
+    </li>
+    <li class="treeview" id="r">
+          <a >
+            <i class="fa fa-square"></i> <span>Area</span>
+            <span class="pull-right-container" >
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="sub-menu active" style="display: none;" id="s">
+            <%= nav_link areas_path do %>
+              <i class="fa fa-list"></i>
+               Listar Evaluaciones
+           <% end %>
+           <%= nav_link areas_nuevo_path do %>
+              <i class="fa fa-plus"></i>
+               Agregar Evaluacion
+           <% end %>
+          </ul>
+    </li>
+    <li class="treeview" id="t">
+          <a >
+            <i class="fa fa-folder"></i> <span>Convenios</span>
+            <span class="pull-right-container" >
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="sub-menu active" style="display: none;" id="u">
             <%= nav_link convenios_path do %>
-              <i class="fa fa-user"></i>
+              <i class="fa fa-list"></i>
                Listar Convenios
            <% end %>
-           <%= nav_link "#" do %>
-              <i class="fa fa-angle-double-right"></i>
-               Another
+           <%= nav_link convenios_nuevo_path do %>
+              <i class="fa fa-plus"></i>
+               Agregar Convenio
            <% end %>
-          </li>
+          </ul>
     </li>
-    <li class="treeview" id="p">
+    <li class="treeview" id="v">
           <a >
-            <i class="fa fa-users"></i> <span>Empresa</span>
+            <i class="fa fa-building"></i> <span>Empresas</span>
             <span class="pull-right-container" >
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
-          <li class="sub-menu active" style="display: none;" id="x">
+          <ul class="sub-menu active" style="display: none;" id="w">
             <%= nav_link empresas_path do %>
-              <i class="fa fa-user"></i>
+              <i class="fa fa-list"></i>
                Listar Empresas
            <% end %>
-           <%= nav_link "#" do %>
-              <i class="fa fa-angle-double-right"></i>
-               Another
+           <%= nav_link empresas_nuevo_path do %>
+              <i class="fa fa-plus"></i>
+               Agregar Empresa
            <% end %>
-          </li>
+          </ul>
     </li>
-    
+    <li class="treeview" id="1">
+          <a >
+            <i class="fa fa-male"></i> <span>Profesionales guia</span>
+            <span class="pull-right-container" >
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="sub-menu active" style="display: none;" id="2">
+            <%= nav_link profesional_guia_index_path do %>
+              <i class="fa fa-list"></i>
+               Listar Empresas
+           <% end %>
+           <%= nav_link profesional_guia_nuevo_path do %>
+              <i class="fa fa-plus"></i>
+               Agregar Empresa
+           <% end %>
+          </ul>
+    </li>
+    <li class="treeview" id="3">
+          <a >
+            <i class="fa fa-wrench"></i> <span>Herramientas</span>
+            <span class="pull-right-container" >
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="sub-menu active" style="display: none;" id="4">
+            <%= nav_link herramienta_index_path do %>
+              <i class="fa fa-list"></i>
+               Listar Empresas
+           <% end %>
+           <%= nav_link herramientas_nuevo_path do %>
+              <i class="fa fa-plus"></i>
+               Agregar Empresa
+           <% end %>
+          </ul>
+    </li>
+
+
   </ul>
+
+
+
+
 </section>
 <script>
 $(document).ready(function(){
     $("#p").click(function(){
     
         $("#x").slideToggle();
+    });
+    $("#a").click(function(){
+    
+        $("#y").slideToggle();
+    });
+});
+</script>
+<script>
+$(document).ready(function(){
+    $("#j").click(function(){
+    
+        $("#k").slideToggle();
+    });
+    $("#a").click(function(){
+    
+        $("#y").slideToggle();
+    });
+});
+</script>
+
+<script>
+$(document).ready(function(){
+    $("#l").click(function(){
+    
+        $("#m").slideToggle();
+    });
+    $("#a").click(function(){
+    
+        $("#y").slideToggle();
+    });
+});
+</script>
+
+<script>
+$(document).ready(function(){
+    $("#n").click(function(){
+    
+        $("#o").slideToggle();
+    });
+    $("#a").click(function(){
+    
+        $("#y").slideToggle();
+    });
+});
+</script>
+
+<script>
+$(document).ready(function(){
+    $("#r").click(function(){
+    
+        $("#s").slideToggle();
+    });
+    $("#a").click(function(){
+    
+        $("#y").slideToggle();
+    });
+});
+</script>
+<script>
+$(document).ready(function(){
+    $("#t").click(function(){
+    
+        $("#u").slideToggle();
+    });
+    $("#a").click(function(){
+    
+        $("#y").slideToggle();
+    });
+});
+</script>
+<script>
+$(document).ready(function(){
+    $("#v").click(function(){
+    
+        $("#w").slideToggle();
+    });
+    $("#a").click(function(){
+    
+        $("#y").slideToggle();
+    });
+});
+</script>
+<script>
+$(document).ready(function(){
+    $("#1").click(function(){
+    
+        $("#2").slideToggle();
+    });
+    $("#a").click(function(){
+    
+        $("#y").slideToggle();
+    });
+});
+</script>
+<script>
+$(document).ready(function(){
+    $("#3").click(function(){
+    
+        $("#4").slideToggle();
     });
     $("#a").click(function(){
     
