@@ -1,4 +1,5 @@
 class Evaluacion < ApplicationRecord
+	has_one :practica
 	#validates :pregunta_1, presence: true, message: "por favor complete el espacio en blanco (campo obligatorio)"
 	validates_presence_of :pregunta_1, message: "por favor complete el espacio en blanco (campo obligatorio)"
 	validates_inclusion_of :pregunta_1, in: 0..16, message: "puntaje ingresado no valido (el rango es de 0 a 16)"

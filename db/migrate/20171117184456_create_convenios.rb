@@ -5,6 +5,7 @@ class CreateConvenios < ActiveRecord::Migration[5.0]
       t.date :fecha_inicio
       t.date :fecha_termino
       t.text :descripcion
+      t.references :empresa
 
       t.timestamps
     end

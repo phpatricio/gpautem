@@ -52,8 +52,10 @@ ActiveRecord::Schema.define(version: 20171121211503) do
     t.date     "fecha_inicio"
     t.date     "fecha_termino"
     t.text     "descripcion"
+    t.integer  "empresa_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.index ["empresa_id"], name: "index_convenios_on_empresa_id", using: :btree
   end
 
   create_table "empresas", force: :cascade do |t|
@@ -92,10 +94,22 @@ ActiveRecord::Schema.define(version: 20171121211503) do
     t.text     "descripcion_p"
     t.integer  "alumno_id"
     t.integer  "profesional_guia_id"
+    t.integer  "herramienta_id"
+    t.integer  "convenio_id"
+    t.integer  "empresa_id"
+    t.integer  "seguimiento_id"
+    t.integer  "evaluacion_id"
+    t.integer  "area_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.index ["alumno_id"], name: "index_practicas_on_alumno_id", using: :btree
+    t.index ["area_id"], name: "index_practicas_on_area_id", using: :btree
+    t.index ["convenio_id"], name: "index_practicas_on_convenio_id", using: :btree
+    t.index ["empresa_id"], name: "index_practicas_on_empresa_id", using: :btree
+    t.index ["evaluacion_id"], name: "index_practicas_on_evaluacion_id", using: :btree
+    t.index ["herramienta_id"], name: "index_practicas_on_herramienta_id", using: :btree
     t.index ["profesional_guia_id"], name: "index_practicas_on_profesional_guia_id", using: :btree
+    t.index ["seguimiento_id"], name: "index_practicas_on_seguimiento_id", using: :btree
   end
 
   create_table "profesional_guia", force: :cascade do |t|
