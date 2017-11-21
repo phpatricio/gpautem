@@ -16,3 +16,5 @@
 //= require bootstrap
 //= require adminlte
 //= require_tree .
+//= require chosen-jquery
+//= require practicas

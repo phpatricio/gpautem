@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require chosen
  */
   .apple_pagination {
   background: #f1f1f1;
