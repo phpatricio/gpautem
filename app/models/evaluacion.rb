@@ -36,6 +36,8 @@ class Evaluacion < ApplicationRecord
 	
 	validates_presence_of :observacion, message: "por favor complete el espacio en blanco (campo obligatorio)"
 	
+	validates :fecha_evaluacion, date: true
+
 	validates_presence_of :nota, message: "por favor complete el espacio en blanco (campo obligatorio)"
 	validates_numericality_of :nota, message: "nota ingresada no es un decimal (decimal con punto)"
  	validates_inclusion_of :nota, in: 1..7, message: "nota ingresada no valida (es de 1 a 7 y si es decimal es con punto)"

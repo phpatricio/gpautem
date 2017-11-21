@@ -1,15 +1,20 @@
 class ProfesionalGuia < ApplicationRecord
 	has_one :practica
-	validates :rut, presence: true
+	validates_presence_of :rut, message: "por favor complete el espacio en blanco (campo obligatorio)"
+	validates :rut_empresa, rut: true
+	validates_uniqueness_of :rut, message: "el rut ungresado ya esta en el sistema"
 
- 	validates :Nombre, presence: true
- 	validates :Cargo, presence: true
- 	validates :Email, presence: true
- 	validates :Email, uniqueness: true
+ 	validates_presence_of :nombre, message: "por favor complete el espacio en blanco (campo obligatorio)"
  	
- 	validates :Direccion, presence: true
+ 	validates_presence_of :cargo, message: "por favor complete el espacio en blanco (campo obligatorio)"
+ 	
+ 	validates_presence_of :Email, message:"por favor complete el espacio en blanco (campo obligatorio)"
+ 	validates_uniqueness_of :Email, message: "email ingresado ya existe"
+ 	
+ 	validates_presence_of :Direccion, message: "por favor complete el espacio en blanco (campo obligatorio)"
+ 	
  	validates :Telefono, presence: true
- 	validates :Telefono, numericality: true
+ 	validates_numericality_of :Telefono, message: "telefono ingresado no valido (deve de tener nueve digitos)"
  	validates :Telefono, length: {is: 9}
- 	validates :Telefono, uniqueness: true
+ 	validates_uniqueness_of :Telefono, message: "telefono ingresado ya existe"
 end

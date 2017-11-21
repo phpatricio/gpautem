@@ -45,6 +45,10 @@ GEM
     bindex (0.5.0)
     builder (3.2.3)
     cancancan (1.17.0)
+    chosen-rails (1.5.2)
+      coffee-rails (>= 3.2)
+      railties (>= 3.0)
+      sass-rails (>= 3.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -176,6 +180,7 @@ DEPENDENCIES
   adminlte-generators
   byebug
   cancancan (~> 1.10)
+  chosen-rails
   coffee-rails (~> 4.2)
   coffee-script-source (= 1.8.0)
   date_validator
