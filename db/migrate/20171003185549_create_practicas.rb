@@ -5,8 +5,8 @@ class CreatePracticas < ActiveRecord::Migration[5.0]
       t.date :fecha_termino
       t.text :descripcion_p
       t.references :alumno, foreign_key: true
-      t.references :profesional_guia
-
+      t.references :profesional_guia, foreign_key: true
+      t.references :evaluacion,foreign_key: true
       t.timestamps
     end
   end

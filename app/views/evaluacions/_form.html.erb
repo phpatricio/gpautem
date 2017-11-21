@@ -3,6 +3,18 @@
     <div class="row">
         <div class="col-md-10">
             <%= form_for(@evaluacions, :html => {:role => 'form'}) do |f| %>
+                <% if @evaluacions.errors.any? %>
+                <div class="alert alert-danger alert-dismissable" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+                  <h4><%= pluralize(@evaluacions.errors.count, "error") %> prohibited this alumno from being saved:</h4>
+      
+                  <ul>
+                  <% @evaluacions.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                  <% end %>
+                  </ul>
+                </div>
+              <% end %>
             <div class="form-group">
                 <%= f.label :pregunta_1 %>
                 <%= f.text_field :pregunta_1,:class => "form-control" %>
