@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  resources :codigos
+  resources :semestres
   resources :rols
   #**********************************RUTAS AREA***********************************************
   get 'areas/', to: 'areas#index'

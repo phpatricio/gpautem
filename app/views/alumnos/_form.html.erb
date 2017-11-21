@@ -30,12 +30,13 @@
       </div>
       <div class="form-group">
         <%= f.label :codigo_carrera %>
-        <%= f.number_field :codigo_carrera, :class => "form-control" %>
+        <%= f.collection_select(:codigo_carrera, Codigo.all, :codigo_carrera, :codigo_carrera,{include_blank: 'Seleccione una opción'}, :required => "true",:id => "hola", :class => "form-control") %>
       </div>
       <div class="form-group">
         <%= f.label :semestre %>
-        <%= f.number_field :semestre, :class => "form-control" %>
+        <%= f.collection_select(:semestre, Semestre.all, :numero_semestre, :numero_semestre,{include_blank: 'Seleccione una opción'}, :required => "true",:id => "hola", :class => "form-control") %>
       </div>
+      
       <div class="form-group">
         <%= f.label :año_practica %>
         <% dates = 1993..Date.today.year %>

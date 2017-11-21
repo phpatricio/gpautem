@@ -1,0 +1,30 @@
+<section class="content invoice">
+  <div class="row">
+    <div class="col-md-10">
+      <%= form_for(@semestre, :html => { :role => "form" }) do |f| %>
+        <% if @semestre.errors.any? %>
+          <div class="alert alert-danger alert-dismissable" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+            <h4><%= pluralize(@semestre.errors.count, "error") %> prohibited this semestre from being saved:</h4>
+
+            <ul>
+            <% @semestre.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+    
+  <div class="form-group">
+        <%= f.label :numero_semestre %>
+        <%= f.number_field :numero_semestre, :class => "form-control" %>
+      </div>
+    
+  <div class="form-group">
+        <%= f.submit :class => "btn btn-primary" %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</section> 
