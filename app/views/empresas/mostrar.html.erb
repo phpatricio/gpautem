@@ -1,6 +1,42 @@
-<h1> MOSTRAR EMPRESAS </h1>
-<h4> RUT DE EMPRESA </h4>
-<%= @empresas.rut_empresa %>
-<h4> NOMBRE DE EMPRESA </h4>
-<%= @empresas.nombre_empresa %>
+<% content_for :content_header  do %>
+    <section class="content-header">
+      <h1>Show <small>alumno</small></h1>
+  
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><%= link_to "Alumnos", alumnos_path %></li>
+        <li class="active">Show</li>
+      </ol>
+    </section>
+  <% end %>
+  
+  <section class="content">
+    <div class="row">
+      <div class="col-md-12">
+      
+  
+          <div class="panel panel-default">
+        
+              <div class="pull-right">
+              <%= link_to editar_convenio_path(@empresas), :class => 'btn btn-primary' do %>
+                <span class="glyphicon glyphicon-pencil"></span>
+                Editar
+              <% end %>          
+     
+            </div>
+            <div class="panel-body">
+              <dt>Rut empresa:</dt>
+              <dd><%= @empresas.rut_empresa %></dd>
+
+              <dt>Nombre empresa:</dt>
+              <dd><%= @empresas.nombre_empresa %></dd>
+
+            </div>
+          </div>
+           
+        
+        </div>
+      </div>
+    </div>
+  </section>
 
