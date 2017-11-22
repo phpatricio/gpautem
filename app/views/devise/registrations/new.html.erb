@@ -22,7 +22,7 @@
   </div>
   <div class="field">
     <%= f.label :tipo_usuario %><br />
-    <%= f.collection_select(:rols_id, Rol.all, :id, :nombre,{include_blank: 'Seleccione un opcion'}, :required => "true") %>
+    <%= f.collection_select(:roles_id, Role.all, :id, :nombre,{include_blank: 'Seleccione un opcion'}, :required => "true") %>
   </div>
 
 

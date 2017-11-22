@@ -1,10 +1,10 @@
 <% content_for :content_header  do %>
   <section class="content-header">
-    <h1>Listing <small>rols</small></h1>
+    <h1>Listing <small>roles</small></h1>
 
     <ol class="breadcrumb">
       <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active">rols</li>
+      <li class="active">roles</li>
     </ol>    
   </section>
 <% end %>
@@ -15,9 +15,9 @@
       <div class="box box-primary">
         <div class="box-header">
           <div class="box-tools pull-right">
-            <%= link_to new_rol_path(@rol), :class => 'btn btn-success' do %>
+            <%= link_to new_role_path(@role), :class => 'btn btn-success' do %>
               <span class="glyphicon glyphicon-plus"></span>
-              New Rol
+              New Role
             <% end %>          
           </div>
         </div>
@@ -28,23 +28,19 @@
             
   <th>Nombre</th>
             
-  <th>Descripcion</th>
-            
                 <th></th>
                 <th></th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
-            <% @rols.each do |rol| %>
+              <%=  @roles.each do |role| %>
             
-  <td><%= rol.nombre %></td>
+  <td><%= role.nombre %></td>
             
-  <td><%= rol.descripcion %></td>
-            
-                <td><%= link_to 'Show', rol %></td>
-                <td><%= link_to 'Edit', edit_rol_path(rol) %></td>
-                <td><%= link_to 'Destroy', rol, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td><%= link_to 'Show', role %></td>
+                <td><%= link_to 'Edit', edit_role_path(role) %></td>
+                <td><%= link_to 'Destroy', role, method: :delete, data: { confirm: 'Are you sure?' } %></td>
               <% end %>
             </tbody>
           </table>

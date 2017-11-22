@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :roles
   resources :codigos
   resources :semestres
   resources :rols

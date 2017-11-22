@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171121211503) do
+ActiveRecord::Schema.define(version: 20171122184017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -123,11 +123,10 @@ ActiveRecord::Schema.define(version: 20171121211503) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "rols", force: :cascade do |t|
+  create_table "roles", force: :cascade do |t|
     t.string   "nombre"
-    t.string   "descripcion"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "seguimientos", force: :cascade do |t|
@@ -160,12 +159,12 @@ ActiveRecord::Schema.define(version: 20171121211503) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.integer  "rols_id"
+    t.integer  "roles_id"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-    t.index ["rols_id"], name: "index_users_on_rols_id", using: :btree
+    t.index ["roles_id"], name: "index_users_on_roles_id", using: :btree
   end
 
   add_foreign_key "practicas", "alumnos"
-  add_foreign_key "users", "rols", column: "rols_id"
+  add_foreign_key "users", "roles", column: "roles_id"
 end

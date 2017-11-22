@@ -4,4 +4,5 @@ class User < ApplicationRecord
   belongs_to :rol
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+ 
 end

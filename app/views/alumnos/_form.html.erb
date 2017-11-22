@@ -31,19 +31,12 @@
       
       <div class="form-group">
         <%= f.label :codigo_carrera %>
-      <%= f.select(:codigo_carrera) do %>
-        <% [['21030', 21030], ['21041', 21041]].each do |c| -%>
-          <%= content_tag(:option, c.first, value: c.last) %>
-        <% end %>
-      <% end %>
+        <%= f.collection_select(:codigo_carrera, Codigo.all, :codigo_carrera, :codigo_carrera,{include_blank: 'Seleccione un opcion'}, :required => "true",:class => "form-control") %>
       </div>
       <div class="form-group">
-      <%= f.label :semestre %>
-      <%= f.select(:semestre) do %>
-        <% [['primer semestre', 1], ['segundo semestre', 2]].each do |c| -%>
-          <%= content_tag(:option, c.first, value: c.last) %>
-        <% end %>
-      <% end %>
+       <%= f.label :semestre %>
+       <%= f.collection_select(:semestre, Semestre.all, :numero_semestre, :numero_semestre,{include_blank: 'Seleccione un opcion'}, :required => "true",:class => "form-control") %>
+      </div>
       
       <div class="form-group">
         <%= f.label :año_practica %>
