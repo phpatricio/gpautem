@@ -1,50 +1,72 @@
-<h1> MOSTRAR EVALUACION </h1>
-<table border="1">
-<tr>
-<td> PREGUNTA 1 </td>
-<td><%= @evaluacions.pregunta_1 %></td>
-</tr>
-<tr>
-<td> PREGUNTA 2 </td>
-<td><%= @evaluacions.pregunta_2 %></td>
-</tr>
-<tr>
-<td> PREGUNTA 3 </td>
-<td><%= @evaluacions.pregunta_3 %></td>
-</tr>
-<tr>
-<td> PREGUNTA 4 </td>
-<td><%= @evaluacions.pregunta_4 %></td>
-</tr>
-<tr>
-<td> PREGUNTA 5 </td>
-<td><%= @evaluacions.pregunta_5 %></td>
-</tr>
-<tr>
-<td> PREGUNTA 6 </td>
-<td><%= @evaluacions.pregunta_6 %></td>
-</tr>
-<tr>
-<td> PREGUNTA 7 </td>
-<td><%= @evaluacions.pregunta_7 %></td>
-</tr>
-<tr>
-<td> PREGUNTA 8 </td>
-<td><%= @evaluacions.pregunta_8 %></td>
-</tr>
-<tr>
-<td> OBSERVACION  </td>
-<td><%= @evaluacions.observacion %></td>
-</tr>
-<tr>
-<td> FECHA DE EVALUACION  </td>
-<td><%= @evaluacions.fecha_evaluacion %></td>
-</tr>
-<tr>
-<td> NOTA </td>
-<td><%= @evaluacions.nota %></td>
-</tr>
-<tr>
-<td> NOTA DE INFORME DE PRACTICA  </td>
-<td><%= @evaluacions.nota_informe_practica %></td>
-</tr>
+
+
+<% content_for :content_header  do %>
+    <section class="content-header">
+      <h1>Show <small>alumno</small></h1>
+  
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><%= link_to "Alumnos", alumnos_path %></li>
+        <li class="active">Show</li>
+      </ol>
+    </section>
+  <% end %>
+  
+  <section class="content">
+    <div class="row">
+      <div class="col-md-12">
+      
+  
+          <div class="panel panel-default">
+        
+              <div class="pull-right">
+              <%= link_to editar_evaluacion_path(@evaluacions), :class => 'btn btn-primary' do %>
+                <span class="glyphicon glyphicon-pencil"></span>
+                Editar
+              <% end %>          
+     
+            </div>
+            <div class="panel-body">
+              <dt>Pregunta 1:</dt>
+              <dd><%= @evaluacions.pregunta_1 %></dd>
+  
+              <dt>Pregunta 2:</dt>
+              <dd><%= @evaluacions.pregunta_2 %></dd>
+  
+              <dt>Pregunta 3:</dt>
+              <dd><%= @evaluacions.pregunta_3 %></dd>
+
+              <dt>Pregunta 4:</dt>
+              <dd><%= @evaluacions.pregunta_4 %></dd>
+  
+              <dt>Pregunta 5:</dt>
+              <dd><%= @evaluacions.pregunta_5 %></dd>
+  
+              <dt>Pregunta 6:</dt>
+              <dd><%= @evaluacions.pregunta_6 %></dd>
+              <dt>Pregunta 7:</dt>
+              <dd><%= @evaluacions.pregunta_7 %></dd>
+  
+              <dt>Pregunta 8:</dt>
+              <dd><%= @evaluacions.pregunta_8 %></dd>
+  
+ 
+  
+              <dt>Observaciòn:</dt>
+              <dd><%= @evaluacions.observacion %></dd>
+  
+              <dt>Fecha de evaluaciòn:</dt>
+              <dd><%= @evaluacions.fecha_evaluacion %></dd>
+  
+              <dt>Nota informe de practica:</dt>
+              <dd><%= @evaluacions.nota %></dd>
+            </div>
+          </div>
+           
+        
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
