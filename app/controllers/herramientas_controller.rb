@@ -28,7 +28,7 @@ class HerramientasController < ApplicationController
       if @herramienta.update(herramienta_params)
         format.html {redirect_to herramientas_path, notice: 'Se actualizaron los datos'}
       else
-        render :editar
+        format.html {render :editar}
       end
     end
   end

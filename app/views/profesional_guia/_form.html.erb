@@ -2,6 +2,17 @@
     <div class="row">
         <div class="col-md-10">
             <%= form_for(@profesionalGuia, :html => {:role => 'form'}) do |f| %>
+            <% if @profesionalGuia.errors.any? %>
+            <div class="alert alert-danger alert-dismissable" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+              <h4><%= pluralize(@profesionalGuia.errors.count, "error") %> </h4>
+              <ul>
+                <% @profesionalGuia.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+            <% end %>
             <div class="form-group">
                 <%= f.label :rut %>
                 <%= f.text_field :rut,:class => "form-control" %>

@@ -28,12 +28,13 @@ class ConveniosController < ApplicationController
       if @convenios.update(convenio_params)
         format.html {redirect_to convenios_path, notice: 'Se actualizaron los datos'}
       else
-        render :editar
+        format.html {render :editar}
       end
     end
   end
 
   def editar
+    
   end
 
   def eliminar

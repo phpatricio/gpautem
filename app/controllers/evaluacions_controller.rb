@@ -28,7 +28,7 @@ class EvaluacionsController < ApplicationController
       if @evaluacions.update(evaluacion_params)
         format.html {redirect_to evaluacions_path, notice: 'Se actualizaron los datos'}
       else
-        render :editar
+        format.html {render :editar}
       end
     end
   end

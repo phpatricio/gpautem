@@ -10,6 +10,5 @@ class Practica < ApplicationRecord
   validates :fecha_inicio, date: true
   validates :fecha_termino, date: true
   validates :fecha_inicio, date: { before: :fecha_termino }
-  validates_presence_of :descripcion_p, message: "por favor complete el espacio en blanco (campo obligatorio)"
-
+  validates_presence_of :descripcion_p, message: ": por favor complete el espacio en blanco (campo obligatorio)"
 end

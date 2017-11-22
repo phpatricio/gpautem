@@ -1,7 +1,34 @@
-<h1>Mostrar practica</h1>
-<h2>fecha inicio</h2>
-<%= @practica.fecha_inicio %>
-<h2>fecha termino</h2>
-<%= @practica.fecha_termino %>
-<h2>descripcion</h2>
-<%= @practica.descripcion_p %>
+<% content_for :content_header  do %>
+    <section class="content-header">
+      <h1>Mostrando <small>Practicas</small></h1>
+  
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><%= link_to "Areas", practicas_path %></li>
+        <li class="active">Mostrar</li>
+      </ol>
+    </section>
+  <% end %>
+  <section class="content">
+    <div class="row">
+      <div class="col-md-12">
+          <div class="panel panel-default">
+              <div class="pull-right">
+              <%= link_to editar_practica_path(@practica), :class => 'btn btn-primary' do %>
+                <span class="glyphicon glyphicon-pencil"></span>
+                Editar
+              <% end %>          
+            </div>
+            <div class="panel-body">
+              <dt>Fecha Inicio:</dt>
+              <dd><%= @practica.fecha_inicio %></dd>
+              <dt>Fecha Termino:</dt>
+              <dd><%= @practica.fecha_termino %></dd>
+              <dt>Descripcion:</dt>
+              <dd><%= @practica.descripcion_p %></dd>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

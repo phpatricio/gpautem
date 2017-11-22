@@ -28,14 +28,22 @@
         <%= f.text_field :rut, :class => "form-control", :id=>"rut" %>
         <span class="help-block hidden " id="rut-valido" style ="color:red">Ingrese un rut valido.</span>
       </div>
+      
       <div class="form-group">
         <%= f.label :codigo_carrera %>
-        <%= f.collection_select(:codigo_carrera, Codigo.all, :codigo_carrera, :codigo_carrera,{include_blank: 'Seleccione una opción'}, :required => "true",:id => "hola", :class => "form-control") %>
+      <%= f.select(:codigo_carrera) do %>
+        <% [['21030', 21030], ['21041', 21041]].each do |c| -%>
+          <%= content_tag(:option, c.first, value: c.last) %>
+        <% end %>
+      <% end %>
       </div>
       <div class="form-group">
-        <%= f.label :semestre %>
-        <%= f.collection_select(:semestre, Semestre.all, :numero_semestre, :numero_semestre,{include_blank: 'Seleccione una opción'}, :required => "true",:id => "hola", :class => "form-control") %>
-      </div>
+      <%= f.label :semestre %>
+      <%= f.select(:semestre) do %>
+        <% [['primer semestre', 1], ['segundo semestre', 2]].each do |c| -%>
+          <%= content_tag(:option, c.first, value: c.last) %>
+        <% end %>
+      <% end %>
       
       <div class="form-group">
         <%= f.label :año_practica %>

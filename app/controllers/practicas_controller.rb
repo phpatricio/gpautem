@@ -29,7 +29,7 @@ class PracticasController < ApplicationController
 			if @practica.update(practica_params)
         		format.html {redirect_to practicas_path, notice: 'Se Actualizaron los datos'}
       		else
-        		render :editar
+        		format.html {render :editar}
       		end
     	end
   	end

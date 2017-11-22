@@ -37,7 +37,7 @@ class SeguimientosController < ApplicationController
       if @seguimiento.update(seguimiento_params)
         format.html {redirect_to seguimientos_path, notice: 'Se Actualizaron los datos'}
       else
-        render :editar
+        format.html {render :editar}
       end
     end
   end

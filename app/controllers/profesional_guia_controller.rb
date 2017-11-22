@@ -20,7 +20,7 @@ class ProfesionalGuiaController < ApplicationController
       		if @profesionalGuia.update(profesionalGuia_params)
         		format.html {redirect_to profesional_guia_index_path, notice: 'Se Actualizaron los datos'}
       		else
-        		render :editar
+        		format.html {render :editar}
       		end
     	end
   	end

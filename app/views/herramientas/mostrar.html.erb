@@ -1,3 +1,30 @@
-<h1>Mostrar Area</h1>
-<h2>Nombre</h2>
-<%= @herramienta.nombre %>
+<% content_for :content_header  do %>
+    <section class="content-header">
+      <h1>Mostrando <small>Herramientas</small></h1>
+  
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><%= link_to "Herramientas", herramientas_path %></li>
+        <li class="active">Mostrar</li>
+      </ol>
+    </section>
+  <% end %>
+  <section class="content">
+    <div class="row">
+      <div class="col-md-12">
+          <div class="panel panel-default">
+              <div class="pull-right">
+              <%= link_to herramientum_path(@herramienta), :class => 'btn btn-primary' do %>
+                <span class="glyphicon glyphicon-pencil"></span>
+                Editar
+              <% end %>          
+            </div>
+            <div class="panel-body">
+              <dt>Nombre de Herramienta:</dt>
+              <dd><%= @herramienta.nombre %></dd>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

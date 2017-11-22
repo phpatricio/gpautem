@@ -28,7 +28,7 @@ class AreasController < ApplicationController
       if @areas.update(area_params)
         format.html {redirect_to areas_path, notice: 'Se actualizaron los datos'}
       else
-        render :editar
+        format.html {render :editar}
       end
     end
   end
