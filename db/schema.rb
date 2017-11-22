@@ -160,9 +160,12 @@ ActiveRecord::Schema.define(version: 20171121211503) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "rols_id"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["rols_id"], name: "index_users_on_rols_id", using: :btree
   end
 
   add_foreign_key "practicas", "alumnos"
+  add_foreign_key "users", "rols", column: "rols_id"
 end

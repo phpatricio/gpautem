@@ -100,9 +100,10 @@ patch '/evaluacions/:id', to: 'evaluacions#update'
 get 'evaluacions/:id/editar', to: 'evaluacions#editar', as:'editar_evaluacion'
 delete 'evaluacions/:id', to: 'evaluacions#eliminar', as: 'eliminar_evaluacion'
 
-  devise_for :users
+  
   resources :alumnos
   get 'welcome/index'
   root :to => "welcome#index"
+  devise_for :users, :controllers => { registrations: 'registrations' }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
