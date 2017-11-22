@@ -6,3 +6,4 @@ class Seguimiento < ApplicationRecord
 	validates_presence_of :comentario_visita_2, message: "por favor complete el espacio en blanco (campo obligatorio)"
 	validates :fecha_3, date: true
 	validates_presence_of :comentario_visita_3, message: "por favor complete el espacio en blanco (campo obligatorio)"
+end

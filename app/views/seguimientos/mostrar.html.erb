@@ -1,13 +1,53 @@
-<h1>Mostrar Seguimiento</h1>
-<h2>Fecha 1</h2>
-<%= @seguimiento.fecha_1 %>
-<h2>comentario de la visita 1</h2>
-<%= @seguimiento.comentario_visita_1 %>
-<h2>Fecha 2</h2>
-<%= @seguimiento.fecha_2 %>
-<h2>comentario de la visita 2</h2>
-<%= @seguimiento.comentario_visita_2 %>
-<h2>Fecha 3</h2>
-<%= @seguimiento.fecha_3 %>
-<h2>comentario de la visita 3</h2>
-<%= @seguimiento.comentario_visita_3 %>
+<% content_for :content_header  do %>
+    <section class="content-header">
+      <h1>Show <small>alumno</small></h1>
+  
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><%= link_to "Alumnos", alumnos_path %></li>
+        <li class="active">Show</li>
+      </ol>
+    </section>
+  <% end %>
+  
+  <section class="content">
+    <div class="row">
+      <div class="col-md-12">
+      
+  
+          <div class="panel panel-default">
+        
+              <div class="pull-right">
+              <%= link_to editar_seguimiento_path(@seguimiento), :class => 'btn btn-primary' do %>
+                <span class="glyphicon glyphicon-pencil"></span>
+                Editar
+              <% end %>          
+     
+            </div>
+            <div class="panel-body">
+              <dt>Fecha 1:</dt>
+              <dd><%= @seguimiento.fecha_1 %></dd>
+  
+              <dt>Comentario visita 1:</dt>
+              <dd><%= @seguimiento.comentario_visita_1 %></dd>
+  
+              <dt>Fecha 2:</dt>
+              <dd><%= @seguimiento.fecha_2 %></dd>
+
+              <dt>Comentario visita 2:</dt>
+              <dd><%= @seguimiento.comentario_visita_2 %></dd>
+  
+              <dt>Fecha 3:</dt>
+              <dd><%= @seguimiento.fecha_3 %></dd>
+  
+              <dt>Comentario visita 3:</dt>
+              <dd><%= @seguimiento.comentario_visita_3 %></dd>
+   
+            </div>
+          </div>
+           
+        
+        </div>
+      </div>
+    </div>
+  </section>
