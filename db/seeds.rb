@@ -3,6 +3,8 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 
+   #roles = Role.create([{ nombre: 'admin' }, { descripcion: 'lo que sea' }])
+   #roles = Role.create([{ nombre: 'secretaria' }, { descripcion: 'niuna wea' }])
+   Role.create(nombre: 'admin', descripcion: "que sucede")
+   Role.create(nombre: 'secretaria', descripcion: "que sucede")

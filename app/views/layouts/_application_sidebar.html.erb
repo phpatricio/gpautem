@@ -22,7 +22,47 @@
   <!-- /.search form -->
   <!-- sidebar menu: : style can be found in sidebar.less -->
   <ul class="sidebar-menu dropdown-toggle">
+    <% if current_user.role.nombre == "profesorguia"%>
+        <li class="treeview" id="l">
+        <a >
+        <i class="fa fa-file-text"></i> <span>Evaluaciones</span>
+        <span class="pull-right-container" >
+            <i class="fa fa-angle-left pull-right"></i>
+        </span>
+        </a>
 
+        <ul class="sub-menu active" style="display: none;" id="m">
+        <%= nav_link evaluacions_path do %>
+            <i class="fa fa-list"></i>
+            Listar Evaluaciones
+        <% end %>
+        <%= nav_link evaluacions_nuevo_path do %>
+            <i class="fa fa-plus"></i>
+            Agregar Evaluacion
+        <% end %>
+        </ul>
+    </li>
+    <li class="treeview" id="n">
+        <a >
+        <i class="fa fa-tasks"></i> <span>Segumientos</span>
+        <span class="pull-right-container" >
+            <i class="fa fa-angle-left pull-right"></i>
+        </span>
+        </a>
+        <ul class="sub-menu active" style="display: none;" id="o">
+        <%= nav_link seguimientos_path do %>
+            <i class="fa fa-list"></i>
+            Listar Evaluaciones
+        <% end %>
+        <%= nav_link seguimientos_nuevo_path do %>
+            <i class="fa fa-plus"></i>
+            Agregar Evaluacion
+        <% end %>
+        </ul>
+    </li>
+
+    <% end %>
+    <% if current_user.role.nombre == "admin"%>
     <li class="treeview" id="p">
           <a >
             <i class="fa fa-users"></i> <span>Alumnos</span>
@@ -188,8 +228,9 @@
            <% end %>
           </ul>
     </li>
-
-
+    <% end %>
+    <% if current_user.role.nombre == "secretaria"%>
+    <% end %>
   </ul>
 
 

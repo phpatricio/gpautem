@@ -2,11 +2,9 @@ class AlumnosController < ApplicationController
   load_and_authorize_resource
   before_action :set_alumno, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-
   # GET /alumnos
   # GET /alumnos.json
   def index
-    
     @alumnos = Alumno.all.paginate(page: params[:page], per_page: 5)
   end
 
@@ -17,12 +15,14 @@ class AlumnosController < ApplicationController
 
   # GET /alumnos/new
   def new
-    authorize! :new, @alumnos
+    authorize! :new, @alumno
     @alumno = Alumno.new
+    
   end
 
   # GET /alumnos/1/edit
   def edit
+    
   end
 
   # POST /alumnos

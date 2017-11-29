@@ -5,13 +5,13 @@ class CreatePracticas < ActiveRecord::Migration[5.0]
       t.date :fecha_termino
       t.text :descripcion_p
       t.references :alumno, foreign_key: true
-      t.references :profesional_guia
+      t.references :profesional_guia, foreign_key: true
       t.references :herramienta
-      t.references :convenio
-      t.references :empresa
-      t.references :seguimiento
-      t.references :evaluacion
-      t.references :area
+      t.references :convenio, foreign_key: true
+      t.references :empresa, foreign_key: true
+      t.references :seguimiento, foreign_key: true
+      t.references :evaluacion, foreign_key: true
+      t.references :area, foreign_key: true
       
 
       t.timestamps

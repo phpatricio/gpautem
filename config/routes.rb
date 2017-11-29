@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :roles
   resources :codigos
   resources :semestres
-  resources :rols
+  #resources :rols
   #**********************************RUTAS AREA***********************************************
   get 'areas/', to: 'areas#index'
   get 'areas/nuevo', to: 'areas#nuevo'
