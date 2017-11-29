@@ -3,6 +3,7 @@ class Alumno < ApplicationRecord
 	validates_presence_of :nombre, message: ": por favor complete el espacio en blanco (campo obligatorio)"
 	validates_presence_of :apellido, message: ": por favor complete el espacio en blanco (campo obligatorio)"
 	validate :uniqueness_of_rut, on: :create
+	validates_presence_of :rut, message: ": por favor complete el espacio en blanco (campo obligatorio)"
 
 	def uniqueness_of_rut
 	   existing_record = Alumno.find_by_rut(rut)
