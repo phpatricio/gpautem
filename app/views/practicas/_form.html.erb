@@ -29,6 +29,12 @@
                 </br>
             </div>
             <div class="form-group">
+             <%= f.label :profesional_guia_id %>
+             <%= f.collection_select(:profesional_guia_id, ProfesionalGuia.all, :id, :Nombre,{include_blank: 'Seleccione un opcion'}, :required => "true",:class => "form-control") %>
+            
+             </div>
+            
+            <div class="form-group">
                 <%= f.submit %>
             </div>
             <% end %>

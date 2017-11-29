@@ -1,2 +1,54 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<% content_for :content_header  do %>
+    <section class="content-header">
+      <h1>Bienvenido <small></small></h1>
+    </section>
+  <% end %>
+  
+  <section class="content invoice">
+  
+    <div class="row">
+        <div class="col-md-3">
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    
+                  <h1><strong><%= @alumonos = Alumno.count %></strong> Alumnos</h1> 
+                  <label>En el sistema</label>
+                </div> 
+                <div class="icon">
+                    <i class="fa fa-users"></i>
+                </div>
+                <a href="../alumnos" class="small-box-footer">Mas información<i class="fa fa-chevron-right"></i></a>
+            </div>
+            
+        </div>	
+        <div class="col-md-3">
+            <div class="small-box bg-green">
+                <div class="inner">
+                    <h2>Practicas</h2>
+                    <p>Agrega practicas</p>
+                </div> 
+                <div class="icon">
+                    <i class="fa fa-briefcase"></i>
+                </div>
+                <a href="../practicas" class="small-box-footer">Mas información<i class="fa fa-chevron-right"></i></a>
+            </div>
+            
+        </div>	
+        <div class="col-md-3">
+            <div class="small-box bg-orange">
+                <div class="inner">
+                    <h2>Evaluaciones</h2>
+                    <p>Revisa las evaluaciones</p>
+                </div> 
+                <div class="icon">
+                    <i class="fa fa-file-text"></i>
+                </div>
+                <a href="../evaluaciones" class="small-box-footer">Mas información<i class="fa fa-chevron-right"></i></a>
+            </div>
+            
+        </div>	
+  
+    </div>
+  
+  </section>
+
