@@ -8,3 +8,5 @@
    #roles = Role.create([{ nombre: 'secretaria' }, { descripcion: 'niuna wea' }])
    Role.create(nombre: 'admin', descripcion: "que sucede")
    Role.create(nombre: 'secretaria', descripcion: "que sucede")
+   Role.create(nombre: 'profesorguia', descripcion: "que sucede")
+   
