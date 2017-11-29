@@ -18,3 +18,6 @@
 //= require_tree .
 //= require chosen-jquery
 //= require practicas
+
+//= require Chart.bundle
+//= require chartkick

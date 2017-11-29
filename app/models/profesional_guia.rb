@@ -2,7 +2,7 @@ class ProfesionalGuia < ApplicationRecord
 	has_one :practica
 	validates_presence_of :rut, message: ": por favor complete el espacio en blanco (campo obligatorio)"
 	validates :rut, rut: true
-	validates_uniqueness_of :rut, message: ": el rut ungresado ya esta en el sistema"
+	validates_uniqueness_of :rut, message: ": el rut ingresado ya esta en el sistema"
 
  	validates_presence_of :Nombre, message: ": por favor complete el espacio en blanco (campo obligatorio)"
  	
