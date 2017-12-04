@@ -43,6 +43,22 @@ class AreasController < ApplicationController
     end
   end
 
+   def nuevo2
+    @areas = Area.new
+  end
+
+  def crear2
+    @areas = Area.new(area_params)
+    respond_to do |format|
+        if @areas.save
+            format.html {redirect_to asignar_area_url(params[:id],@areas), notice: 'Se Persistio la persona'}
+          else
+            format.html {render :nuevo2}
+            puts "no se guardo"
+          end
+      end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_area

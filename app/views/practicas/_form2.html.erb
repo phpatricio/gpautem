@@ -1,0 +1,26 @@
+<section class="content invoice">
+    <div class="row">
+        <div class="col-md-10">
+            <%= form_for(@practica,url: crear_oferta_path ,:html => {:role => 'form'}) do |f| %>
+            <div class="form-group">
+                <%= f.label :fecha_inicio %>
+                <%= f.date_select :fecha_inicio ,:class => "form-control" %>
+                </br>
+            </div>
+            <div class="form-group">
+                <%= f.label :fecha_termino %>
+                <%= f.date_select :fecha_termino,:class => "form-control"  %>
+                </br>
+            </div>
+            <div class="form-group">
+                <%= f.label :descripcion_p %>
+                <%= f.text_area :descripcion_p,:class => "form-control"  %>
+                </br>
+            </div>
+            <div class="form-group">
+                <%= f.submit %>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</section> 

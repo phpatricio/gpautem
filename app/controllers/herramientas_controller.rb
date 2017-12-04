@@ -43,6 +43,32 @@ class HerramientasController < ApplicationController
     end
   end
 
+  def nuevo2
+    @herramienta = Herramienta.new
+  end
+
+  def crear2
+    @herramienta = Herramienta.new(herramienta_params)
+    @herramienta.nombre =@herramienta.nombre.capitalize
+    if Herramienta.where(nombre: @herramienta.nombre).blank? ==false
+        @id = Herramienta.new
+        @id=Herramienta.select("id").where("nombre= ?", @herramienta.nombre)
+        respond_to do |format|
+        format.html {redirect_to asignar_herramienta_url(params[:id],@id.ids), notice: 'Se Persistio la persona'}
+    end
+    else
+
+      respond_to do |format|
+          if @herramienta.save
+              format.html {redirect_to asignar_herramienta_url(params[:id],@herramienta), notice: 'Se Persistio la persona'}
+            else
+              format.html {render :nuevo2}
+              puts "no se guardo"
+            end
+        end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_herramienta

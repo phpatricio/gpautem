@@ -1,0 +1,41 @@
+<section class="content invoice">
+    <div class="row">
+        <div class="col-md-10">
+            <%= form_for(@profesionalGuia,url: crear_profesionalGuia_url(params[:id]), :html => {:role => 'form'}) do |f| %>
+            <div class="form-group">
+                <%= f.label :rut %>
+                <%= f.text_field :rut,:class => "form-control" %>
+                </br>
+            </div>
+            <div class="form-group">
+                <%= f.label :Nombre %>
+                <%= f.text_field :Nombre,:class => "form-control" %>
+                </br>
+            </div>
+            <div class="form-group">
+                <%= f.label :Cargo %>
+                <%= f.text_field :Cargo,:class => "form-control"  %>
+                </br>
+            </div>
+            <div class="form-group">
+                <%= f.label :Email %>
+                <%= f.text_field :Email,:class => "form-control"  %>
+                </br>
+            </div>
+            <div class="form-group">
+                <%= f.label :Direccion %>
+                <%= f.text_field :Direccion,:class => "form-control"  %>
+                </br>
+            </div>
+            <div class="form-group">
+                <%= f.label :Telefono %>
+                <%= f.text_field :Telefono,:class => "form-control"  %>
+                </br>
+            </div>
+            <div class="form-group">
+                <%= f.submit %>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</section>
