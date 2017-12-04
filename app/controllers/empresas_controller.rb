@@ -42,6 +42,24 @@ class EmpresasController < ApplicationController
       format.html {redirect_to empresas_path, notice: 'Se elimino la empresa'}
     end
   end
+
+  def nuevo2
+    @empresas = Empresa.new
+  end
+
+  def crear2
+    @empresas = Empresa.new(empresa_params)
+    respond_to do |format|
+        if @empresas.save
+            format.html {redirect_to asignarEmpresas_url(params[:id],@empresas.id), notice: 'Se Persistio la persona'}
+          else
+            format.html {render :nuevo2}
+            puts "no se guardo"
+          end
+      end
+  end
+
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_empresa

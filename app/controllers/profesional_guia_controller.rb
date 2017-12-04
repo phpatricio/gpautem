@@ -42,6 +42,21 @@ class ProfesionalGuiaController < ApplicationController
 		
 	def editar
 	end
+	def nuevo2
+		@profesionalGuia = ProfesionalGuia.new
+	end
+
+	def crear2
+		@profesionalGuia = ProfesionalGuia.new(profesionalGuia_params)
+		respond_to do |format|
+     	 	if @profesionalGuia.save
+        		format.html {redirect_to asignar_profesionalGuia_url(params[:id],@profesionalGuia), notice: 'Se Persistio la persona'}
+      		else
+        		format.html {render :nuevo2}
+        		puts "no se guardo"
+      		end
+    	end
+	end
 
 	private
 

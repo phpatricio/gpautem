@@ -15,6 +15,16 @@ Rails.application.routes.draw do
   patch '/areas/:id', to: 'areas#update'
   get 'areas/:id/editar', to: 'areas#editar', as: 'editar_area'
   delete 'areas/:id', to: 'areas#eliminar',as: 'eliminar_area'
+
+
+
+  #----------------------rutas para formulario de ingreso de oferta de practica--------------
+
+  get 'areas/nuevo2/:id', to: 'areas#nuevo2', as: 'nueva_area'
+  post '/areas2/:id', to: 'areas#crear2', as: 'crear_area'
+  get 'areas2/crear2'
+
+
   #*******************************************************************************************
 
 
@@ -28,6 +38,41 @@ Rails.application.routes.draw do
   patch '/practicas/:id', to: 'practicas#update'
   get 'practicas/:id/editar', to: 'practicas#editar', as: 'editar_practica'
   delete 'practicas/:id', to: 'practicas#eliminar', as: 'eliminar_practica'
+
+  #----------------------rutas para formulario de ingreso de oferta de practica--------------
+
+  get 'oferta/', to: 'practicas#nuevo2', as: 'nueva_oferta'
+  get 'oferta/crear'
+  post '/oferta', to: 'practicas#crear2', as: 'crear_oferta'
+
+  
+  patch 'practicas/:id/:id2', to: 'practicas#asignar_llaves_profesionalGuia', as: 'asignar_profesionalGuia'
+  put 'practicas/:id/:id2', to: 'practicas#asignar_llaves_profesionalGuia'
+  get 'practicas/:id/:id2', to: 'practicas#asignar_llaves_profesionalGuia'
+
+  patch 'practicas2/:id/:id2', to: 'practicas#asignar_llaves_empresa', as: 'asignarEmpresas'
+  put 'practica2s/:id/:id2', to: 'practicas#asignar_llaves_empresa'
+  get 'practicas2/:id/:id2', to: 'practicas#asignar_llaves_empresa'
+
+  patch 'practicas3/:id/:id2', to: 'practicas#asignar_llaves_area', as: 'asignar_area'
+  put 'practica3s/:id/:id2', to: 'practicas#asignar_llaves_area'
+  get 'practicas3/:id/:id2', to: 'practicas#asignar_llaves_area'
+
+  patch 'practicas4/:id/:id2', to: 'practicas#asignar_llaves_herramienta', as: 'asignar_herramienta'
+  put 'practica4s/:id/:id2', to: 'practicas#asignar_llaves_herramienta'
+  get 'practicas4/:id/:id2', to: 'practicas#asignar_llaves_herramienta'
+
+  patch 'practicas5/:id/:id2', to: 'practicas#asignar_llaves_seguimiento', as: 'asignar_seguimiento'
+  put 'practica5s/:id/:id2', to: 'practicas#asignar_llaves_seguimiento'
+  get 'practicas5/:id/:id2', to: 'practicas#asignar_llaves_seguimiento'
+
+  patch 'practicas6/:id/:id2', to: 'practicas#asignar_llaves_evaluacion', as: 'asignar_evaluacion'
+  put 'practica6s/:id/:id2', to: 'practicas#asignar_llaves_evaluacion'
+  get 'practicas6/:id/:id2', to: 'practicas#asignar_llaves_evaluacion'
+
+
+
+  
   
   #*******************************RUTAS SEGUIMIENTOS******************************************
 
@@ -40,6 +85,10 @@ Rails.application.routes.draw do
   patch '/seguimientos/:id', to: 'seguimientos#update'
   get 'seguimientos/:id/editar', to: 'seguimientos#editar', as: 'editar_seguimiento'
   delete 'seguimientos/:id', to: 'seguimientos#eliminar', as: 'eliminar_seguimiento'
+
+  #----------------------rutas para formulario de ingreso de oferta de practica--------------
+
+  get 'seguimientos2/:id', to: 'seguimientos#crear2', as: 'crear_seguimientos2'
   #*******************************************************************************************
 
 
@@ -55,6 +104,12 @@ Rails.application.routes.draw do
   get 'profesional_guia/:id', to: 'profesional_guia#mostrar', as: 'profesional_guia'
   get 'profesional_guia/:id/editar', to: 'profesional_guia#editar', as: 'profesional_guium'
   delete 'profesional_guia/:id', to: 'profesional_guia#eliminar'
+
+  #----------------------rutas para formulario de ingreso de oferta de practica--------------
+
+  get 'profesional_guia/nuevo2/:id', to: 'profesional_guia#nuevo2', as: 'nuevo_profesionalGuia'
+  post '/profesional_guia2/:id', to: 'profesional_guia#crear2', as: 'crear_profesionalGuia'
+  get 'profesional_guia2/crear2'
 #***********************************************************************************************
 
   # resources :convenios
@@ -78,6 +133,14 @@ put 'herramientas/:id', to: 'herramientas#update'
 patch '/herramientas/:id/editar', to: 'herramientas#update'
 get 'herramientas/:id/editar', to: 'herramientas#editar', as:'herramientum'
 delete 'herramientas/:id', to: 'herramientas#eliminar', as: 'eliminar_herramienta'
+#----------------------rutas para formulario de ingreso de oferta de practica--------------
+
+  get 'herramientas/nuevo2/:id', to: 'herramientas#nuevo2', as: 'nueva_herramienta'
+  post '/herramientas2/:id', to: 'herramientas#crear2', as: 'crear_herramienta'
+  get 'herramientas2/crear2'
+
+
+#*********************************************************************************************
 
   #resources :empresas
 get 'empresas/', to: 'empresas#index'
@@ -90,6 +153,17 @@ patch '/empresas/:id', to: 'empresas#update'
 get 'empresas/:id/editar', to: 'empresas#editar', as:'editar_empresa'
 delete 'empresas/:id', to: 'empresas#eliminar', as: 'eliminar_empresa'
 
+#----------------------rutas para formulario de ingreso de oferta de practica--------------
+
+get 'empresas/nuevo2/:id', to: 'empresas#nuevo2', as: 'nueva_empresa'
+post '/empresas2/:id', to: 'empresas#crear2', as: 'crear_empresa'
+get 'empresas2/crear2'
+
+
+#*************************************************************************************
+
+
+
   #resources :evaluacions
 get 'evaluacions/', to: 'evaluacions#index'
 get 'evaluacions/nuevo', to: 'evaluacions#nuevo'
@@ -100,6 +174,12 @@ put 'evaluacions/:id', to: 'evaluacions#update'
 patch '/evaluacions/:id', to: 'evaluacions#update'
 get 'evaluacions/:id/editar', to: 'evaluacions#editar', as:'editar_evaluacion'
 delete 'evaluacions/:id', to: 'evaluacions#eliminar', as: 'eliminar_evaluacion'
+#----------------------rutas para formulario de ingreso de oferta de practica--------------
+
+  get 'evaluacions2/:id', to: 'evaluacions#crear2', as: 'crear_evaluacion'
+
+#***************************************************************************************
+
 
   
   resources :alumnos

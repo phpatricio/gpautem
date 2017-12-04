@@ -50,6 +50,24 @@ class SeguimientosController < ApplicationController
     end
   end
 
+  def crear2
+    @seguimiento = Seguimiento.new
+    @seguimiento.fecha_1 = Date.parse("Dec 8 1993")
+    @seguimiento.fecha_2 = Date.parse("Dec 9 1993")
+    @seguimiento.fecha_3 = Date.parse("Dec 10 1993")
+    @seguimiento.comentario_visita_1 = "observacion 1"
+    @seguimiento.comentario_visita_2 = "observacion 2"
+    @seguimiento.comentario_visita_3 = "observacion 3"
+    respond_to do |format|
+        if @seguimiento.save
+            format.html {redirect_to asignar_seguimiento_url(params[:id],@seguimiento), notice: 'Se Persistio la persona'}
+          else
+            
+            puts "no se guardo"
+          end
+      end
+  end
+
   private
     
     def set_seguimiento

@@ -1,0 +1,21 @@
+<section class="content invoice">
+    <div class="row">
+        <div class="col-md-10">
+            <%= form_for(@empresas,url: crear_empresa_url(params[:id]), :html => {:role => 'form'}) do |f| %>
+            <div class="form-group">
+                <%= f.label :rut_empresa %>
+                <%= f.text_field :rut_empresa,:class => "form-control" %>
+                </br>
+            </div>
+            <div class="form-group">
+                <%= f.label :nombre_empresa %>
+                <%= f.text_field :nombre_empresa,:class => "form-control" %>
+                </br>
+            </div>
+            <div class="form-group">
+                <%= f.submit %>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</section>
