@@ -1,5 +1,7 @@
 class Alumno < ApplicationRecord
 
+	has_one :practica
+
 	validates_presence_of :nombre, message: ": por favor complete el espacio en blanco (campo obligatorio)"
 	validates_presence_of :apellido, message: ": por favor complete el espacio en blanco (campo obligatorio)"
 	validate :uniqueness_of_rut, on: :create

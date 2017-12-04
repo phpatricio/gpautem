@@ -44,6 +44,21 @@ class PracticasController < ApplicationController
 		end
 	end
 
+	def estadistica_herramienta
+		@cant = Herramienta.joins(:practica).select(:nombre).group(:nombre).count
+		
+	end
+
+	def estadistica_empresa
+		@emp = Empresa.joins(:practica).select(:nombre_empresa).group(:nombre_empresa).count
+		
+	end
+
+	def estadistica_area
+		@are = Area.joins(:practica).select(:nombre).group(:nombre).count
+		
+	end
+
 	private
 
 		def set_practica

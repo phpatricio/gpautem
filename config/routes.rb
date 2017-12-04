@@ -28,6 +28,10 @@ Rails.application.routes.draw do
   patch '/practicas/:id', to: 'practicas#update'
   get 'practicas/:id/editar', to: 'practicas#editar', as: 'editar_practica'
   delete 'practicas/:id', to: 'practicas#eliminar', as: 'eliminar_practica'
+  get 'estadistica_herramientas/', to: 'practicas#estadistica_herramienta'
+  get 'estadistica_empresa/', to: 'practicas#estadistica_empresa'
+  get 'estadistica_area/', to: 'practicas#estadistica_area'
+  
   
   #*******************************RUTAS SEGUIMIENTOS******************************************
 
@@ -102,9 +106,12 @@ get 'evaluacions/:id/editar', to: 'evaluacions#editar', as:'editar_evaluacion'
 delete 'evaluacions/:id', to: 'evaluacions#eliminar', as: 'eliminar_evaluacion'
 
   
+get 'estadistica_alum/', to: 'alumnos#estadistica_alum'
   resources :alumnos
   get 'welcome/index'
   root :to => "welcome#index"
   devise_for :users, :controllers => { registrations: 'registrations' }
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

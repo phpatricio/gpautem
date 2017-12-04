@@ -52,11 +52,11 @@
         <ul class="sub-menu active" style="display: none;" id="o">
         <%= nav_link seguimientos_path do %>
             <i class="fa fa-list"></i>
-            Listar Evaluaciones
+            Listar Segumientos
         <% end %>
         <%= nav_link seguimientos_nuevo_path do %>
             <i class="fa fa-plus"></i>
-            Agregar Evaluacion
+            Agregar Segumiento
         <% end %>
         </ul>
     </li>
@@ -140,7 +140,7 @@
     </li>
     <li class="treeview" id="r">
           <a >
-            <i class="fa fa-square"></i> <span>Area</span>
+            <i class="fa fa-square"></i> <span>Areas</span>
             <span class="pull-right-container" >
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -148,11 +148,11 @@
           <ul class="sub-menu active" style="display: none;" id="s">
             <%= nav_link areas_path do %>
               <i class="fa fa-list"></i>
-               Listar Evaluaciones
+               Listar Areas
            <% end %>
            <%= nav_link areas_nuevo_path do %>
               <i class="fa fa-plus"></i>
-               Agregar Evaluacion
+               Agregar Area
            <% end %>
           </ul>
     </li>
@@ -194,7 +194,7 @@
     </li>
     <li class="treeview" id="1">
           <a >
-            <i class="fa fa-male"></i> <span>Profesionales guia</span>
+            <i class="fa fa-male"></i> <span>Profesionales Guia</span>
             <span class="pull-right-container" >
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -202,11 +202,11 @@
           <ul class="sub-menu active" style="display: none;" id="2">
             <%= nav_link profesional_guia_index_path do %>
               <i class="fa fa-list"></i>
-               Listar Empresas
+               Listar Profesionales Guia
            <% end %>
            <%= nav_link profesional_guia_nuevo_path do %>
               <i class="fa fa-plus"></i>
-               Agregar Empresa
+               Agregar Profesional Guia
            <% end %>
           </ul>
     </li>
@@ -220,11 +220,38 @@
           <ul class="sub-menu active" style="display: none;" id="4">
             <%= nav_link herramienta_index_path do %>
               <i class="fa fa-list"></i>
-               Listar Empresas
+               Listar Herramientas
            <% end %>
            <%= nav_link herramientas_nuevo_path do %>
               <i class="fa fa-plus"></i>
-               Agregar Empresa
+               Agregar Herramienta
+           <% end %>
+          </ul>
+    </li>
+    <li class="treeview" id="5">
+          <a >
+            <i class="fa-area-chart"></i> <span>Estadisticas</span>
+            <span class="pull-right-container" >
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+
+          <ul class="sub-menu active" style="display: none;" id="6">
+            <%= nav_link estadistica_alum_path do %>
+              <i class="fa fa-list"></i>
+               Segun Año de Practica 
+           <% end %>
+           <%= nav_link estadistica_area_path do %>
+              <i class="fa fa-list"></i>
+               Segun Area 
+           <% end %>
+           <%= nav_link estadistica_empresa_path do %>
+              <i class="fa fa-list"></i>
+               Segun Empresa 
+           <% end %>
+           <%= nav_link estadistica_herramientas_path do %>
+              <i class="fa fa-list"></i>
+               Segun Herramienta 
            <% end %>
           </ul>
     </li>
@@ -341,6 +368,18 @@ $(document).ready(function(){
     $("#3").click(function(){
     
         $("#4").slideToggle();
+    });
+    $("#a").click(function(){
+    
+        $("#y").slideToggle();
+    });
+});
+</script>
+<script>
+$(document).ready(function(){
+    $("#5").click(function(){
+    
+        $("#6").slideToggle();
     });
     $("#a").click(function(){
     

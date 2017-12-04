@@ -1,4 +1,6 @@
 class Practica < ApplicationRecord
+
+  has_one :alumno
   has_one :profesional_guia
   has_one :convenio
   has_one :empresa

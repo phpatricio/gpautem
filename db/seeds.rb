@@ -9,4 +9,7 @@
    Role.create(nombre: 'admin', descripcion: "que sucede")
    Role.create(nombre: 'secretaria', descripcion: "que sucede")
    Role.create(nombre: 'profesorguia', descripcion: "que sucede")
-   
+   Codigo.create(codigo_carrera: 21030)
+   Codigo.create(codigo_carrera: 21041)
+   Semestre.create(numero_semestre: 1)
+   Semestre.create(numero_semestre: 2)
