@@ -197,6 +197,11 @@ delete 'evaluacions/:id', to: 'evaluacions#eliminar', as: 'eliminar_evaluacion'
 
   
 get 'estadistica_alum/', to: 'alumnos#estadistica_alum'
+put 'trato/:id', to: 'alumnos#update2'
+patch '/trato/:id', to: 'alumnos#update2', as: 'ed'
+get 'trato/:id/editar2', to: 'alumnos#editar2', as:'trato'
+get 'alumnos_sin_asignar/', to: 'alumnos#alumnos_sin_asignar'
+
   resources :alumnos
   get 'welcome/index'
   root :to => "welcome#index"

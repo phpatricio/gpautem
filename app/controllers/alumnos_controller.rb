@@ -1,6 +1,6 @@
 class AlumnosController < ApplicationController
   load_and_authorize_resource
-  before_action :set_alumno, only: [:show, :edit, :update, :destroy]
+  before_action :set_alumno, only: [:show, :edit, :editar2, :update, :update2, :destroy]
   before_action :authenticate_user!
 
   # GET /alumnos
@@ -8,6 +8,10 @@ class AlumnosController < ApplicationController
   def index
     
     @alumnos = Alumno.all.paginate(page: params[:page], per_page: 5)
+  end
+
+  def alumnos_sin_asignar
+    @alumnos = Alumno.where(user_id: nil)
   end
 
   # GET /alumnos/1
@@ -55,6 +59,21 @@ class AlumnosController < ApplicationController
     end
   end
 
+  def update2
+    respond_to do |format|
+      if @alumno.update(alumno_params)
+        format.html { redirect_to @alumno, notice: 'Alumno editado con exito' }
+        format.json { render :show, status: :ok, location: @alumno }
+      else
+        format.html { render :edit }
+        format.json { render json: @alumno.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def editar2
+  end
+
   # DELETE /alumnos/1
   # DELETE /alumnos/1.json
   def destroy
@@ -78,6 +97,6 @@ class AlumnosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def alumno_params
-      params.require(:alumno).permit(:nombre, :apellido, :rut, :codigo_carrera, :semestre, :ano)
+      params.require(:alumno).permit(:nombre, :apellido, :rut, :codigo_carrera, :semestre, :ano, :user_id)
     end
 end
