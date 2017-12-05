@@ -48,7 +48,8 @@ Rails.application.routes.draw do
   get 'oferta/crear'
   post '/oferta', to: 'practicas#crear2', as: 'crear_oferta'
 
-  
+  get 'pregunta_convenio/:id', to: 'practicas#pregunta_convenio', as: 'preguntaC'
+
   patch 'practicas/:id/:id2', to: 'practicas#asignar_llaves_profesionalGuia', as: 'asignar_profesionalGuia'
   put 'practicas/:id/:id2', to: 'practicas#asignar_llaves_profesionalGuia'
   get 'practicas/:id/:id2', to: 'practicas#asignar_llaves_profesionalGuia'
@@ -72,6 +73,10 @@ Rails.application.routes.draw do
   patch 'practicas6/:id/:id2', to: 'practicas#asignar_llaves_evaluacion', as: 'asignar_evaluacion'
   put 'practica6s/:id/:id2', to: 'practicas#asignar_llaves_evaluacion'
   get 'practicas6/:id/:id2', to: 'practicas#asignar_llaves_evaluacion'
+
+  patch 'practicas7/:id/:id2', to: 'practicas#asignar_llaves_convenio', as: 'asignar_convenio'
+  put 'practica7s/:id/:id2', to: 'practicas#asignar_llaves_convenio'
+  get 'practicas7/:id/:id2', to: 'practicas#asignar_llaves_convenio'
 
 
   
@@ -114,7 +119,7 @@ Rails.application.routes.draw do
   get 'profesional_guia2/crear2'
 #***********************************************************************************************
 
-  # resources :convenios
+#*****************************RUTAS CONVENIOS***************************************************
 get 'convenios/', to: 'convenios#index'
 get 'convenios/nuevo', to: 'convenios#nuevo'
 get 'convenios/crear'
@@ -124,6 +129,13 @@ put 'convenios/:id', to: 'convenios#update'
 patch '/convenios/:id', to: 'convenios#update'
 get 'convenios/:id/editar', to: 'convenios#editar', as:'editar_convenio'
 delete 'convenios/:id', to: 'convenios#eliminar', as: 'eliminar_convenio'
+
+#----------------------rutas para formulario de ingreso de oferta de practica--------------
+
+get 'convenios/nuevo2/:id', to: 'convenios#nuevo2', as: 'nuevo_convenio'
+post '/convenios2/:id', to: 'convenios#crear2', as: 'crear_convenio'
+get 'convenios2/crear2'
+#***********************************************************************************************
 
   #resources :herramienta
 get 'herramientas/', to: 'herramientas#index', as: 'herramienta_index'

@@ -44,6 +44,32 @@ class ConveniosController < ApplicationController
     end
   end
 
+  def nuevo2
+    @convenios = Convenio.new
+  end
+
+  def crear2
+    @convenios = Convenio.new(convenio_params)
+    @convenios.nombre =@convenios.nombre.capitalize
+    if Convenio.where(nombre: @convenios.nombre).blank? ==false
+        @id = Convenio.new
+        @id=Convenio.select("id").where("nombre= ?", @convenios.nombre)
+        respond_to do |format|
+        format.html {redirect_to asignar_convenio_url(params[:id],@id.ids), notice: 'Se Persistio la persona'}
+    end
+    else
+
+      respond_to do |format|
+          if @convenios.save
+              format.html {redirect_to asignar_convenio_url(params[:id],@convenios), notice: 'Se Persistio la persona'}
+            else
+              
+              puts "no se guardo"
+            end
+        end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_convenio

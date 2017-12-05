@@ -59,6 +59,9 @@ class PracticasController < ApplicationController
 		
 	end
 
+  def pregunta_convenio
+    @id=Practica.find(params[:id])
+  end  
 	
 	def nuevo2
 		@practica =Practica.new
@@ -92,10 +95,19 @@ class PracticasController < ApplicationController
   		@practica.empresa_id =params[:id2]
   		@practica.save
   		respond_to do |format|
-  			format.html {redirect_to nueva_area_url(@practica), notice: 'Se persisitio los datos'}
+  			format.html {redirect_to preguntaC_url(params[:id]), notice: 'Se persisitio los datos'}
   		end
 
   	end
+    def asignar_llaves_convenio
+      @practica = Practica.find(params[:id])
+      @practica.convenio_id =params[:id2]
+      @practica.save
+      respond_to do |format|
+        format.html {redirect_to nueva_area_url(params[:id]), notice: 'Se persisitio los datos'}
+      end
+
+    end
   	def asignar_llaves_area
   		@practica = Practica.find(params[:id])
   		@practica.area_id =params[:id2]
