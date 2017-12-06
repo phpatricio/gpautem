@@ -201,6 +201,8 @@ put 'trato/:id', to: 'alumnos#update2'
 patch '/trato/:id', to: 'alumnos#update2', as: 'ed'
 get 'trato/:id/editar2', to: 'alumnos#editar2', as:'trato'
 get 'alumnos_sin_asignar/', to: 'alumnos#alumnos_sin_asignar'
+get 'listar_alumnos/', to: 'alumnos#listar_alumnos'
+
 
   resources :alumnos
   get 'welcome/index'

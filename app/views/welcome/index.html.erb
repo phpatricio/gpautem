@@ -7,6 +7,7 @@
   <section class="content invoice">
   
     <div class="row">
+        <% if current_user.role.nombre == "admin"%>
         <div class="col-md-3">
             <div class="small-box bg-aqua">
                 <div class="inner">
@@ -21,6 +22,24 @@
             </div>
             
         </div>	
+        <% end %>
+        <% if current_user.role.nombre == "profesorguia"%>
+        <div class="col-md-3">
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    
+                  <h1>Revisa tus alumnos</h1> 
+                  <label>En el sistema</label>
+                </div> 
+                <div class="icon">
+                    <i class="fa fa-users"></i>
+                </div>
+                <a href="../alumnos" class="small-box-footer">Mas información<i class="fa fa-chevron-right"></i></a>
+            </div>
+            
+        </div>  
+        <% end %>
+
         <div class="col-md-3">
             <div class="small-box bg-green">
                 <div class="inner">

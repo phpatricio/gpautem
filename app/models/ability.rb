@@ -35,7 +35,7 @@ class Ability
       can :read, :all
     end
     if user.profesorguia?
-      can :read, :all
+     can :read, :all
     end
   end
 end

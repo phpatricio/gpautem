@@ -2,7 +2,7 @@ class SeguimientosController < ApplicationController
   before_action :set_seguimiento, only: [:mostrar, :editar, :update, :eliminar]
   before_action :authenticate_user!
   def index
-    @seguimientos = Seguimiento.all.paginate(page: params[:page], per_page: 5)
+    @seguimientos = Seguimiento.all.paginate(page: params[:page], per_page: 10)
   end
 
 

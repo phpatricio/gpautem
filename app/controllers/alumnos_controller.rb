@@ -5,9 +5,16 @@ class AlumnosController < ApplicationController
 
   # GET /alumnos
   # GET /alumnos.json
+  
   def index
-    
-    @alumnos = Alumno.all.paginate(page: params[:page], per_page: 5)
+      authorize! :index,@alumnos
+      if (current_user.role.nombre == "admin")
+        
+      @alumnos = Alumno.all.paginate(page: params[:page], per_page: 10)
+      end
+      if (current_user.role.nombre == "profesorguia")
+      @alumnos = Alumno.where(user_id: current_user.id).where("ano = ?", Date.current.year).all.paginate(page: params[:page], per_page: 10)
+      end
   end
 
   def alumnos_sin_asignar
@@ -17,16 +24,18 @@ class AlumnosController < ApplicationController
   # GET /alumnos/1
   # GET /alumnos/1.json
   def show
+    authorize! :show,@alumnos
   end
 
   # GET /alumnos/new
   def new
-    authorize! :new, @alumnos
+    authorize! :new,@alumnos
     @alumno = Alumno.new
   end
 
   # GET /alumnos/1/edit
   def edit
+    authorize! :edit,@alumnos
   end
 
   # POST /alumnos
@@ -62,8 +71,7 @@ class AlumnosController < ApplicationController
   def update2
     respond_to do |format|
       if @alumno.update(alumno_params)
-        format.html { redirect_to @alumno, notice: 'Alumno editado con exito' }
-        format.json { render :show, status: :ok, location: @alumno }
+        format.html { redirect_to alumnos_sin_asignar_path, notice: 'Alumno editado con exito' }
       else
         format.html { render :edit }
         format.json { render json: @alumno.errors, status: :unprocessable_entity }
@@ -72,6 +80,11 @@ class AlumnosController < ApplicationController
   end
 
   def editar2
+  end
+
+  def listar_alumnos
+    @alumnos = Alumno.where(user_id: current_user.id).where("ano = ?", Date.current.year).all
+    
   end
 
   # DELETE /alumnos/1
