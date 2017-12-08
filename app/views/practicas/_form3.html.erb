@@ -1,0 +1,39 @@
+<section class="content invoice">
+    <div class="row">
+        <div class="col-md-10">
+            <%= form_for(@practica, :html => {:role => 'form'}) do |f| %>
+            <% if @practica.errors.any? %>
+            <div class="alert alert-danger alert-dismissable" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+              <h4><%= pluralize(@practica.errors.count, "error") %> </h4>
+              <ul>
+                <% @practica.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+            <% end %>
+            <div class="form-group">
+                <%= f.label :fecha_inicio %>
+                <%= f.date_select :fecha_inicio ,:class => "form-control" %>
+                </br>
+            </div>
+            <div class="form-group">
+                <%= f.label :fecha_termino %>
+                <%= f.date_select :fecha_termino,:class => "form-control"  %>
+                </br>
+            </div>
+            <div class="form-group">
+                <%= f.label :descripcion_p %>
+                <%= f.text_area :descripcion_p,:class => "form-control"  %>
+                </br>
+            </div>
+            
+            
+            <div class="form-group">
+                <%= f.submit %>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</section> 
