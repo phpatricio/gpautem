@@ -257,6 +257,42 @@
     </li>
     <% end %>
     <% if current_user.role.nombre == "secretaria"%>
+      <li class="treeview" id="p">
+        <a >
+          <i class="fa fa-file-text"></i> <span>Inscripcion de Alumno</span>
+          <span class="pull-right-container" >
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="sub-menu active" style="display: none;" id="x">
+          <%= nav_link new_alumno_path do %>
+          <i class="fa fa-plus"></i>
+          Agregar Alumno
+          <% end %>
+        </ul>
+      </li>
+
+      <li class="treeview" id="j">
+        <a >
+          <i class="fa fa-file-text"></i> <span>Ofertas de Practicas</span>
+          <span class="pull-right-container" >
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="sub-menu active" style="display: none;" id="k">
+          <%= nav_link practicas_path do %>
+          <i class="fa fa-list"></i>
+          Listar Practicas
+          <% end %>
+          <%= nav_link practicas_nuevo_path do %>
+          <i class="fa fa-plus"></i>
+          Agregar Practica
+          <% end %>
+        </ul>
+      </li>
+
+
+
     <% end %>
   </ul>
 

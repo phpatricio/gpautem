@@ -47,8 +47,10 @@
                      <%= link_to 'Editar', edit_alumno_path(alumno), :class => "btn btn-warning" %>
                      <%= link_to 'Eliminar' , alumno,:class => "btn btn-danger", method: :delete, data: { confirm: '¿Esta seguro de eliminar al alumno?' } %>
                      <% end %>
-                                         <%= link_to  'Evaluar', editar_evaluacion_url(alumno.practica.evaluacion_id), :class => "btn btn-success"%>
+                     <% if current_user.role.nombre == "profesorguia" %>
+                    <%= link_to  'Evaluar', editar_evaluacion_url(alumno.practica.evaluacion_id), :class => "btn btn-success"%>
                     <%= link_to 'Seguimiento', editar_seguimiento_url(alumno.practica.seguimiento_id), :class => "btn btn-warning" %>
+                    <% end %>
                      </div> 
                     </td>
                    
