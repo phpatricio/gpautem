@@ -48,7 +48,13 @@ Rails.application.routes.draw do
   get 'oferta/crear'
   post '/oferta', to: 'practicas#crear2', as: 'crear_oferta'
 
+
+  get 'oferta2/:id', to: 'practicas#nuevo3', as: 'nueva_oferta3'
+  post '/oferta2/:id', to: 'practicas#crear3', as: 'crear_oferta3'
+
   get 'pregunta_convenio/:id', to: 'practicas#pregunta_convenio', as: 'preguntaC'
+
+  get 'practicasDisponibles/:id', to: 'practicas#practicas_disponibles'
 
   patch 'practicas/:id/:id2', to: 'practicas#asignar_llaves_profesionalGuia', as: 'asignar_profesionalGuia'
   put 'practicas/:id/:id2', to: 'practicas#asignar_llaves_profesionalGuia'
@@ -203,6 +209,13 @@ get 'trato/:id/editar2', to: 'alumnos#editar2', as:'trato'
 get 'alumnos_sin_asignar/', to: 'alumnos#alumnos_sin_asignar'
 get 'listar_alumnos/', to: 'alumnos#listar_alumnos'
 
+
+ #----------------------rutas para formulario de ingreso de oferta de practica--------------
+
+  get 'ofertaAlumno/', to: 'alumnos#nuevo3' 
+  post '/ofertaAlumno', to: 'alumnos#crear3', as: 'crear_alumno'
+
+  get 'pregunta_alumno/:id', to: 'alumnos#escoger_opcion'
 
   resources :alumnos
   get 'welcome/index'

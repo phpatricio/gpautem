@@ -80,6 +80,23 @@ class PracticasController < ApplicationController
     	end
 	end
 
+  def nuevo3
+    @practica =Practica.new
+  end
+
+
+  def crear3
+    @practica = Practica.new(practica_params)
+    @practica.alumno_id=params[:id]
+    respond_to do |format|
+        if @practica.save
+            format.html {redirect_to nuevo_profesionalGuia_url(@practica), notice: 'Se Persistio la persona'}
+          else
+            format.html {render :nuevo2}
+          end
+      end
+  end
+
 	def asignar_llaves_profesionalGuia
   		@practica = Practica.find(params[:id])
   		@practica.profesional_guia_id =params[:id2]
@@ -164,6 +181,10 @@ class PracticasController < ApplicationController
           end
       end
     end
+
+  def practicas_disponibles
+      @practicas = Practica.all.where("fecha_inicio > ?", Date.current)
+  end
 
 	private
 

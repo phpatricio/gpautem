@@ -1,0 +1,139 @@
+<section class="content invoice">
+  <div class="row">
+    <div class="col-md-10">
+      <%= form_for(@alumno,url: crear_alumno_path(), :html => { :role => "form" }) do |f| %>
+        <% if @alumno.errors.any? %>
+          <div class="alert alert-danger alert-dismissable" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+            <h4><%= pluralize(@alumno.errors.count, "error") %> prohibited this alumno from being saved:</h4>
+
+            <ul>
+            <% @alumno.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+      <div class="form-group">
+        <%= f.label :nombre %>
+        <%= f.text_field :nombre, :class => "form-control",:id =>"nombre" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :apellido %>
+        <%= f.text_field :apellido, :class => "form-control",:id=>"apellido" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :rut %>
+        <%= f.text_field :rut, :class => "form-control", :id=>"rut" %>
+        <span class="help-block hidden " id="rut-valido" style ="color:red">Ingrese un rut valido.</span>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :codigo_carrera %>
+        <%= f.collection_select(:codigo_carrera, Codigo.all, :codigo_carrera, :codigo_carrera,{include_blank: 'Seleccione un opcion'}, :required => "true",:class => "form-control") %>
+      </div>
+      <div class="form-group">
+       <%= f.label :semestre %>
+       <%= f.collection_select(:semestre, Semestre.all, :numero_semestre, :numero_semestre,{include_blank: 'Seleccione un opcion'}, :required => "true",:class => "form-control") %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :año_practica %>
+        <% dates = 1993..Date.today.year %>
+        <%= f.select(:ano, dates.collect {|d| [d.to_s,d.to_s]}, {:include_blank => "Seleccione año"}, {:class => "form-control", :required =>"true"}) %>
+
+      </div>
+
+      <div class="form-group">
+        <%= f.submit :class => "btn btn-primary" %>
+      </div>
+
+    <% end %>
+    </div>
+  </div>
+</section> 
+<script>
+  $(document).ready(function(){
+  
+ 
+      var Fn = {
+        // Valida el rut con su cadena completa "XXXXXXXX-X"
+        validaRut : function (rutCompleto) {
+            rutCompleto = rutCompleto.replace("‐","-");
+            if (!/^[0-9]+[-|‐]{1}[0-9kK]{1}$/.test( rutCompleto ))
+                return false;
+            var tmp     = rutCompleto.split('-');
+            var digv    = tmp[1]; 
+            var rut     = tmp[0];
+            if ( digv == 'K' ) digv = 'k' ;
+            
+            return (Fn.dv(rut) == digv );
+        },
+        dv : function(T){
+            var M=0,S=1;
+            for(;T;T=Math.floor(T/10))
+                S=(S+T%10*(9-M++%6))%11;
+            return S?S-1:'k';
+        }
+    }
+
+
+    $("#rut").change(function(){
+        if (Fn.validaRut( $("#rut").val() )){
+            $("#rut-valido").addClass("hidden");
+          
+        } else {
+            $("#rut").val("");
+            $("#rut-valido").removeClass("hidden");
+          
+        }
+      });
+
+    $("#nombre").keypress(function (key) {
+            window.console.log(key.charCode)
+            if ((key.charCode < 97 || key.charCode > 122)//letras mayusculas
+                && (key.charCode < 65 || key.charCode > 90) //letras minusculas
+                && (key.charCode != 45) //retroceso
+                && (key.charCode != 241) //ñ
+                 && (key.charCode != 209) //Ñ
+                 && (key.charCode != 32) //espacio
+                 && (key.charCode != 225) //á
+                 && (key.charCode != 233) //é
+                 && (key.charCode != 237) //í
+                 && (key.charCode != 243) //ó
+                 && (key.charCode != 250) //ú
+                 && (key.charCode != 193) //Á
+                 && (key.charCode != 201) //É
+                 && (key.charCode != 205) //Í
+                 && (key.charCode != 211) //Ó
+                 && (key.charCode != 218) //Ú
+ 
+                )
+                return false;
+      });
+      $("#apellido").keypress(function (key) {
+        window.console.log(key.charCode)
+        if ((key.charCode < 97 || key.charCode > 122)//letras mayusculas
+            && (key.charCode < 65 || key.charCode > 90) //letras minusculas
+            && (key.charCode != 45) //retroceso
+            && (key.charCode != 241) //ñ
+             && (key.charCode != 209) //Ñ
+             && (key.charCode != 32) //espacio
+             && (key.charCode != 225) //á
+             && (key.charCode != 233) //é
+             && (key.charCode != 237) //í
+             && (key.charCode != 243) //ó
+             && (key.charCode != 250) //ú
+             && (key.charCode != 193) //Á
+             && (key.charCode != 201) //É
+             && (key.charCode != 205) //Í
+             && (key.charCode != 211) //Ó
+             && (key.charCode != 218) //Ú
+
+            )
+            return false;
+  });
+  });
+
+</script>

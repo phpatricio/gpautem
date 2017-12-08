@@ -102,6 +102,26 @@ class AlumnosController < ApplicationController
     
   end
 
+  def nuevo3
+    @alumno = Alumno.new
+  end
+
+  def crear3
+    @alumno = Alumno.new(alumno_params)
+      respond_to do |format|
+          if @alumno.save
+              format.html {redirect_to nueva_oferta_url(), notice: 'Se Persistio la persona'}
+            else
+              #format.html {render :nuevo2}
+              #puts "no se guardo"
+            end
+        end
+  end
+
+  def escoger_opcion
+    @id=params[:id]
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_alumno
