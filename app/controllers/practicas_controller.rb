@@ -157,7 +157,7 @@ class PracticasController < ApplicationController
   		@practica.evaluacion_id =params[:id2]
   		@practica.save
   		respond_to do |format|
-  			format.html {redirect_to practicas_path, notice: 'Se ingreso la practica correctamente'}
+  			format.html {redirect_to welcome_index_path, notice: 'Se ingreso la practica correctamente'}
   		end
 
   	end
@@ -183,7 +183,25 @@ class PracticasController < ApplicationController
     end
 
   def practicas_disponibles
-      @practicas = Practica.all.where("fecha_inicio > ?", Date.current)
+      @practicas = Practica.all.where("fecha_inicio >= ?", Date.current).where(alumno_id: nil)
+  end
+
+  def escoger_practica
+    @practica =Practica.find(params[:id2])
+    @empresa = Empresa.find(@practica.empresa_id)
+    @guia = ProfesionalGuia.find(@practica.profesional_guia_id)
+    @herramienta = Herramienta.find(@practica.herramienta_id)
+    @area = Area.find(@practica.area_id)
+
+  end
+
+  def asignar_practica
+    @practica = Practica.find(params[:id2])
+    respond_to do |format|
+      if @practica.update(alumno_id: params[:id])
+        format.html {redirect_to welcome_index_path, notice: 'la practica se asigno con exito'}
+      end
+    end
   end
 
 	private

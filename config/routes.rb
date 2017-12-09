@@ -54,7 +54,9 @@ Rails.application.routes.draw do
 
   get 'pregunta_convenio/:id', to: 'practicas#pregunta_convenio', as: 'preguntaC'
 
-  get 'practicasDisponibles/:id', to: 'practicas#practicas_disponibles'
+  get 'practicasDisponibles/:id', to: 'practicas#practicas_disponibles', as: 'disponibles'
+  get 'escogerPractica/:id/:id2', to: 'practicas#escoger_practica', as: 'ver_datos'
+  get 'asignarPractica/:id/:id2', to: 'practicas#asignar_practica', as: 'esta_practica'
 
   patch 'practicas/:id/:id2', to: 'practicas#asignar_llaves_profesionalGuia', as: 'asignar_profesionalGuia'
   put 'practicas/:id/:id2', to: 'practicas#asignar_llaves_profesionalGuia'
@@ -215,7 +217,7 @@ get 'listar_alumnos/', to: 'alumnos#listar_alumnos'
   get 'ofertaAlumno/', to: 'alumnos#nuevo3' 
   post '/ofertaAlumno', to: 'alumnos#crear3', as: 'crear_alumno'
 
-  get 'pregunta_alumno/:id', to: 'alumnos#escoger_opcion'
+  get 'pregunta_alumno/:id', to: 'alumnos#escoger_opcion', as: 'preguntar'
 
   resources :alumnos
   get 'welcome/index'

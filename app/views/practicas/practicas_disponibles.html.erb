@@ -40,11 +40,17 @@
                   <td> <%= practica.fecha_termino %> </td>
                   <% if practica.empresa_id != nil
                    a= Empresa.joins(:practica).where(id: practica.empresa_id) %> </td>
-                  <td><%= a[1][:nombre_empresa] %> </td>
+                  <td><%= a.first.nombre_empresa %> </td>
                   <%end%>
                   
                      </div> 
                     </td>
+                    <td>
+                      <div class="text-center">
+                        <%= link_to 'MOSTRAR', ver_datos_url(params[:id],practica),:class => "btn btn-info"%>
+                        </div>  </td>
+                     
+                    
                    
                   </tr>
                 <% end %> 

@@ -110,7 +110,7 @@ class AlumnosController < ApplicationController
     @alumno = Alumno.new(alumno_params)
       respond_to do |format|
           if @alumno.save
-              format.html {redirect_to nueva_oferta_url(), notice: 'Se Persistio la persona'}
+              format.html {redirect_to preguntar_url(@alumno.id), notice: 'Se Persistio la persona'}
             else
               #format.html {render :nuevo2}
               #puts "no se guardo"
