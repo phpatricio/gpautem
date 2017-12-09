@@ -92,7 +92,7 @@ class PracticasController < ApplicationController
         if @practica.save
             format.html {redirect_to nuevo_profesionalGuia_url(@practica), notice: 'Se Persistio la persona'}
           else
-            format.html {render :nuevo2}
+            format.html {render :nuevo3}
           end
       end
   end

@@ -1,7 +1,7 @@
 <section class="content invoice">
     <div class="row">
         <div class="col-md-10">
-            <%= form_for(@practica, :html => {:role => 'form'}) do |f| %>
+            <%= form_for(@practica,url: crear_oferta3_url(params[:id]), :html => {:role => 'form'}) do |f| %>
             <% if @practica.errors.any? %>
             <div class="alert alert-danger alert-dismissable" role="alert">
               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
