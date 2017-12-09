@@ -15,7 +15,7 @@
       <div class="box box-primary">
         <div class="box-header">
           <div class="box-tools pull-right">
-            <%= link_to practicas_nuevo_path(@practica), :class => 'btn btn-success' do %>
+            <%= link_to nueva_oferta_path(), :class => 'btn btn-success' do %>
               <span class="glyphicon glyphicon-plus"></span>
               Nueva Practica
             <% end %>          
@@ -33,35 +33,30 @@
               </tr>
             </thead>
               <tbody>
-                <% @practica.each do |practica| %>
+                <% @practicas.each do |practica| %>
               
                   <tr>
                   <td> <%= practica.fecha_inicio %> </td>
                   <td> <%= practica.fecha_termino %> </td>
                   <% if practica.empresa_id != nil
                    a= Empresa.joins(:practica).where(id: practica.empresa_id) %> </td>
-                  <td><%= a[1][:nombre_empresa] %> </td>
+                  <td><%= a.first.nombre_empresa %> </td>
                   <%end%>
-                  <td>
-                      <div class="text-center">
-                      <%= link_to 'MOSTRAR', practica_url(practica),:class => "btn btn-info"%>
-                      <%= link_to 'EDITAR', editar_practica_url(practica) , :class => "btn btn-warning"%> 
-                      <%= link_to 'ELIMINAR', eliminar_practica_url(practica),:class => "btn btn-danger", 
-                          method: :delete,
-                          data: {confirm: '¿ESTAS SEGURO?'} %> </td>
+                  
                      </div> 
                     </td>
+                    <td>
+                      <div class="text-center">
+                        <%= link_to 'MOSTRAR', ver_datos_url(params[:id],practica),:class => "btn btn-info"%>
+                        </div>  </td>
+                     
+                    
                    
                   </tr>
                 <% end %> 
               </tbody>
           </table>
-          <div class="apple_pagination">
-            <div class="page_info">
-              <%= page_entries_info @practica %>
-            </div>
-            <%= will_paginate @practica, :container => false, :value => "hola" %>
-          </div>
+          
         </div>   
       </div>
     </div>

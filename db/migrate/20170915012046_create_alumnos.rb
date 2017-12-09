@@ -7,7 +7,7 @@ class CreateAlumnos < ActiveRecord::Migration[5.0]
       t.integer :codigo_carrera
       t.integer :semestre
       t.integer :ano
-
+      t.references :user
       t.timestamps
     end
   end

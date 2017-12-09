@@ -2,7 +2,7 @@ class PracticasController < ApplicationController
 	before_action :set_practica, only: [:mostrar,:editar, :update, :eliminar]
 	before_action :authenticate_user!
 	def index
-		@practica = Practica.all.paginate(page: params[:page], per_page: 5)
+		@practica = Practica.all.paginate(page: params[:page], per_page: 10)
 	end
 
 	def nuevo
@@ -59,6 +59,9 @@ class PracticasController < ApplicationController
 		
 	end
 
+  def pregunta_convenio
+    @id=Practica.find(params[:id])
+  end  
 	
 	def nuevo2
 		@practica =Practica.new
@@ -77,6 +80,23 @@ class PracticasController < ApplicationController
     	end
 	end
 
+  def nuevo3
+    @practica =Practica.new
+  end
+
+
+  def crear3
+    @practica = Practica.new(practica_params)
+    @practica.alumno_id=params[:id]
+    respond_to do |format|
+        if @practica.save
+            format.html {redirect_to nuevo_profesionalGuia_url(@practica), notice: 'Se Persistio la persona'}
+          else
+            format.html {render :nuevo3}
+          end
+      end
+  end
+
 	def asignar_llaves_profesionalGuia
   		@practica = Practica.find(params[:id])
   		@practica.profesional_guia_id =params[:id2]
@@ -92,10 +112,19 @@ class PracticasController < ApplicationController
   		@practica.empresa_id =params[:id2]
   		@practica.save
   		respond_to do |format|
-  			format.html {redirect_to nueva_area_url(@practica), notice: 'Se persisitio los datos'}
+  			format.html {redirect_to preguntaC_url(params[:id]), notice: 'Se persisitio los datos'}
   		end
 
   	end
+    def asignar_llaves_convenio
+      @practica = Practica.find(params[:id])
+      @practica.convenio_id =params[:id2]
+      @practica.save
+      respond_to do |format|
+        format.html {redirect_to nueva_area_url(params[:id]), notice: 'Se persisitio los datos'}
+      end
+
+    end
   	def asignar_llaves_area
   		@practica = Practica.find(params[:id])
   		@practica.area_id =params[:id2]
@@ -128,7 +157,7 @@ class PracticasController < ApplicationController
   		@practica.evaluacion_id =params[:id2]
   		@practica.save
   		respond_to do |format|
-  			format.html {redirect_to practicas_path, notice: 'Se ingreso la practica correctamente'}
+  			format.html {redirect_to welcome_index_path, notice: 'Se ingreso la practica correctamente'}
   		end
 
   	end
@@ -152,6 +181,28 @@ class PracticasController < ApplicationController
           end
       end
     end
+
+  def practicas_disponibles
+      @practicas = Practica.all.where("fecha_inicio >= ?", Date.current).where(alumno_id: nil)
+  end
+
+  def escoger_practica
+    @practica =Practica.find(params[:id2])
+    @empresa = Empresa.find(@practica.empresa_id)
+    @guia = ProfesionalGuia.find(@practica.profesional_guia_id)
+    @herramienta = Herramienta.find(@practica.herramienta_id)
+    @area = Area.find(@practica.area_id)
+
+  end
+
+  def asignar_practica
+    @practica = Practica.find(params[:id2])
+    respond_to do |format|
+      if @practica.update(alumno_id: params[:id])
+        format.html {redirect_to welcome_index_path, notice: 'la practica se asigno con exito'}
+      end
+    end
+  end
 
 	private
 

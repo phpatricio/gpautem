@@ -49,14 +49,22 @@ class AreasController < ApplicationController
 
   def crear2
     @areas = Area.new(area_params)
-    respond_to do |format|
-        if @areas.save
-            format.html {redirect_to asignar_area_url(params[:id],@areas), notice: 'Se Persistio la persona'}
-          else
-            format.html {render :nuevo2}
-            puts "no se guardo"
-          end
+    if Area.where(nombre: @areas.nombre).blank? ==false
+        @id = Area.new
+        @id=Area.select("id").where("nombre= ?", @areas.nombre)
+        respond_to do |format|
+        format.html {redirect_to asignar_area_url(params[:id],@id.ids), notice: 'Se Persistio la area'}
+        end
+    else
+      
+      respond_to do |format|
+         if @areas.save
+              format.html {redirect_to asignar_area_url(params[:id],@areas), notice: 'Se Persistio la area'}
+         else
+               puts "no se guardo"
+         end
       end
+    end
   end
 
   private

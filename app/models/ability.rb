@@ -32,10 +32,10 @@ class Ability
       can :manage, :all
     end
     if user.secretaria?
-      can :read, :all
+      can :manage, :all
     end
     if user.profesorguia?
-      can :read, :all
+     can :read, :all
     end
   end
 end

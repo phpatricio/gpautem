@@ -49,14 +49,24 @@ class EmpresasController < ApplicationController
 
   def crear2
     @empresas = Empresa.new(empresa_params)
+    @empresas.nombre_empresa =@empresas.nombre_empresa.capitalize
+    if Empresa.where(nombre_empresa: @empresas.nombre_empresa).blank? ==false
+        @id = Empresa.new
+        @id=Empresa.select("id").where("nombre_empresa= ?", @empresas.nombre_empresa)
+        respond_to do |format|
+        format.html {redirect_to asignarEmpresas_url(params[:id],@id.ids), notice: 'Se Persistio la empresa'}
+    end
+    else
+    
     respond_to do |format|
         if @empresas.save
-            format.html {redirect_to asignarEmpresas_url(params[:id],@empresas.id), notice: 'Se Persistio la persona'}
+            format.html {redirect_to asignarEmpresas_url(params[:id],@empresas.id), notice: 'Se Persistio la empresa'}
           else
             format.html {render :nuevo2}
             puts "no se guardo"
           end
       end
+    end
   end
 
   
