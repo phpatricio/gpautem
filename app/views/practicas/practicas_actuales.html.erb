@@ -1,0 +1,78 @@
+<% content_for :content_header  do %>
+  <section class="content-header">
+    <h1>Mostrando <small>Practicas</small></h1>
+
+    <ol class="breadcrumb">
+      <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li class="active">Practicas</li>
+    </ol>    
+  </section>
+<% end %>
+
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box box-primary">
+        <div class="box-header">
+          <div class="box-tools pull-right">
+            <%= link_to practicas_nuevo_path(@practica), :class => 'btn btn-success' do %>
+              <span class="glyphicon glyphicon-plus"></span>
+              Nueva Practica
+            <% end %>          
+          </div>
+        </div>
+        <div class="box-body table-responsive" id="ocultar-tabla">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+              <th>Fecha Inicio</th>
+              <th>Fecha Termino</th>
+              <th class="text-center">Opciones</th>
+               
+              </tr>
+            </thead>
+              <tbody>
+                <% @practica.each do |practica| %>
+              
+                  <tr>
+                  <td> <%= practica.fecha_inicio %> </td>
+                  <td> <%= practica.fecha_termino %> </td>
+                  <% if practica.empresa_id != nil
+                   a= Empresa.joins(:practica).where(id: practica.empresa_id) %> </td>
+                  <td><%= a[1][:nombre_empresa] %> </td>
+                  <%end%>
+                  <td>
+                      <div class="text-center">
+                        <%if practica.profesional_guia_id == nil %>
+                           <%= link_to 'Completar', nuevo_profesionalGuia_url(practica.id),:class => "btn btn-info"%>
+                        <%elsif practica.empresa_id == nil %>
+                            <%= link_to 'Completar', nueva_empresa_url(practica.id),:class => "btn btn-info"%>
+                        <%elsif practica.convenio_id == nil and practica.area == nil %> 
+                            <%= link_to 'Completar', preguntaC_url(practica.id),:class => "btn btn-info"%>
+                        <%elsif practica.area_id == nil %>
+                            <%= link_to 'Completar', nueva_area_url(practica.id),:class => "btn btn-info"%>
+                        <%elsif practica.herramienta_id == nil%>
+                            <%= link_to 'Completar', nueva_herramienta_url(practica.id),:class => "btn btn-info"%>
+                        <%else%>
+                            <%= link_to 'Mostrar', mostrartodasP_url(practica.id),:class => "btn btn-info"%>
+                        <%end%>
+                        
+
+                     </div> 
+                    </td>
+                   
+                  </tr>
+                <% end %> 
+              </tbody>
+          </table>
+          <div class="apple_pagination">
+            <div class="page_info">
+              <%= page_entries_info @practica %>
+            </div>
+            <%= will_paginate @practica, :container => false, :value => "hola" %>
+          </div>
+        </div>   
+      </div>
+    </div>
+  </div>
+</section>
