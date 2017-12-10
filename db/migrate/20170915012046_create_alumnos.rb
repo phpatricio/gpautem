@@ -3,6 +3,7 @@ class CreateAlumnos < ActiveRecord::Migration[5.0]
     create_table :alumnos do |t|
       t.string :nombre
       t.string :apellido
+      t.string :email
       t.string :rut
       t.integer :codigo_carrera
       t.integer :semestre
