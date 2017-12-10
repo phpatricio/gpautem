@@ -41,7 +41,10 @@
                   <% if practica.empresa_id != nil
                    a= Empresa.joins(:practica).where(id: practica.empresa_id) %> </td>
                   <td><%= a.first.nombre_empresa %> </td>
+                  <%else%>
+                  <td>Sin empresa</td>
                   <%end%>
+
                   <td>
                       <div class="text-center">
                       <%= link_to 'MOSTRAR', practica_url(practica),:class => "btn btn-info"%>

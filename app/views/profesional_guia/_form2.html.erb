@@ -18,32 +18,32 @@
             <div class="form-group">
 
                 <%= f.label :rut %>
-                <%= f.text_field :rut,:class => "form-control" %>
+                <%= f.text_field :rut,:class => "form-control",:required =>"true" %>
                 </br>
             </div>
             <div class="form-group">
                 <%= f.label :Nombre %>
-                <%= f.text_field :Nombre,:class => "form-control" %>
+                <%= f.text_field :Nombre,:class => "form-control",:required =>"true" %>
                 </br>
             </div>
             <div class="form-group">
                 <%= f.label :Cargo %>
-                <%= f.text_field :Cargo,:class => "form-control"  %>
+                <%= f.text_field :Cargo,:class => "form-control"  ,:required =>"true"%>
                 </br>
             </div>
             <div class="form-group">
                 <%= f.label :Email %>
-                <%= f.text_field :Email,:class => "form-control"  %>
+                <%= f.email_field :Email,:class => "form-control",:required =>"true"  %>
                 </br>
             </div>
             <div class="form-group">
                 <%= f.label :Direccion %>
-                <%= f.text_field :Direccion,:class => "form-control"  %>
+                <%= f.text_field :Direccion,:class => "form-control",:required =>"true"  %>
                 </br>
             </div>
             <div class="form-group">
                 <%= f.label :Telefono %>
-                <%= f.text_field :Telefono,:class => "form-control"  %>
+                <%= f.text_field :Telefono,:class => "form-control" ,:required =>"true" %>
                 </br>
             </div>
             <div class="form-group">
