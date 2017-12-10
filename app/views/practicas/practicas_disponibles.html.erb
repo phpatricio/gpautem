@@ -41,6 +41,8 @@
                   <% if practica.empresa_id != nil
                    a= Empresa.joins(:practica).where(id: practica.empresa_id) %> </td>
                   <td><%= a.first.nombre_empresa %> </td>
+                  <% else %>
+                  <td>Sin empresa asignada </td>
                   <%end%>
                   
                      </div> 
