@@ -14,6 +14,7 @@
             </ul>
           </div>
         <% end %>
+        
 
       <div class="form-group">
         <%= f.label :nombre %>
@@ -55,7 +56,10 @@
 </section> 
 <script>
   $(document).ready(function(){
-      
+    $('.datepicker').datepicker({
+      language: 'es'
+   });
+  
     var Fn = {
         // Valida el rut con su cadena completa "XXXXXXXX-X"
         validaRut : function (rutCompleto) {
@@ -132,7 +136,9 @@
 
             )
             return false;
-  });
+       });
+
+              
   });
 
 </script>

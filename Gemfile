@@ -36,6 +36,7 @@ gem 'date_validator'
 gem 'cancancan', '~> 1.10'
 gem 'chosen-rails'
 gem 'chartkick'
+gem 'bootstrap-datepicker-rails'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

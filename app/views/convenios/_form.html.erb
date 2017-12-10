@@ -16,22 +16,19 @@
     <div class="form-group">
         <%= f.label :nombre %>
         <%= f.text_field :nombre,:class => "form-control" %>
-        </br>
+        <br>
     </div>
     <div class="form-group">
-        <%= f.label :fecha_inicio %>
-        <%= f.date_select :fecha_inicio ,:class => "form-control" %>
-        </br>
+         <%= f.label :fecha_inicio %>
+         <%= f.text_field :fecha_inicio,:class => "form-control datepicker" ,:readonly =>"true"  %> 
     </div>
     <div class="form-group">
-        <%= f.label :fecha_termino %>
-        <%= f.date_select :fecha_termino,:class => "form-control"  %>
-        </br>
+         <%= f.label :fecha_termino %>
+         <%= f.text_field :fecha_termino,:class => "form-control datepicker" ,:readonly =>"true"  %>
     </div>
     <div class="form-group">
         <%= f.label :descripcion %>
         <%= f.text_area :descripcion,:class => "form-control"  %>
-        </br>
     </div>
     <div class="form-group">
         <%= f.submit %>
@@ -40,3 +37,10 @@
   </div>
 </div>
 </section> 
+<script>
+$(document).ready(function(){
+    $('.datepicker').datepicker({
+         language: 'es'
+         });
+    });
+</script>

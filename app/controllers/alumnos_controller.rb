@@ -9,8 +9,14 @@ class AlumnosController < ApplicationController
   def index
       authorize! :index,@alumnos
       if (current_user.role.nombre == "admin")
-        
-      @alumnos = Alumno.all.paginate(page: params[:page], per_page: 10)
+        @q = params[:q]
+          if @q 
+            @query = Alumno.where(:rut => @q)
+            @alumnos = @query.paginate(page: params[:page], per_page: 5)
+          else
+            @alumnos = Alumno.all.paginate(page: params[:page], per_page: 5)
+          end
+      
       end
       if (current_user.role.nombre == "profesorguia")
       @alumnos = Alumno.where(user_id: current_user.id).where("ano = ?", Date.current.year).all.paginate(page: params[:page], per_page: 10)
