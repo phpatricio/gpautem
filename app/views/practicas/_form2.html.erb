@@ -2,6 +2,7 @@
     <div class="row">
         <div class="col-md-10">
             <%= form_for(@practica,url: crear_oferta_path ,:html => {:role => 'form'}) do |f| %>
+
                 <% if @practica.errors.any? %>
                 <div class="alert alert-danger alert-dismissable" role="alert">
                   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
@@ -14,6 +15,7 @@
                   </ul>
                 </div>
               <% end %>
+
             <div class="form-group">
                 <%= f.label :fecha_inicio %>
                 <%= f.date_select :fecha_inicio ,:class => "form-control" %>
@@ -25,7 +27,7 @@
                 </br>
             </div>
             <div class="form-group">
-                <%= f.label :descripcion_p %>
+                <%= f.label :descripcion %>
                 <%= f.text_area :descripcion_p,:class => "form-control"  %>
                 </br>
             </div>

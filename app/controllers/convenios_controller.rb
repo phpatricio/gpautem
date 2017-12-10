@@ -2,7 +2,7 @@ class ConveniosController < ApplicationController
   before_action :set_convenio, only: [:mostrar, :editar, :update, :eliminar]
   before_action :authenticate_user!
   def index 
-    @convenios = Convenio.all.paginate(page: params[:page], per_page: 5)
+    @convenios = Convenio.all.paginate(page: params[:page], per_page: 10)
   end
 
   def nuevo
@@ -63,8 +63,8 @@ class ConveniosController < ApplicationController
           if @convenios.save
               format.html {redirect_to asignar_convenio_url(params[:id],@convenios), notice: 'Se Persistio la persona'}
             else
-              
-              puts "no se guardo"
+              format.html {render :nuevo2}
+              #puts "no se guardo"
             end
         end
     end

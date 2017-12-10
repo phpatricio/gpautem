@@ -122,7 +122,7 @@ class AlumnosController < ApplicationController
           if @alumno.save
               format.html {redirect_to preguntar_url(@alumno.id), notice: 'Se Persistio la persona'}
             else
-              #format.html {render :nuevo2}
+              format.html {render :nuevo3}
               #puts "no se guardo"
             end
         end

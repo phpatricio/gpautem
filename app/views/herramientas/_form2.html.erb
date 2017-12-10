@@ -2,6 +2,17 @@
     <div class="row">
         <div class="col-md-10">
             <%= form_for(@herramienta,url: crear_herramienta_url(params[:id]), :html => {:role => 'form'}) do |f| %>
+            <% if @herramienta.errors.any? %>
+            <div class="alert alert-danger alert-dismissable" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+              <h4><%= pluralize(@herramienta.errors.count, "error") %> </h4>
+              <ul>
+                <% @herramienta.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+            <% end %>
             <div class="form-group">
                 <%= f.label :nombre %>
                 <%= f.text_field :nombre,:class => "form-control" %>

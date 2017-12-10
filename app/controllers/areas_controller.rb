@@ -2,7 +2,7 @@ class AreasController < ApplicationController
 	before_action :set_area, only: [:mostrar, :editar, :update, :eliminar]
   before_action :authenticate_user!
   def index 
-    @areas = Area.all.paginate(page: params[:page], per_page: 5)
+    @areas = Area.all.paginate(page: params[:page], per_page: 10)
   end
 
   def nuevo

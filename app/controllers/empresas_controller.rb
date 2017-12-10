@@ -2,7 +2,7 @@ class EmpresasController < ApplicationController
   before_action :set_empresa, only: [:mostrar, :editar, :update, :eliminar]
   before_action :authenticate_user!
   def index 
-    @empresas = Empresa.all.paginate(page: params[:page], per_page: 5)
+    @empresas = Empresa.all.paginate(page: params[:page], per_page: 10)
   end
 
   def nuevo

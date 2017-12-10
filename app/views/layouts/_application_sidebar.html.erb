@@ -44,6 +44,22 @@
 
     <% end %>
     <% if current_user.role.nombre == "admin"%>
+    <li class="treeview" id="z">
+          <a >
+            <i class="fa fa-users"></i> <span>Asignar Alumnos</span>
+            <span class="pull-right-container" >
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+
+          <ul class="sub-menu active" style="display: none;" id="q">
+           <%= nav_link alumnos_sin_asignar_path do %>
+              <i class="fa fa-plus"></i>
+               Sin Asignar
+           <% end %>
+          </ul>
+    </li>
+
     <li class="treeview" id="p">
           <a >
             <i class="fa fa-users"></i> <span>Alumnos</span>
@@ -401,6 +417,18 @@ $(document).ready(function(){
     $("#5").click(function(){
     
         $("#6").slideToggle();
+    });
+    $("#a").click(function(){
+    
+        $("#y").slideToggle();
+    });
+});
+</script>
+<script>
+$(document).ready(function(){
+    $("#z").click(function(){
+    
+        $("#q").slideToggle();
     });
     $("#a").click(function(){
     
