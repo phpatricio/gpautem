@@ -28,7 +28,7 @@ class AlumnosController < ApplicationController
   end
 
   def alumnos_sin_asignar
-    @alumnos = Alumno.where(user_id: nil,ano: Date.current.year)
+    @alumnos = Alumno.joins(:practica).where(user_id: nil,ano: Date.current.year)
   end
 
   # GET /alumnos/1
@@ -81,7 +81,7 @@ class AlumnosController < ApplicationController
   def update2
     respond_to do |format|
       if @alumno.update(alumno_params)
-        format.html { redirect_to alumnos_sin_asignar_path, notice: 'Alumno editado con exito' }
+        format.html { redirect_to alumnos_sin_asignar_path, notice: 'Alumno asignado con exito' }
       else
         format.html { render :edit }
         format.json { render json: @alumno.errors, status: :unprocessable_entity }

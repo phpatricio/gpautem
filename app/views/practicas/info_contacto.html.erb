@@ -1,0 +1,44 @@
+<% content_for :content_header  do %>
+    <section class="content-header">
+      <h1>Mostrando <small>Practicas</small></h1>
+  
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><%= link_to "Practicas", practicas_path %></li>
+        <li class="active">Mostrar</li>
+      </ol>
+    </section>
+  <% end %>
+  <section class="content">
+    <div class="row">
+      <div class="col-md-12">
+          <div class="panel panel-default">
+
+            </div>
+            <div class="panel-body">
+              
+              <dt>Empresa:</dt>
+              <dd><%= @empresa.nombre_empresa %></dd>
+              <dt>Direccion:</dt>
+              <dd><%= @guia.Direccion %></dd>
+              <dt>Profesional Guia:</dt>
+              <dd><%= @guia.Nombre %></dd>
+              <dt>Telefono:</dt>
+              <dd><%= @guia.Telefono %></dd>
+              <dt>Direccion:</dt>
+              <dd><%= @guia.Direccion %></dd>
+
+
+              
+
+              
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+

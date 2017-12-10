@@ -60,7 +60,9 @@ Rails.application.routes.draw do
 
   get 'ver_actuales', to: 'practicas#practicas_actuales'
 
-  get 'mostrartodasP/:id', to: 'practicas#mostrar2'
+  get 'mostrartodasP/:id', to: 'practicas#mostrar2', as: 'mostrar_2'
+
+  get 'contactar/:id', to: 'practicas#info_contacto', as: 'contactar'
 
   patch 'practicas/:id/:id2', to: 'practicas#asignar_llaves_profesionalGuia', as: 'asignar_profesionalGuia'
   put 'practicas/:id/:id2', to: 'practicas#asignar_llaves_profesionalGuia'
