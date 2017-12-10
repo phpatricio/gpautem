@@ -69,7 +69,6 @@ class EmpresasController < ApplicationController
             format.html {redirect_to asignarEmpresas_url(params[:id],@empresas.id), notice: 'Se Persistio la empresa'}
           else
             format.html {render :nuevo2}
-            puts "no se guardo"
           end
       end
     end
