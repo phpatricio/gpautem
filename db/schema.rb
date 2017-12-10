@@ -23,8 +23,10 @@ ActiveRecord::Schema.define(version: 20171122184018) do
     t.integer  "codigo_carrera"
     t.integer  "semestre"
     t.integer  "ano"
+    t.integer  "user_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.index ["user_id"], name: "index_alumnos_on_user_id", using: :btree
   end
 
   create_table "areas", force: :cascade do |t|
