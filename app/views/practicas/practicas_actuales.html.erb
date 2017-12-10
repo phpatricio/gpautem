@@ -27,8 +27,9 @@
               <tr>
               <th>Fecha Inicio</th>
               <th>Fecha Termino</th>
+              <th>Empresa</th>
               <th class="text-center">Opciones</th>
-               
+              
               </tr>
             </thead>
               <tbody>
@@ -39,7 +40,7 @@
                   <td> <%= practica.fecha_termino %> </td>
                   <% if practica.empresa_id != nil
                    a= Empresa.joins(:practica).where(id: practica.empresa_id) %> </td>
-                  <td><%= a[1][:nombre_empresa] %> </td>
+                  <td><%= a.first.nombre_empresa %> </td>
                   <%end%>
                   <td>
                       <div class="text-center">
@@ -47,19 +48,44 @@
                            <%= link_to 'Completar', nuevo_profesionalGuia_url(practica.id),:class => "btn btn-info"%>
                         <%elsif practica.empresa_id == nil %>
                             <%= link_to 'Completar', nueva_empresa_url(practica.id),:class => "btn btn-info"%>
-                        <%elsif practica.convenio_id == nil and practica.area == nil %> 
+                        <%elsif practica.convenio_id == nil and practica.area_id == nil %> 
                             <%= link_to 'Completar', preguntaC_url(practica.id),:class => "btn btn-info"%>
                         <%elsif practica.area_id == nil %>
                             <%= link_to 'Completar', nueva_area_url(practica.id),:class => "btn btn-info"%>
                         <%elsif practica.herramienta_id == nil%>
                             <%= link_to 'Completar', nueva_herramienta_url(practica.id),:class => "btn btn-info"%>
                         <%else%>
-                            <%= link_to 'Mostrar', mostrartodasP_url(practica.id),:class => "btn btn-info"%>
+                            <%= link_to 'Mostrar', mostrar_2_url(practica.id),:class => "btn btn-info"%>
                         <%end%>
-                        
+                        <% if  practica.herramienta_id != nil%>
+                      <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Editar
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                          <%= nav_link profesional_guium_url(practica.profesional_guia_id) do %>
+                            <li>profesional guia</li>
+                          <%end%>
+                          <%= nav_link editar_empresa_url(practica.empresa_id) do %>
+                          <li>empresa</li>
+                          <%end%>
+                          <%= nav_link editar_area_url(practica.area_id) do %>
+                          <li>area</li>
+                          <%end%>
+                          <%= nav_link herramientum_url(practica.herramienta_id) do %>
+                          <li>herraiemta</li>
+                          <%end%>
+
+                        </ul>
+                      </div>
+                      <%end%>                        
 
                      </div> 
                     </td>
+                   
+                        
+                        
+                      
+
                    
                   </tr>
                 <% end %> 
@@ -76,3 +102,5 @@
     </div>
   </div>
 </section>
+
+

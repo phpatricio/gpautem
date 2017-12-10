@@ -23,6 +23,7 @@
           </div>
           <% end%>
         </div>
+        <input class="form-control" id="myInput" type="text" placeholder="Buscar..">
         <div class="box-body table-responsive" id="ocultar-tabla">
           <table class="table table-bordered">
             <thead>
@@ -33,7 +34,7 @@
                
               </tr>
             </thead>
-              <tbody>
+              <tbody id = "datos">
                 <% @alumnos.each do |alumno| %>
                   <tr>
                     <% if alumno.practica == nil%>
@@ -65,3 +66,13 @@
 
 </section>
 
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#datos tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>

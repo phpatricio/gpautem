@@ -215,6 +215,12 @@ class PracticasController < ApplicationController
     @herramienta = Herramienta.find(@practica.herramienta_id)
     @area = Area.find(@practica.area_id)
   end
+
+  def info_contacto
+    @practica = Practica.find(params[:id])
+    @guia = ProfesionalGuia.find(@practica.profesional_guia_id)
+    @empresa = Empresa.find(@practica.empresa_id)
+  end
 	private
 
 		def set_practica
