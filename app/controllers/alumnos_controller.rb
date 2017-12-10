@@ -23,8 +23,12 @@ class AlumnosController < ApplicationController
       end
   end
 
+    def alumnos_pendientes
+      @alumnos = Alumno.all.where(ano: Date.current.year).paginate(page: params[:page], per_page: 10)   
+  end
+
   def alumnos_sin_asignar
-    @alumnos = Alumno.where(user_id: nil)
+    @alumnos = Alumno.where(user_id: nil,ano: Date.current.year)
   end
 
   # GET /alumnos/1
