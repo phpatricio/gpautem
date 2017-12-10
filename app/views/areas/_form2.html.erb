@@ -2,12 +2,22 @@
 <div class="row">
   <div class="col-md-10">
     <%= form_for(@areas,url: crear_area_url(params[:id]) , :html => { :role => "form" }) do |f| %>
-
+    <% if @areas.errors.any? %>
+    <div class="alert alert-danger alert-dismissable" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+      <h4><%= pluralize(@areas.errors.count, "error") %> </h4>
+      <ul>
+        <% @areas.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
 
       <div class="form-group">
           <%= f.label :nombre %>
           <%= f.select(:nombre) do %>
-          <% [['Software', 1], ['Hardware', 2],['Gestion',3],['Sistemas',4]].each do |c| -%>
+          <% [['Software', 'Software'], ['Hardware', 'Hardware'],['Gestion', 'Gestion'],['Sistemas','Sistemas']].each do |c| -%>
             <%= content_tag(:option, c.first, value: c.last) %>
             <% end %>
             <% end %>
