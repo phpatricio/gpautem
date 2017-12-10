@@ -1,2 +1,27 @@
 <h1>Estadistica de Practicas segun Area</h1>
 <%= pie_chart @are %>
+<%total = Area.joins(:practica).count%>
+<table class="table table-bordered">
+        <thead>
+          <tr>
+          <th>Area</th>
+          <th>cantidad</th>
+          <th>porcentaje</th>
+           
+          </tr>
+        </thead>
+          <tbody>
+            <% @are.each do |c| %>
+              <tr>
+
+
+                <td><%= c[0] %></td>
+                <td><%= c[1] %></td>
+                <td><%= (c[1].to_f/total)*100 %>%</td>
+             
+                
+               
+              </tr>
+            <% end %> 
+          </tbody>
+      </table>
