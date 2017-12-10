@@ -20,8 +20,30 @@
               Nueva Herramienta
             <% end %>          
           </div>
+          <div class="box-tools pull-left">
+          <div class="panel panel-primary">
+            <div class="panel-heading">Busqueda</div>
+            <div class="panel-body">  
+                <form>
+                <label>Ingrese un nombre de herramientra para buscar</label>
+                  <input name="q" <%= @q %> class="form-control" placeholder="Ej: sql server" id="rut" required = "true" >
+                  <br>
+                  <button type="submit" class="btn btn-primary" id="buscar-cliente">Buscar<i class="fa fa-search"></i></button>
+                </form>
+            </div>
+          </div>
+
         </div>
-        <div class="box-body table-responsive" id="ocultar-tabla">
+      </div>
+                <div class="hidden" id="cargando">
+                <div class="row text-center">
+                    <img src="/img/ajax-loader.gif"/>
+                  </div>
+                  <div class="row text-center" >
+                  <label>Buscando</label>
+                  </div>
+                </div>
+          <div class="box-body table-responsive" id="ocultar-tabla">
           <table class="table table-bordered">
             <thead>
               <tr>
@@ -60,3 +82,19 @@
     </div>
   </div>
 </section>
+<script type="text/javascript">
+  $(document).ready(function(){
+  $("#buscar-cliente").click(function(){
+    
+        
+                $("#ocultar-tabla").addClass("hidden");
+                $("#cargando").removeClass("hidden");
+            
+          
+              
+          });
+    
+    
+    
+      });
+  </script>
