@@ -1,2 +1,12 @@
-<h1>Nuevo Seguimiento</h1>
+<% content_for :content_header  do %>
+    <section class="content-header">
+      <h1>Nuevo <small>seguimiento</small></h1>
+  
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><%= link_to "Seguimientos", seguimientos_path %></li>
+        <li class="active">Nuevo</li>
+      </ol>
+    </section>
+  <% end %>
 <%= render 'form' %>

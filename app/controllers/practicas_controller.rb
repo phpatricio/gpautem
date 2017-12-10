@@ -204,6 +204,17 @@ class PracticasController < ApplicationController
     end
   end
 
+  def practicas_actuales
+    @practica = Practica.all.where("fecha_inicio >= ?", Date.current).where(alumno_id: nil).paginate(page: params[:page], per_page: 10)
+  end
+
+  def mostrar2
+    @practica = Practica.find(params[:id])
+    @empresa = Empresa.find(@practica.empresa_id)
+    @guia = ProfesionalGuia.find(@practica.profesional_guia_id)
+    @herramienta = Herramienta.find(@practica.herramienta_id)
+    @area = Area.find(@practica.area_id)
+  end
 	private
 
 		def set_practica
