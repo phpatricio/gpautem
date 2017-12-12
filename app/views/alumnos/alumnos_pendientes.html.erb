@@ -42,8 +42,10 @@
                     <td><%= alumno.codigo_carrera %></td>
                     <td>
                       <div class="text-center">
-
-                    <%= link_to  'Asignar', preguntar_url(alumno.id) , :class => "btn btn-info"%>
+                    <%= link_to  'Asignar', disponibles_url(alumno.id) , :class => "btn btn-info"%>
+                    <%= link_to  'Mostrar', alumno , :class => "btn btn-info"%>
+                    <%= link_to 'Editar', edit_alumno_path(alumno.id), :class => "btn btn-warning" %>
+                    <%= link_to 'Eliminar' , alumno,:class => "btn btn-danger", method: :delete, data: { confirm: '¿Esta seguro de eliminar al alumno?' } %>
                     
                      
                      </div> 

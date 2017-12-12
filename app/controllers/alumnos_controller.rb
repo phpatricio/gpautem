@@ -120,7 +120,7 @@ class AlumnosController < ApplicationController
     @alumno = Alumno.new(alumno_params)
       respond_to do |format|
           if @alumno.save
-              format.html {redirect_to preguntar_url(@alumno.id), notice: 'Se Persistio la persona'}
+              format.html {redirect_to welcome_index_path, notice: 'Se Persistio la persona'}
             else
               format.html {render :nuevo3}
               #puts "no se guardo"
