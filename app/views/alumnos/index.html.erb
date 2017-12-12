@@ -15,6 +15,7 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="box box-primary">
+        <input class="form-control" id="myInput" type="text" placeholder="Buscar..">
         <div class="box-header">
 
           <% if current_user.role.nombre == "admin" %>
@@ -26,20 +27,7 @@
             <% end %>          
           </div>
           <% end %> 
-          <div class="box-tools pull-left">
-            <div class="panel panel-primary">
-              <div class="panel-heading">Busqueda</div>
-              <div class="panel-body">  
-                  <form>
-                  <label>Ingrese un RUT sin punto y con guion (-)</label>
-                    <input name="q" <%= @q %> class="form-control" placeholder="Ej: 18666801-4" id="rut" required = "true" >
-                    <br>
-                    <button type="submit" class="btn btn-primary" id="buscar-cliente">Buscar<i class="fa fa-search"></i></button>
-                  </form>
-              </div>
-            </div>
- 
-          </div>
+          
         </div>
                   <div class="hidden" id="cargando">
                   <div class="row text-center">
@@ -59,7 +47,7 @@
            
           </tr>
         </thead>
-          <tbody>
+          <tbody id = "datos">
             <% @alumnos.each do |alumno| %>
               <tr>
 
@@ -144,6 +132,14 @@
       
           
       });
+
+
+    $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#datos tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
 
 
 

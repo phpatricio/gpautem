@@ -17,4 +17,5 @@ class ProfesionalGuia < ApplicationRecord
  	validates_numericality_of :Telefono, message: ": telefono ingresado no valido (deve de tener nueve digitos)"
  	validates :Telefono, length: {is: 9}
  	validates_uniqueness_of :Telefono, message: ": telefono ingresado ya existe"
+
 end

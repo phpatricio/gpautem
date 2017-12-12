@@ -5,7 +5,7 @@
         <% if @alumno.errors.any? %>
           <div class="alert alert-danger alert-dismissable" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-            <h4><%= pluralize(@alumno.errors.count, "error") %> prohibited this alumno from being saved:</h4>
+            <h4><%= pluralize(@alumno.errors.count, "error") %></h4>
 
             <ul>
             <% @alumno.errors.full_messages.each do |msg| %>

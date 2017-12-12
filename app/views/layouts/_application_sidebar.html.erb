@@ -3,206 +3,31 @@
   <!-- sidebar menu: : style can be found in sidebar.less -->
 
   <ul class="sidebar-menu dropdown-toggle">
+
     <% if current_user.role.nombre == "profesorguia"%>
-        <li class="treeview" id="l">
-        <a >
-        <i class="fa fa-file-text"></i> <span>Evaluaciones</span>
-        <span class="pull-right-container" >
-            <i class="fa fa-angle-left pull-right"></i>
-        </span>
-        </a>
 
-        <ul class="sub-menu active" style="display: none;" id="m">
-        <%= nav_link evaluacions_path do %>
-            <i class="fa fa-list"></i>
-            Listar Evaluaciones
+      <li class="treeview" id="l">
+        <%= nav_link alumnos_path do %>
+        <i class="fa fa-file-text"></i> <span>Alumnos</span>
         <% end %>
-        <%= nav_link evaluacions_nuevo_path do %>
-            <i class="fa fa-plus"></i>
-            Agregar Evaluacion
-        <% end %>
-        </ul>
-    </li>
-    <li class="treeview" id="n">
-        <a >
-        <i class="fa fa-tasks"></i> <span>Segumientos</span>
-        <span class="pull-right-container" >
-            <i class="fa fa-angle-left pull-right"></i>
-        </span>
-        </a>
-        <ul class="sub-menu active" style="display: none;" id="o">
-        <%= nav_link seguimientos_path do %>
-            <i class="fa fa-list"></i>
-            Listar Segumientos
-        <% end %>
-        <%= nav_link seguimientos_nuevo_path do %>
-            <i class="fa fa-plus"></i>
-            Agregar Segumiento
-        <% end %>
-        </ul>
-    </li>
+      </li>
 
+      <li class="treeview" id="n">
+          <%= nav_link seguimientos_path do %>
+          <i class="fa fa-tasks"></i> <span>Planilla de Evaluaciones</span>
+          <% end %>
+      </li>
     <% end %>
+
+
     <% if current_user.role.nombre == "admin"%>
     <li class="treeview" id="z">
-          <a >
-            <i class="fa fa-users"></i> <span>Asignar Alumnos</span>
-            <span class="pull-right-container" >
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-
-          <ul class="sub-menu active" style="display: none;" id="q">
            <%= nav_link alumnos_sin_asignar_path do %>
-              <i class="fa fa-plus"></i>
-               Sin Asignar
+              <i class="fa fa-users"></i> <span>Asignar Alumnos</span>
            <% end %>
-          </ul>
     </li>
 
-    <li class="treeview" id="p">
-          <a >
-            <i class="fa fa-users"></i> <span>Alumnos</span>
-            <span class="pull-right-container" >
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-
-          <ul class="sub-menu active" style="display: none;" id="x">
-            <%= nav_link alumnos_path do %>
-              <i class="fa fa-list"></i>
-               Listar Alumnos
-           <% end %>
-           <%= nav_link new_alumno_path do %>
-              <i class="fa fa-plus"></i>
-               Agregar Alumno
-           <% end %>
-          </ul>
-    </li>
-    <li class="treeview" id="j">
-          <a >
-            <i class="fa fa-suitcase"></i> <span>Practicas</span>
-            <span class="pull-right-container" >
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-
-          <ul class="sub-menu active" style="display: none;" id="k">
-            <%= nav_link practicas_path do %>
-              <i class="fa fa-list"></i>
-               Listar Practicas
-           <% end %>
-           <%= nav_link practicas_nuevo_path do %>
-              <i class="fa fa-plus"></i>
-               Agregar Practica
-           <% end %>
-          </ul>
-    </li>
-    <li class="treeview" id="l">
-          <a >
-            <i class="fa fa-file-text"></i> <span>Evaluaciones</span>
-            <span class="pull-right-container" >
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-
-          <ul class="sub-menu active" style="display: none;" id="m">
-            <%= nav_link evaluacions_path do %>
-              <i class="fa fa-list"></i>
-               Listar Evaluaciones
-           <% end %>
-           
-          </ul>
-    </li>
-    <li class="treeview" id="n">
-          <a >
-            <i class="fa fa-tasks"></i> <span>Segumientos</span>
-            <span class="pull-right-container" >
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="sub-menu active" style="display: none;" id="o">
-            <%= nav_link seguimientos_path do %>
-              <i class="fa fa-list"></i>
-               Listar Evaluaciones
-           <% end %>
-           
-          </ul>
-    </li>
-    <li class="treeview" id="r">
-          <a >
-            <i class="fa fa-square"></i> <span>Areas</span>
-            <span class="pull-right-container" >
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="sub-menu active" style="display: none;" id="s">
-            <%= nav_link areas_path do %>
-              <i class="fa fa-list"></i>
-               Listar Areas
-           <% end %>
-           
-          </ul>
-    </li>
-    <li class="treeview" id="t">
-          <a >
-            <i class="fa fa-folder"></i> <span>Convenios</span>
-            <span class="pull-right-container" >
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="sub-menu active" style="display: none;" id="u">
-            <%= nav_link convenios_path do %>
-              <i class="fa fa-list"></i>
-               Listar Convenios
-           <% end %>
-           
-          </ul>
-    </li>
-    <li class="treeview" id="v">
-          <a >
-            <i class="fa fa-building"></i> <span>Empresas</span>
-            <span class="pull-right-container" >
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="sub-menu active" style="display: none;" id="w">
-            <%= nav_link empresas_path do %>
-              <i class="fa fa-list"></i>
-               Listar Empresas
-           <% end %>
-           
-          </ul>
-    </li>
-    <li class="treeview" id="1">
-          <a >
-            <i class="fa fa-male"></i> <span>Profesionales Guia</span>
-            <span class="pull-right-container" >
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="sub-menu active" style="display: none;" id="2">
-            <%= nav_link profesional_guia_index_path do %>
-              <i class="fa fa-list"></i>
-               Listar Profesionales Guia
-           <% end %>
-           
-          </ul>
-    </li>
-    <li class="treeview" id="3">
-          <a >
-            <i class="fa fa-wrench"></i> <span>Herramientas</span>
-            <span class="pull-right-container" >
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="sub-menu active" style="display: none;" id="4">
-            <%= nav_link herramienta_index_path do %>
-              <i class="fa fa-list"></i>
-               Listar Herramientas
-           <% end %>
-          </ul>
-    </li>
+    
     <li class="treeview" id="5">
           <a >
             <i class="fa fa-pie-chart"></i> <span>Estadisticas</span>
@@ -231,6 +56,8 @@
           </ul>
     </li>
     <% end %>
+
+
     <% if current_user.role.nombre == "secretaria"%>
       <li class="treeview" id="p">
         <a >

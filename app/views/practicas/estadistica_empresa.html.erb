@@ -1,5 +1,5 @@
 <h1>Estadistica de Practicas segun Empresas</h1>
-<%= link_to "imprimir", "#", onclick: "printPage()",:class => "btn btn-info" %> 
+<%= link_to "Imprimir", "#", onclick: "printPage()",:class => "btn btn-info" %> 
 <%= pie_chart @emp %>
 <%total = Empresa.joins(:practica).count%>
 <table class="table table-bordered">
