@@ -69,7 +69,7 @@ class AlumnosController < ApplicationController
   def update
     respond_to do |format|
       if @alumno.update(alumno_params)
-        format.html { redirect_to @alumno, notice: 'Alumno editado con exito' }
+        format.html { redirect_to welcome_index_path, notice: 'Alumno editado con exito' }
         format.json { render :show, status: :ok, location: @alumno }
       else
         format.html { render :edit }
@@ -102,7 +102,7 @@ class AlumnosController < ApplicationController
   def destroy
     @alumno.destroy
     respond_to do |format|
-      format.html { redirect_to alumnos_url, notice: 'Alumnos eliminado exitosamente.' }
+      format.html { redirect_to welcome_index_path, notice: 'Alumno eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end
