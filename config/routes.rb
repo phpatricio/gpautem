@@ -93,7 +93,7 @@ Rails.application.routes.draw do
   get 'practicas7/:id/:id2', to: 'practicas#asignar_llaves_convenio'
 
 
-  
+  get 'planilla/', to: 'practicas#planilla'
   
   #*******************************RUTAS SEGUIMIENTOS******************************************
 

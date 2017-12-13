@@ -5,6 +5,10 @@ class PracticasController < ApplicationController
 		@practica = Practica.all.paginate(page: params[:page], per_page: 10)
 	end
 
+  def planilla
+    @alumn = Alumno.joins(:practica).where(ano: Date.current.year, user_id: current_user.id)
+  end
+
 	def nuevo
 		@practica =Practica.new
 	end

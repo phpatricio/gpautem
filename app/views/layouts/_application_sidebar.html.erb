@@ -12,9 +12,9 @@
         <% end %>
       </li>
 
-      <li class="treeview" id="n">
-          <%= nav_link seguimientos_path do %>
-          <i class="fa fa-tasks"></i> <span>Planilla de Evaluaciones</span>
+      <li class="treeview" id="b">
+          <%= nav_link planilla_path() do %>
+          <i class="fa fa-file-text"></i><span>Planilla de Evaluaciones</span>
           <% end %>
       </li>
 
@@ -235,6 +235,18 @@ $(document).ready(function(){
     $("#z").click(function(){
     
         $("#q").slideToggle();
+    });
+    $("#a").click(function(){
+    
+        $("#y").slideToggle();
+    });
+});
+</script>
+<script>
+$(document).ready(function(){
+    $("#b").click(function(){
+    
+        $("#7").slideToggle();
     });
     $("#a").click(function(){
     

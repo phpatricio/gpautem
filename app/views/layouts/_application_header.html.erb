@@ -24,9 +24,9 @@
         <ul class="dropdown-menu">
           <!-- User image -->
           <li class="user-header bg-light-blue">
-            <img src="/img/avatar3.png" class="img-circle" alt="User Image" />
+
             <p>
-              <small><%= current_user.nombre %></small>
+              <h1><%= current_user.nombre %></h1>
               <small>Miembro desde <%= current_user.created_at %></small>
             </p>
           </li>
@@ -38,7 +38,7 @@
     
               <%= link_to "Editar",edit_user_registration_path ,  :class => "btn btn-primary"%>
               <%= link_to "Salir",destroy_user_session_path , method: :delete , :class => "btn btn-warning"%>
-              <%= link_to "Eliminarme",cancel_user_registration_path , method: :delete , :class => "btn btn-danger"%>
+
          
             </div>
           </li>
