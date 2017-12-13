@@ -231,8 +231,8 @@ get 'listar_alumnos/', to: 'alumnos#listar_alumnos'
   get 'welcome/index'
   root :to => "welcome#index"
   devise_for :users, :controllers => { registrations: 'registrations' }
-  get ':not_found' => 'welcome#index',
-  :constraints => { :not_found => /.*/ }
+  #get ':not_found' => 'welcome#index',
+  #:constraints => { :not_found => /.*/ }
   resources :user
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
