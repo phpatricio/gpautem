@@ -1,4 +1,6 @@
+<section class="content invoice">
 <h1>Estadistica de Practicas segun Herramientas</h1>
+<hr>
 <%= link_to "Imprimir", "#", onclick: "printPage()",:class => "btn btn-info" %> 
 <%= pie_chart @cant %>
 <%total = Herramienta.joins(:practica).count%>
@@ -26,6 +28,7 @@
             <% end %> 
           </tbody>
       </table>
+</section>
 <script type="text/javascript">
   function printPage() {
     window.print();
