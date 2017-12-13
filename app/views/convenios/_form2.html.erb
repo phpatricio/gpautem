@@ -14,17 +14,20 @@
     </div>
     <% end %>
     <div class="form-group">
+      <br>
         <%= f.label :nombre %>
         <%= f.text_field :nombre,:class => "form-control", :id => "nombre", :required => "true" %>
         </br>
     </div>
     <div class="form-group">
         <%= f.label :fecha_inicio %>
-        <%= f.text_field :fecha_inicio,:class => "form-control datepicker" , :readonly =>"true",:required => "true"   %> 
+        <%= f.text_field :fecha_inicio,:class => "form-control datepicker" , :readonly =>"true", :required => "true"   %> 
+        </br>
     </div>
     <div class="form-group">
         <%= f.label :fecha_termino %>
-        <%= f.text_field :fecha_termino,:class => "form-control datepicker" , :readonly =>"true",:required => "true"   %>
+        <%= f.text_field :fecha_termino,:class => "form-control datepicker" , :readonly =>"true", :required => "true"   %>
+        </br>
     </div>
     <div class="form-group">
         <%= f.label :descripcion %>

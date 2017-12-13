@@ -28,6 +28,7 @@
           <table class="table table-bordered">
             <thead>
               <tr>
+              <th>Nombre</th>
               <th>Rut</th>
               <th>Codigo Carrera</th>
               <th class="text-center">Acción</th>
@@ -38,6 +39,7 @@
                 <% @alumnos.each do |alumno| %>
                   <tr>
                     <% if alumno.practica == nil%>
+                    <td><%= alumno.nombre %></td>
                     <td><%= alumno.rut %></td>
                     <td><%= alumno.codigo_carrera %></td>
                     <td>

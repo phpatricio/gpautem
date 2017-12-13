@@ -1,2 +1,12 @@
-<h1> NUEVA AREA </h1>
+<% content_for :content_header  do %>
+  <section class="content-header">
+    <h1>Nueva <small>Areas</small></h1>
+
+    <ol class="breadcrumb">
+      <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li><%= link_to "convenios", areas_path %></li>
+      <li class="active">Nueva</li>
+    </ol>
+  </section>
+<% end %>
 <%= render 'form' %>

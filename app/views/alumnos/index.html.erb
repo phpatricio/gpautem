@@ -41,6 +41,7 @@
         <table class="table table-bordered">
         <thead>
           <tr>
+          <th>Nombre</th>
           <th>Rut</th>
           <th>Codigo Carrera</th>
           <th class="text-center">Acción</th>
@@ -50,8 +51,7 @@
           <tbody id = "datos">
             <% @alumnos.each do |alumno| %>
               <tr>
-
-
+                <td><%= alumno.nombre %></td>
                 <td><%= alumno.rut %></td>
                 <td><%= alumno.codigo_carrera %></td>
                 <td>

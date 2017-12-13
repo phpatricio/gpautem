@@ -1,2 +1,12 @@
-<h1> NUEVA EMPRESA </h1>
+<% content_for :content_header  do %>
+  <section class="content-header">
+    <h1>Nueva <small>Empresa</small></h1>
+
+    <ol class="breadcrumb">
+      <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li><%= link_to "empresas", empresas_path %></li>
+      <li class="active">Empresa</li>
+    </ol>
+  </section>
+<% end %>
 <%= render 'form2' %>

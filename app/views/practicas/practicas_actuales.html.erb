@@ -9,11 +9,13 @@
   </section>
 <% end %>
 
+
 <section class="content">
+  
   <div class="row">
     <div class="col-xs-12">
       <div class="box box-primary">
-        
+
         <input class="form-control" id="myInput" type="text" placeholder="Buscar..">
         <div class="box-body table-responsive" id="ocultar-tabla">
           <table class="table table-bordered">
@@ -32,7 +34,7 @@
                   <tr>
                   <td> <%= practica.fecha_inicio %> </td>
                   <% if practica.area_id != nil
-                   a= Area.joins(:practica).where(id: practica.empresa_id) %> </td>
+                   a= Area.joins(:practica).where(id: practica.area_id) %> </td>
                   <td><%= a.first.nombre %> </td>
                   <% else %>
                   <td>Sin area asignada</td>

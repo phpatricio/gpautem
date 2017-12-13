@@ -44,7 +44,7 @@
       
       <div class="form-group">
         <%= f.label :año_practica %>
-        <% dates = 1993..Date.today.year %>
+        <% dates = 2017..Date.today.year %>
         <%= f.select(:ano, dates.collect {|d| [d.to_s,d.to_s]}, {:include_blank => "Seleccione año"}, {:class => "form-control", :required =>"true"}) %>
 
       </div>
