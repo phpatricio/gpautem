@@ -19,7 +19,7 @@ class EmpresasController < ApplicationController
     @empresas = Empresa.new(empresa_params)
         respond_to do |format|
           if @empresas.save
-            format.html {redirect_to empresas_path, notice: 'Se persistio la empresa'}
+            format.html {redirect_to empresas_path, notice: 'Se creo empresa exitosamente'}
           else
             format.html {render :nuevo}
           end
@@ -32,7 +32,7 @@ class EmpresasController < ApplicationController
   def update
     respond_to do |format|
       if @empresas.update(empresa_params)
-        format.html {redirect_to empresas_path, notice: 'Se actualizaron los datos'}
+        format.html {redirect_to empresas_path, notice: 'Se actualizaron los datos exitosamente'}
       else
         format.html {render :editar}
       end
@@ -45,7 +45,7 @@ class EmpresasController < ApplicationController
   def eliminar
     @empresas.destroy
     respond_to do |format|
-      format.html {redirect_to empresas_path, notice: 'Se elimino la empresa'}
+      format.html {redirect_to empresas_path, notice: 'Se elimino empresa'}
     end
   end
 
@@ -60,13 +60,13 @@ class EmpresasController < ApplicationController
         @id = Empresa.new
         @id=Empresa.select("id").where("nombre_empresa= ?", @empresas.nombre_empresa)
         respond_to do |format|
-        format.html {redirect_to asignarEmpresas_url(params[:id],@id.ids), notice: 'Se Persistio la empresa'}
+        format.html {redirect_to asignarEmpresas_url(params[:id],@id.ids), notice: 'Se creo empresa exitosamente'}
     end
     else
     
     respond_to do |format|
         if @empresas.save
-            format.html {redirect_to asignarEmpresas_url(params[:id],@empresas.id), notice: 'Se Persistio la empresa'}
+            format.html {redirect_to asignarEmpresas_url(params[:id],@empresas.id), notice: 'Se creo empresa exitosamente'}
           else
             format.html {render :nuevo2}
           end

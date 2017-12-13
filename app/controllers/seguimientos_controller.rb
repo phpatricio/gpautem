@@ -46,7 +46,7 @@ class SeguimientosController < ApplicationController
   def eliminar
     @seguimiento.destroy
     respond_to do |format|
-      format.html {redirect_to seguimientos_path, notice: 'eliminado'}
+      format.html {redirect_to seguimientos_path, notice: 'Se elimino seguimiento'}
     end
   end
 
