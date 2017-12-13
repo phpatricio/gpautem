@@ -1,10 +1,10 @@
 <% content_for :content_header  do %>
   <section class="content-header">
-    <h1>Mostrando <small>Venta</small></h1>
+    <h1>Mostrando <small>Usuario</small></h1>
 
     <ol class="breadcrumb">
       <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li><%= link_to "Ventas", user_path %></li>
+      <li><%= link_to "Usuarios", user_path %></li>
       <li class="active">Mostrar</li>
     </ol>
   </section>
@@ -29,6 +29,9 @@
 
               <dt>Email:</dt>
               <dd><%= @user.email %></dd>
+
+              <dt>Tipo Usuario:</dt>
+              <dd><%= @user.role.nombre %></dd>
 
     
 

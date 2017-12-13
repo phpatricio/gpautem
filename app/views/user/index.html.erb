@@ -13,13 +13,7 @@
 
 
 <section class="content">
-          <div class="box-tools pull-right">
           
-            <a href="users/sign_up"><span class="glyphicon glyphicon-plus"></span>
-              Nuevo Cliente
-              </a>
-             
-          </div>
   <div class="row">
     <div class="col-xs-12">
       <div class="box box-primary">
@@ -47,9 +41,9 @@
                       <div class="text-center">
                          <%= link_to  'Mostrar', user , :class => "btn btn-info"%>
                         
-                         <% if user.id == current_user.id %>
+                         <% if user.role.nombre == "admin" %>
                          <% else %>
-                          <%= link_to "Editar", edit_user_path(user), :class => "btn btn-warning" %>
+                          
                          <%= link_to 'Eliminar' , user,:class => "btn btn-danger", method: :delete, data: { confirm: '¿Esta seguro de eliminar el usuario? Perdera todos los datos' } %>
                          <% end %>
                      </div> 
