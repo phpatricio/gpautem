@@ -4,7 +4,12 @@
 
     <ol class="breadcrumb">
       <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li><%= link_to "Alumnos", alumnos_path %></li>
+      <% if current_user.role.nombre == "secretaria"%>
+       <li><%= link_to "Alumnos", Apendientes_path() %></li>
+      <% end %>
+      <% if current_user.role.nombre == "profesorguia"%>
+       <li><%= link_to "Alumnos", alumnos_path %></li>
+      <% end  %>
       <li class="active">Mostrar</li>
     </ol>
   </section>

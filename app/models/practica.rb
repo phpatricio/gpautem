@@ -13,6 +13,7 @@ class Practica < ApplicationRecord
   #validates :fecha_termino, date: true
   #validates :fecha_inicio, date: { before: :fecha_termino }
   def fecha_correcta
+
     if !fecha_inicio.blank? and  fecha_inicio < Date.today
       errors.add(:fecha_inicio, "Ingresaste una fecha que ya paso")
     end

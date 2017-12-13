@@ -1,4 +1,7 @@
+<section class="content invoice">
+
 <h1>Estadistica de Alumnos segun Año de practica</h1>
+<hr>
 <%= link_to "Imprimir", "#", onclick: "printPage()",:class => "btn btn-info" %> 
 <%= pie_chart @alum %>
 <%total = Alumno.joins(:practica).count%>
@@ -8,7 +11,6 @@
           <th>año</th>
           <th>cantidad</th>
           <th>porcentaje</th>
-           
           </tr>
         </thead>
           <tbody>
@@ -31,3 +33,4 @@
     window.print();
   }
 </script>
+</section>
