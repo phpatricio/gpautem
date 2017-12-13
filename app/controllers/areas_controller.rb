@@ -40,6 +40,11 @@ class AreasController < ApplicationController
   end
 
   def editar
+    if current_user.role.nombre != 'secretaria'
+        respond_to do |format|
+          format.html {redirect_to welcome_index_path, notice: 'usted no cuenta con los permisos para acceder a esta url'}
+        end
+    end
   end
 
   def eliminar
@@ -50,6 +55,11 @@ class AreasController < ApplicationController
   end
 
    def nuevo2
+    if current_user.role.nombre != 'secretaria'
+        respond_to do |format|
+          format.html {redirect_to welcome_index_path, notice: 'usted no cuenta con los permisos para acceder a esta url'}
+        end
+    end
     @areas = Area.new
   end
 

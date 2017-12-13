@@ -45,25 +45,50 @@ class PracticasController < ApplicationController
 	end
 
 	def estadistica_herramienta
+    if current_user.role.nombre != 'admin'
+        respond_to do |format|
+          format.html {redirect_to welcome_index_path, notice: 'usted no cuenta con los permisos para acceder a esta url'}
+        end
+    end
 		@cant = Herramienta.joins(:practica).select(:nombre).group(:nombre).count
 		
 	end
 
 	def estadistica_empresa
+    if current_user.role.nombre != 'admin'
+        respond_to do |format|
+          format.html {redirect_to welcome_index_path, notice: 'usted no cuenta con los permisos para acceder a esta url'}
+        end
+    end
 		@emp = Empresa.joins(:practica).select(:nombre_empresa).group(:nombre_empresa).count
 		
 	end
 
 	def estadistica_area
+    if current_user.role.nombre != 'admin'
+        respond_to do |format|
+          format.html {redirect_to welcome_index_path, notice: 'usted no cuenta con los permisos para acceder a esta url'}
+        end
+    end
 		@are = Area.joins(:practica).select(:nombre).group(:nombre).count
 		
 	end
 
   def pregunta_convenio
+    if current_user.role.nombre != 'secretaria'
+        respond_to do |format|
+          format.html {redirect_to welcome_index_path, notice: 'usted no cuenta con los permisos para acceder a esta url'}
+        end
+    end
     @id=Practica.find(params[:id])
   end  
 	
 	def nuevo2
+    if current_user.role.nombre != 'secretaria'
+        respond_to do |format|
+          format.html {redirect_to welcome_index_path, notice: 'usted no cuenta con los permisos para acceder a esta url'}
+        end
+    end
 		@practica =Practica.new
 	end
 
@@ -183,10 +208,20 @@ class PracticasController < ApplicationController
     end
 
   def practicas_disponibles
+    if current_user.role.nombre != 'secretaria'
+        respond_to do |format|
+          format.html {redirect_to welcome_index_path, notice: 'usted no cuenta con los permisos para acceder a esta url'}
+        end
+    end
       @practicas = Practica.all.where("fecha_inicio >= ?", Date.current).where(alumno_id: nil)
   end
 
   def escoger_practica
+    if current_user.role.nombre != 'secretaria'
+        respond_to do |format|
+          format.html {redirect_to welcome_index_path, notice: 'usted no cuenta con los permisos para acceder a esta url'}
+        end
+    end
     @practica =Practica.find(params[:id2])
     @empresa = Empresa.find(@practica.empresa_id)
     @guia = ProfesionalGuia.find(@practica.profesional_guia_id)
@@ -196,6 +231,12 @@ class PracticasController < ApplicationController
   end
 
   def asignar_practica
+    if current_user.role.nombre != 'secretaria'
+        respond_to do |foo|
+          foo.html {redirect_to welcome_index_path, notice: 'usted no cuenta con los permisos para acceder a esta url'}
+        end
+    else
+
     @practica = Practica.find(params[:id2])
     respond_to do |format|
       if @practica.update(alumno_id: params[:id])
@@ -203,12 +244,23 @@ class PracticasController < ApplicationController
       end
     end
   end
+  end
 
   def practicas_actuales
+    if current_user.role.nombre != 'secretaria'
+        respond_to do |format|
+          format.html {redirect_to welcome_index_path, notice: 'usted no cuenta con los permisos para acceder a esta url'}
+        end
+    end
     @practica = Practica.all.where("fecha_inicio >= ?", Date.current).where(alumno_id: nil).paginate(page: params[:page], per_page: 10)
   end
 
   def mostrar2
+    if current_user.role.nombre == 'admin'
+        respond_to do |format|
+          format.html {redirect_to welcome_index_path, notice: 'usted no cuenta con los permisos para acceder a esta url'}
+        end
+    end
     @practica = Practica.find(params[:id])
     @empresa = Empresa.find(@practica.empresa_id)
     @guia = ProfesionalGuia.find(@practica.profesional_guia_id)
@@ -217,6 +269,11 @@ class PracticasController < ApplicationController
   end
 
   def info_contacto
+    if current_user.role.nombre != 'profesorguia'
+      respond_to do |foo|
+          foo.html {redirect_to welcome_index_path, notice: 'usted no cuenta con los permisos para acceder a esta url'}
+        end
+    end
     @practica = Practica.find(params[:id])
     @guia = ProfesionalGuia.find(@practica.profesional_guia_id)
     @empresa = Empresa.find(@practica.empresa_id)

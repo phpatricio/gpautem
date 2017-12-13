@@ -2,11 +2,16 @@ class AlumnosController < ApplicationController
   load_and_authorize_resource
   before_action :set_alumno, only: [:show, :edit, :editar2, :update, :update2, :destroy]
   before_action :authenticate_user!
-
+  before_action :permisos_admin, only: [:alumnos_sin_asignar] 
   # GET /alumnos
   # GET /alumnos.json
   
   def index
+    if current_user.role.nombre == 'secretaria'
+        respond_to do |format|
+          format.html {redirect_to welcome_index_path, notice: 'usted no cuenta con los permisos para acceder a esta url'}
+        end
+    end
       authorize! :index,@alumnos
       if (current_user.role.nombre == "admin")
         @q = params[:q]
@@ -23,7 +28,12 @@ class AlumnosController < ApplicationController
       end
   end
 
-    def alumnos_pendientes
+  def alumnos_pendientes
+      if current_user.role.nombre != 'secretaria'
+        respond_to do |format|
+          format.html {redirect_to welcome_index_path, notice: 'usted no cuenta con los permisos para acceder a esta url'}
+        end
+    end
       @alumnos = Alumno.all.where(ano: Date.current.year).paginate(page: params[:page], per_page: 10)   
   end
 
@@ -34,6 +44,11 @@ class AlumnosController < ApplicationController
   # GET /alumnos/1
   # GET /alumnos/1.json
   def show
+    if current_user.role.nombre == 'admin'
+        respond_to do |format|
+          format.html {redirect_to welcome_index_path, notice: 'usted no cuenta con los permisos para acceder a esta url'}
+        end
+    end
     authorize! :show,@alumnos
   end
 
@@ -45,6 +60,11 @@ class AlumnosController < ApplicationController
 
   # GET /alumnos/1/edit
   def edit
+    if current_user.role.nombre != 'secretaria'
+        respond_to do |format|
+          format.html {redirect_to welcome_index_path, notice: 'usted no cuenta con los permisos para acceder a esta url'}
+        end
+    end
     authorize! :edit,@alumnos
   end
 
@@ -90,6 +110,11 @@ class AlumnosController < ApplicationController
   end
 
   def editar2
+    if current_user.role.nombre != 'admin'
+        respond_to do |format|
+          format.html {redirect_to welcome_index_path, notice: 'usted no cuenta con los permisos para acceder a esta url'}
+        end
+    end
   end
 
   def listar_alumnos
@@ -100,6 +125,11 @@ class AlumnosController < ApplicationController
   # DELETE /alumnos/1
   # DELETE /alumnos/1.json
   def destroy
+    if current_user.role.nombre != 'secretaria'
+        respond_to do |format|
+          format.html {redirect_to welcome_index_path, notice: 'usted no cuenta con los permisos para acceder a esta url'}
+        end
+    end
     @alumno.destroy
     respond_to do |format|
       format.html { redirect_to welcome_index_path, notice: 'Alumno eliminado exitosamente.' }
@@ -108,11 +138,21 @@ class AlumnosController < ApplicationController
   end
 
   def estadistica_alum
+    if current_user.role.nombre != 'admin'
+        respond_to do |format|
+          format.html {redirect_to welcome_index_path, notice: 'usted no cuenta con los permisos para acceder a esta url'}
+        end
+    end
     @alum = Alumno.joins(:practica).select(:ano).group(:ano).count
     
   end
 
   def nuevo3
+    if current_user.role.nombre != 'secretaria'
+        respond_to do |format|
+          format.html {redirect_to welcome_index_path, notice: 'usted no cuenta con los permisos para acceder a esta url'}
+        end
+    end
     @alumno = Alumno.new
   end
 
@@ -133,6 +173,22 @@ class AlumnosController < ApplicationController
   end
 
   private
+  def permisos_guia
+    if current_user.role.nombre != 'profesorguia'
+        respond_to do |format|
+          format.html {redirect_to welcome_index_path, notice: 'usted no cuenta con los permisos para acceder a esta url'}
+        end
+      end
+  end
+
+
+    def permisos_admin
+      if current_user.role.nombre != 'admin'
+        respond_to do |format|
+          format.html {redirect_to welcome_index_path, notice: 'usted no cuenta con los permisos para acceder a esta url'}
+        end
+      end
+    end  
     # Use callbacks to share common setup or constraints between actions.
     def set_alumno
       @alumno = Alumno.find(params[:id])
