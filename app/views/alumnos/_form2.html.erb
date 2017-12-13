@@ -16,8 +16,10 @@
         <% end %>
 
       <div class="form-group">
-        <%= f.label :user_id %>
-        <%= f.collection_select(:user_id, User.where(:role_id =>"3"), :id, :nombre,{include_blank: 'Seleccione un opcion'}, :required => "true",:class =>"form-control") %>
+
+        <%= f.label :usuario%>
+        <%= f.collection_select(:user_id, User.where(:role_id =>"3"), :id, :nombre,{include_blank: 'Seleccione un opcion'}, :required => "true") %>
+
       </div>
       
 

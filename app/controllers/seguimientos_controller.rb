@@ -46,15 +46,15 @@ class SeguimientosController < ApplicationController
   def eliminar
     @seguimiento.destroy
     respond_to do |format|
-      format.html {redirect_to seguimientos_path, notice: 'eliminado'}
+      format.html {redirect_to seguimientos_path, notice: 'Se elimino seguimiento'}
     end
   end
 
   def crear2
     @seguimiento = Seguimiento.new
     @seguimiento.fecha_1 = Date.current
-    @seguimiento.fecha_2 = Date.current
-    @seguimiento.fecha_3 = Date.current
+    @seguimiento.fecha_2 = Date.current + 1.day
+    @seguimiento.fecha_3 = Date.current + 2.day
     @seguimiento.comentario_visita_1 = "observacion 1"
     @seguimiento.comentario_visita_2 = "observacion 2"
     @seguimiento.comentario_visita_3 = "observacion 3"

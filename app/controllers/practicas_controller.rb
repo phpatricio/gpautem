@@ -17,7 +17,7 @@ class PracticasController < ApplicationController
 		
 		respond_to do |format|
      	 	if @practica.save
-        		format.html {redirect_to practicas_path, notice: 'Se Persistio la persona'}
+        		format.html {redirect_to practicas_path, notice: 'Se creo practica exitosamente'}
       		else
         		format.html {render :nuevo}
       		end
@@ -27,7 +27,7 @@ class PracticasController < ApplicationController
 	def update
 		respond_to do |format|
 			if @practica.update(practica_params)
-        		format.html {redirect_to practicas_path, notice: 'Se Actualizaron los datos'}
+        		format.html {redirect_to practicas_path, notice: 'Se Actualizaron los datos exitosamente'}
       		else
         		format.html {render :editar}
       		end
@@ -40,7 +40,7 @@ class PracticasController < ApplicationController
 	def eliminar
 		@practica.destroy
 		respond_to do |format|
-			format.html {redirect_to practicas_path, notice: 'eliminado'}
+			format.html {redirect_to practicas_path, notice: 'Se elimino Practica'}
 		end
 	end
 
@@ -73,7 +73,7 @@ class PracticasController < ApplicationController
 		
 		respond_to do |format|
      	 	if @practica.save
-        		format.html {redirect_to nuevo_profesionalGuia_url(@practica), notice: 'Se Persistio la persona'}
+        		format.html {redirect_to nuevo_profesionalGuia_url(@practica), notice: 'Se creo practica exitosamente'}
       		else
         		format.html {render :nuevo2}
       		end

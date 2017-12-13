@@ -13,7 +13,7 @@ class EvaluacionsController < ApplicationController
     @evaluacions = Evaluacion.new(evaluacion_params)
         respond_to do |format|
           if @evaluacions.save
-            format.html {redirect_to evaluacions_path, notice: 'Se persistio la evaluacion'}
+            format.html {redirect_to evaluacions_path, notice: 'Se creo evaluacion exitosamente'}
           else
             format.html {render :nuevo}
           end
@@ -26,7 +26,7 @@ class EvaluacionsController < ApplicationController
   def update
     respond_to do |format|
       if @evaluacions.update(evaluacion_params)
-        format.html {redirect_to alumnos_path, notice: 'Se actualizaron los datos'}
+        format.html {redirect_to alumnos_path, notice: 'Se actualizaron los datos exitosamente'}
       else
         format.html {render :editar}
       end
@@ -39,7 +39,7 @@ class EvaluacionsController < ApplicationController
   def eliminar
     @evaluacions.destroy
     respond_to do |format|
-      format.html {redirect_to evaluacions_path, notice: 'Se elimino la evaluacion'}
+      format.html {redirect_to evaluacions_path, notice: 'Se elimino evaluacion'}
     end
   end
   def crear2
@@ -58,7 +58,7 @@ class EvaluacionsController < ApplicationController
     @evaluacions.nota_informe_practica = 1.0
     respond_to do |format|
         if @evaluacions.save
-            format.html {redirect_to asignar_evaluacion_url(params[:id],@evaluacions), notice: 'Se Persistio la persona'}
+            format.html {redirect_to asignar_evaluacion_url(params[:id],@evaluacions), notice: 'Se creo evaluacion exitosamente'}
           else
             format.html {render :nuevo2}
             puts "no se guardo"
