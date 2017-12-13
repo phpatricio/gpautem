@@ -26,7 +26,7 @@ class EvaluacionsController < ApplicationController
   def update
     respond_to do |format|
       if @evaluacions.update(evaluacion_params)
-        format.html {redirect_to evaluacions_path, notice: 'Se actualizaron los datos'}
+        format.html {redirect_to alumnos_path, notice: 'Se actualizaron los datos'}
       else
         format.html {render :editar}
       end
