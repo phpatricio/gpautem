@@ -24,7 +24,7 @@
           </br>
       </div>
       <div class="form-group">
-          <%= f.submit %>
+          <%= f.submit (@areas.persisted? ? 'Editar' : 'Crear'), :class =>"btn btn-primary",:id => "enviar" %>
       </div>
       
       <% end%>
