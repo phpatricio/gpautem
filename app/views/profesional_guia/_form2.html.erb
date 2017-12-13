@@ -16,38 +16,37 @@
                 </div>
               <% end %>
             <div class="form-group">
-
                 <%= f.label :rut %>
-                <%= f.text_field :rut,:class => "form-control", :id => "rut", :required =>"true" %>
-                </br>
+                <%= f.text_field :rut, :class => "form-control", :id=>"rut" ,:required =>"true" %>
+                <span class="help-block hidden " id="rut-valido" style ="color:red">Ingrese un rut valido.</span>
             </div>
             <div class="form-group">
                 <%= f.label :Nombre %>
-                <%= f.text_field :Nombre,:class => "form-control", :id => "nombre",:required =>"true" %>
+                <%= f.text_field :Nombre,:class => "form-control", :id => "nombre",:required =>"true",maxlength: 30, minlength: 8  %>
                 </br>
             </div>
             <div class="form-group">
                 <%= f.label :Cargo %>
-                <%= f.text_field :Cargo,:class => "form-control", :id => "cargo", :required =>"true"%>
+                <%= f.text_field :Cargo,:class => "form-control", :id => "cargo", :required =>"true",maxlength: 30, minlength: 2 %>
                 </br>
             </div>
             <div class="form-group">
                 <%= f.label :Email %>
-                <%= f.email_field :Email,:class => "form-control",:required =>"true"  %>
+                <%= f.email_field :Email,:class => "form-control",:required =>"true" ,maxlength: 30, minlength: 15  %>
                 </br>
             </div>
             <div class="form-group">
                 <%= f.label :Direccion %>
-                <%= f.text_field :Direccion,:class => "form-control",:required =>"true"  %>
+                <%= f.text_field :Direccion,:class => "form-control",:required =>"true" ,maxlength: 30, minlength: 15  %>
                 </br>
             </div>
             <div class="form-group">
                 <%= f.label :Telefono %>
-                <%= f.text_field :Telefono,:class => "form-control" ,:required =>"true" %>
+                <%= f.number_field :Telefono,:class => "form-control" ,:required =>"true", min: 9 %>
                 </br>
             </div>
             <div class="form-group">
-                <%= f.submit %>
+                <%= f.submit (@profesionalGuia.persisted? ? 'Editar' : 'Crear'), :class =>"btn btn-primary",:id => "enviar" %>
             </div>
             <% end %>
         </div>
