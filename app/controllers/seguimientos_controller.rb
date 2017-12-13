@@ -24,7 +24,7 @@ class SeguimientosController < ApplicationController
 
     respond_to do |format|
       if @seguimiento.save
-        format.html {redirect_to seguimientos_path, notice: 'Se Persistio el seguimiento'}
+        format.html {redirect_to seguimientos_path, notice: 'Se creao seguimiento exitosamente'}
       else
         format.html {render :nuevo}
       end
@@ -35,7 +35,7 @@ class SeguimientosController < ApplicationController
   def update
     respond_to do |format|
       if @seguimiento.update(seguimiento_params)
-        format.html {redirect_to seguimientos_path, notice: 'Se Actualizaron los datos'}
+        format.html {redirect_to alumnos_path, notice: 'Se Actualizaron los datos exitosamente'}
       else
         format.html {render :editar}
       end
@@ -52,9 +52,9 @@ class SeguimientosController < ApplicationController
 
   def crear2
     @seguimiento = Seguimiento.new
-    @seguimiento.fecha_1 = Date.parse("Dec 8 1993")
-    @seguimiento.fecha_2 = Date.parse("Dec 9 1993")
-    @seguimiento.fecha_3 = Date.parse("Dec 10 1993")
+    @seguimiento.fecha_1 = Date.current
+    @seguimiento.fecha_2 = Date.current
+    @seguimiento.fecha_3 = Date.current
     @seguimiento.comentario_visita_1 = "observacion 1"
     @seguimiento.comentario_visita_2 = "observacion 2"
     @seguimiento.comentario_visita_3 = "observacion 3"
