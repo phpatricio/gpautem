@@ -1,6 +1,6 @@
 <% content_for :content_header  do %>
   <section class="content-header">
-    <h1>Listando <small>alumnos</small></h1>
+    <h1>Listando <small>Alumnos</small></h1>
 
     <ol class="breadcrumb">
       <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -64,9 +64,9 @@
                  <% end %>
                  <% if current_user.role.nombre == "profesorguia" %>
                 <%= link_to  'Detalles', mostrar_2_url(alumno.practica.id), :class => "btn btn-success"%>
-                <%= link_to  'Contactar Guia', contactar_url(alumno.practica.id), :class => "btn btn-success"%>
-                <%= link_to  'Evaluar', editar_evaluacion_url(alumno.practica.evaluacion_id), :class => "btn btn-success"%>
-                <%= link_to 'Seguimiento', editar_seguimiento_url(alumno.practica.seguimiento_id), :class => "btn btn-warning" %>
+                <%= link_to  'Contactar Guia', contactar_url(alumno.practica.id), :class => "btn btn-warning"%>
+                <%= link_to  'Evaluar', editar_evaluacion_url(alumno.practica.evaluacion_id), :class => "btn btn-danger"%>
+                <%= link_to 'Seguimiento', editar_seguimiento_url(alumno.practica.seguimiento_id), :class => "btn btn-primary" %>
                 <% end %>
                  </div> 
                 </td>

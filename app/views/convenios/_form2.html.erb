@@ -16,17 +16,17 @@
     <div class="form-group">
       <br>
         <%= f.label :nombre %>
-        <%= f.text_field :nombre,:class => "form-control", :id => "nombre", :required => "true" %>
+        <%= f.text_field :nombre,:class => "form-control", :id => "nombre", :required => "true",maxlength: 25, minlength: 2  %> 
         </br>
     </div>
     <div class="form-group">
         <%= f.label :fecha_inicio %>
-        <%= f.text_field :fecha_inicio,:class => "form-control datepicker" , :readonly =>"true", :required => "true"   %> 
+        <%= f.text_field :fecha_inicio,:class => "form-control datepicker" , :readonly =>"true", :required => "true", :id => "fecha_inicio"   %> 
         </br>
     </div>
     <div class="form-group">
         <%= f.label :fecha_termino %>
-        <%= f.text_field :fecha_termino,:class => "form-control datepicker" , :readonly =>"true", :required => "true"   %>
+        <%= f.text_field :fecha_termino,:class => "form-control datepicker" , :readonly =>"true", :required => "true", :id=>"fecha_termino"   %>
         </br>
     </div>
     <div class="form-group">
@@ -35,7 +35,7 @@
         </br>
     </div>
     <div class="form-group">
-        <%= f.submit %>
+        <%= f.submit (@convenios.persisted? ? 'Editar' : 'Crear'), :class =>"btn btn-primary",:id => "enviar" %>
     </div>
   <% end %>
   </div>
@@ -70,6 +70,18 @@ $(document).ready(function(){
                 )
                 return false;
       });
+      	$("#enviar").click(function(){
+            var fecha_inicio = $("#fecha_inicio").val();
+            var fecha_termino = $("#fecha_termino").val();
+          
+            if (fecha_inicio == ''){
+                alert("Recuerde ingresar fecha de inicio");
+            }
+            if(fecha_termino == ''){
+                alert("Recuerde ingresar fecha de termino");
+            }
+        
+        });
 
 });
 </script>

@@ -13,14 +13,6 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="box box-primary">
-        <div class="box-header">
-          <div class="box-tools pull-right">
-            <%= link_to nueva_oferta_path(), :class => 'btn btn-success' do %>
-              <span class="glyphicon glyphicon-plus"></span>
-              Nueva Practica
-            <% end %>          
-          </div>
-        </div>
         <input class="form-control" id="myInput" type="text" placeholder="Buscar..">
         <div class="box-body table-responsive" id="ocultar-tabla">
           <table class="table table-bordered">
@@ -39,7 +31,7 @@
                   <tr>
                   <td> <%= practica.fecha_inicio %> </td>
                   <% if practica.area_id != nil
-                   a= Area.joins(:practica).where(id: practica.empresa_id) %> </td>
+                   a= Area.joins(:practica).where(id: practica.area_id) %> </td>
                   <td><%= a.first.nombre %> </td>
                   <% else %>
                   <td>Sin area asignada</td>

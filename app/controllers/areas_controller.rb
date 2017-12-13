@@ -19,7 +19,7 @@ class AreasController < ApplicationController
     @areas = Area.new(area_params)
         respond_to do |format|
           if @areas.save
-            format.html {redirect_to areas_path, notice: 'Se persistio el area'}
+            format.html {redirect_to areas_path, notice: 'Se creo area exitosamente'}
           else
             format.html {render :nuevo}
           end
@@ -32,7 +32,7 @@ class AreasController < ApplicationController
   def update
     respond_to do |format|
       if @areas.update(area_params)
-        format.html {redirect_to areas_path, notice: 'Se actualizaron los datos'}
+        format.html {redirect_to areas_path, notice: 'Se actualizaron los datos exitosamente'}
       else
         format.html {render :editar}
       end
@@ -45,7 +45,7 @@ class AreasController < ApplicationController
   def eliminar
     @areas.destroy
     respond_to do |format|
-      format.html {redirect_to areas_path, notice: 'Se elimino el area'}
+      format.html {redirect_to areas_path, notice: 'Se elimino area'}
     end
   end
 
@@ -64,13 +64,13 @@ class AreasController < ApplicationController
         @id = Area.new
         @id=Area.select("id").where("nombre= ?", @areas.nombre)
         respond_to do |format|
-        format.html {redirect_to asignar_area_url(params[:id],@id.ids), notice: 'Se Persistio la area'}
+        format.html {redirect_to asignar_area_url(params[:id],@id.ids), notice: 'Se creo area exitosamente'}
         end
     else
       
       respond_to do |format|
          if @areas.save
-              format.html {redirect_to asignar_area_url(params[:id],@areas), notice: 'Se Persistio la area'}
+              format.html {redirect_to asignar_area_url(params[:id],@areas), notice: 'Se creo area exitosamente'}
          else
                puts "no se guardo"
          end

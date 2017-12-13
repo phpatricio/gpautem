@@ -19,7 +19,7 @@ class ConveniosController < ApplicationController
     @convenios = Convenio.new(convenio_params)
         respond_to do |format|
           if @convenios.save
-            format.html {redirect_to convenios_path, notice: 'Se persistio el convenio'}
+            format.html {redirect_to convenios_path, notice: 'Se creo convenio exitosamente'}
           else
             format.html {render :nuevo}
           end
@@ -32,7 +32,7 @@ class ConveniosController < ApplicationController
   def update
     respond_to do |format|
       if @convenios.update(convenio_params)
-        format.html {redirect_to convenios_path, notice: 'Se actualizaron los datos'}
+        format.html {redirect_to convenios_path, notice: 'Se actualizaron los datos exitosamente'}
       else
         format.html {render :editar}
       end
@@ -46,7 +46,7 @@ class ConveniosController < ApplicationController
   def eliminar
     @convenios.destroy
     respond_to do |format|
-      format.html {redirect_to convenios_path, notice: 'Se elimino el convenio'}
+      format.html {redirect_to convenios_path, notice: 'Se elimino convenio'}
     end
   end
 
@@ -66,13 +66,13 @@ class ConveniosController < ApplicationController
         @id = Convenio.new
         @id=Convenio.select("id").where("nombre= ?", @convenios.nombre)
         respond_to do |format|
-        format.html {redirect_to asignar_convenio_url(params[:id],@id.ids), notice: 'Se Persistio la persona'}
+        format.html {redirect_to asignar_convenio_url(params[:id],@id.ids), notice: 'Se creo convenio exitosamente'}
     end
     else
 
       respond_to do |format|
           if @convenios.save
-              format.html {redirect_to asignar_convenio_url(params[:id],@convenios), notice: 'Se Persistio la persona'}
+              format.html {redirect_to asignar_convenio_url(params[:id],@convenios), notice: 'Se creo convenio exitosamente'}
             else
               format.html {render :nuevo2}
               #puts "no se guardo"

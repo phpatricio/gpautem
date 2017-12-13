@@ -11,14 +11,14 @@ class ProfesionalGuiaController < ApplicationController
 	def eliminar
 		@profesionalGuia.destroy
 		respond_to do |format|
-			format.html {redirect_to profesional_guia_index_path, notice: 'eliminado'}
+			format.html {redirect_to profesional_guia_index_path, notice: 'Se elimino Profesional Guia'}
 		end
 	end
 
 	def update
 		respond_to do |format|
       		if @profesionalGuia.update(profesionalGuia_params)
-        		format.html {redirect_to profesional_guia_index_path, notice: 'Se Actualizaron los datos'}
+        		format.html {redirect_to profesional_guia_index_path, notice: 'Se Actualizaron los datos exitosamente'}
       		else
         		format.html {render :editar}
       		end
@@ -33,7 +33,7 @@ class ProfesionalGuiaController < ApplicationController
 		
 		respond_to do |format|
      	 	if @profesionalGuia.save
-        		format.html {redirect_to profesional_guia_index_path, notice: 'Se Persistio la persona'}
+        		format.html {redirect_to profesional_guia_index_path, notice: 'Se creo Profesional Guia exitosamente'}
       		else
         		format.html {render :nuevo}
       		end
@@ -60,7 +60,7 @@ class ProfesionalGuiaController < ApplicationController
 		@profesionalGuia = ProfesionalGuia.new(profesionalGuia_params)
 		respond_to do |format|
      	 	if @profesionalGuia.save
-        		format.html {redirect_to asignar_profesionalGuia_url(params[:id],@profesionalGuia), notice: 'Se Persistio la persona'}
+        		format.html {redirect_to asignar_profesionalGuia_url(params[:id],@profesionalGuia), notice: 'Se creo Profesional Guia exitosamente'}
       		else
         		format.html {render :nuevo2}
         		puts "no se guardo"

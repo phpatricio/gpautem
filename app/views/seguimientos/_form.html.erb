@@ -16,7 +16,7 @@
 
                 <div class="form-group">
                     <%= f.label :fecha_1 %>
-                    <%= f.text_field :fecha_1,:class => "form-control datepicker" ,:readonly =>"true"%>
+                    <%= f.text_field :fecha_1,:class => "form-control datepicker" ,:readonly =>"true", :id =>"fecha_1", :required =>"true" %>
                 </div>
                 <div class="form-group">
                     <%= f.label :comentario_visita_1 %>
@@ -25,7 +25,7 @@
                 </div>
                 <div class="form-group">
                     <%= f.label :fecha_2 %>
-                    <%= f.text_field :fecha_2,:class => "form-control datepicker",:readonly =>"true" %>
+                    <%= f.text_field :fecha_2,:class => "form-control datepicker",:readonly =>"true", :id =>"fecha_2", :required =>"true"  %>
                 </div>
                 <div class="form-group">
                     <%= f.label :comentario_visita_2 %>
@@ -34,7 +34,7 @@
                 </div>
                 <div class="form-group">
                     <%= f.label :fecha_3 %>
-                    <%= f.text_field :fecha_3,:class => "form-control datepicker" ,:readonly =>"true"%>
+                    <%= f.text_field :fecha_3,:class => "form-control datepicker" ,:readonly =>"true", :id =>"fecha_3", :required =>"true" %>
                 </div>
                 <div class="form-group">
                     <%= f.label :comentario_visita_3 %>
@@ -42,7 +42,7 @@
                     </br>
                 </div>
                 <div class="form-group">
-                    <%= f.submit %>
+                    <%= f.submit (@seguimiento.persisted? ? 'Editar' : 'Crear'), :class =>"btn btn-primary",:id => "enviar" %>
                 </div>
             <% end %>
         </div>
@@ -55,6 +55,28 @@ $(document).ready(function(){
         language: 'es',
         format : 'yyyy-mm-dd'
     });
+
+    $('.datepicker').datepicker({
+        language: 'es',
+        format : 'yyyy-mm-dd'
+    });
+	$("#enviar").click(function(){
+		var fecha_1 = $("#fecha_1").val();
+        var fecha_2 = $("#fecha_2").val();
+        var fecha_3 = $("#fecha_3").val();
+      
+        if (fecha_1 == ''){
+            alert("Recuerde ingresar fecha de la primera visita");
+        }
+        if(fecha_2 == ''){
+            alert("Recuerde ingresar fecha de la segunda visita");
+        }
+        if(fecha_3 == ''){
+            alert("Recuerde ingresar fecha de la tercera visita");
+        }
+     
+    });
+ 
  
      
 });

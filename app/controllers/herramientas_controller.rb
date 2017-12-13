@@ -20,7 +20,7 @@ class HerramientasController < ApplicationController
     @herramienta = Herramienta.new(herramienta_params)
         respond_to do |format|
           if @herramienta.save
-            format.html {redirect_to herramientas_path, notice: 'Se persistio la herramienta'}
+            format.html {redirect_to herramientas_path, notice: 'Se creo herramienta exitosamente'}
           else
             format.html {render :nuevo}
           end
@@ -33,7 +33,7 @@ class HerramientasController < ApplicationController
   def update
     respond_to do |format|
       if @herramienta.update(herramienta_params)
-        format.html {redirect_to herramientas_path, notice: 'Se actualizaron los datos'}
+        format.html {redirect_to herramientas_path, notice: 'Se actualizaron los datos exitosamente'}
       else
         format.html {render :editar}
       end
@@ -46,7 +46,7 @@ class HerramientasController < ApplicationController
   def eliminar
     @herramienta.destroy
     respond_to do |format|
-      format.html {redirect_to herramientas_path, notice: 'Se elimino la herramienta'}
+      format.html {redirect_to herramientas_path, notice: 'Se elimino herramienta'}
     end
   end
 
@@ -66,13 +66,13 @@ class HerramientasController < ApplicationController
         @id = Herramienta.new
         @id=Herramienta.select("id").where("nombre= ?", @herramienta.nombre)
         respond_to do |format|
-        format.html {redirect_to asignar_herramienta_url(params[:id],@id.ids), notice: 'Se Persistio la persona'}
+        format.html {redirect_to asignar_herramienta_url(params[:id],@id.ids), notice: 'Se creo herramienta exitosamente'}
     end
     else
 
       respond_to do |format|
           if @herramienta.save
-              format.html {redirect_to asignar_herramienta_url(params[:id],@herramienta), notice: 'Se Persistio la persona'}
+              format.html {redirect_to asignar_herramienta_url(params[:id],@herramienta), notice: 'Se creo herramienta exitosamente'}
             else
               format.html {render :nuevo2}
               puts "no se guardo"

@@ -1,10 +1,15 @@
 <% content_for :content_header  do %>
   <section class="content-header">
-    <h1>Mostrando <small>alumno</small></h1>
+    <h1>Mostrando <small>Alumno</small></h1>
 
     <ol class="breadcrumb">
       <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li><%= link_to "Alumnos", alumnos_path %></li>
+      <% if current_user.role.nombre == "secretaria"%>
+       <li><%= link_to "Alumnos", Apendientes_path() %></li>
+      <% end %>
+      <% if current_user.role.nombre == "profesorguia"%>
+       <li><%= link_to "Alumnos", alumnos_path %></li>
+      <% end  %>
       <li class="active">Mostrar</li>
     </ol>
   </section>
@@ -18,10 +23,7 @@
         <div class="panel panel-default">
       
             <div class="pull-right">
-            <%= link_to edit_alumno_path(@alumno), :class => 'btn btn-primary' do %>
-              <span class="glyphicon glyphicon-pencil"></span>
-              Editar
-            <% end %>          
+                 
             <%= link_to "Imprimir", "#", onclick: "printPage()",:class => "btn btn-info" %>  
    
           </div>
