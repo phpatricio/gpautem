@@ -6,6 +6,11 @@ class PracticasController < ApplicationController
 	end
 
   def planilla
+    if current_user.role.nombre != 'profesorguia'
+        respond_to do |format|
+          format.html {redirect_to welcome_index_path, notice: 'usted no cuenta con los permisos para acceder a esta url'}
+        end
+    end
     @alumn = Alumno.joins(:practica).where(ano: Date.current.year, user_id: current_user.id)
   end
 
